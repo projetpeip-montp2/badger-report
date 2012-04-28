@@ -1,9 +1,13 @@
-\documentclass{report}
+\documentclass{book}
+%\documentclass[openany]{book}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[francais]{babel}
 \usepackage[nottoc,numbib]{tocbibind}
+\usepackage{titling}
+\usepackage{fancyhdr}
+
 
 \title{Semaine du Numérique}
 \author{
@@ -18,34 +22,38 @@
 \date{2 Mai 2012} 
 
 
-
-
 \begin{document}
+    \setlength{\parskip}{0.1in}
 
+    \pagestyle{empty}
+
+    \renewcommand{\maketitlehookd}
+    {
+        \vspace{8cm}
+
+        Une formation à la carte va être proposée à Polytech Montpellier ce qui 
+        implique de gérer les inscriptions, les demandes de ressource, les accès
+        aux salles et l'évaluation des participants. Une solution alliant 
+        informatique et électronique est pressentie. 
+    }
+
+\frontmatter
     \maketitle
     \tableofcontents
 
-    \chapter{Introduction}
-    Chapitre d'introduction :)
+    \include{introduction}
 
-    \chapter{Sujet}
-
-    \chapter{Lecteur de cartes}
-        \section{Cahier des charges}
-        \section{Modélisation}
-        \section{Recommandations}
-
-    \chapter{Site web}
-        \section{Cahier des charges}
-        \section{Modélisation}
-        \section{Framework}
-            \cite{ref_framework_mvc}
-
-        \section{Check list}
-        \section{Recommandations}
+\mainmatter
+    \include{environnement}
+    \include{badger}
+    \include{badger-www}
 
 \appendix
     \chapter{Schéma électrique du lecteur de cartes}
+
+\backmatter
+    \include{conclusion}
+    \include{remerciements}
 
     \bibliographystyle{unsrt}
     \bibliography{bibliography}

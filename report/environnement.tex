@@ -1,7 +1,93 @@
 \chapter{Environnement}
+    Dans ce chapitre nous allons présenter l'environnement dans lequel nous avons
+    développé les deux projets. Il va aussi servir à introduire un ensemble de
+    règles et de conventions utiliser tout par la suite.
+
+\newpage
+
+    \section{Gestionnaire de versions}
+        Dès le balbutiement du projet nous avons opté pour utiliser un gestionnaire
+    de version. En effet celui-ci nous permettait d'avoir un contrôle total tout
+    au long du développement.
+
+    Notre choix c'est naturellement porté sur Git \cite{git}. Cela s'explique 
+    par les aspects suivants:
+
+    \begin{itemize}
+    \item Multi-plateformes.
+    \item Gestions des branches.
+    \item Developpement actif et forte communauté d'utilisation.
+    \item Rapidité d'éxécution comparé à svn, hg, etc. 
+    \end{itemize}
+
+    De plus certains d'entre nous l'avez déjà utilisé précédement: git est assez
+    complexe à prendre en main au début et l'entraide était de mise.
+
+    Mais surtout, le plus important pour nous est le site web GitHub \cite{github}.
+    Il fait office de serveur centralisé pour git. Mais pas seulement puisqu'il 
+    propose entre autre:
+
+    \begin{itemize}
+    \item L'hébergement de projets sous Git.
+    \item Des fonctionnalités de type réseaux sociaux, dont :
+        \begin{itemize}
+        \item Les flux.
+        \item Le suivi de personnes ou de projets.
+        \item Les graphes de réseau pour les dépôts.
+        \end{itemize}
+    \item Un pastebin nommé Gist.
+    \item Un wiki et une page web pour chaque dépôt.
+    \end{itemize}
+
+    C'est un site web qualifié de professionnel puisqu'il est utiliser par de 
+    nombreux projets de grandes tailles tels que : Git, Perl, Facebook, Twitter,
+    JQuery, PHP, Python, etc.
+
+    Nota Bene : son adoption sous les systèmes Windows relève encore du portage
+    expérimental. Il a été codé par le créateur de Linux, pour versionner le code
+    de ce dernier, et s'utilise par conséquent en lignes de commandes.
+
+
+
+
+
+
+
     \section{Règles de codage}
-    Ci-dessous, voici les règles de codage utilisées tout au long du projet
-ainsi que dans le rapport. Elles sont là pour permettre une cohérence tout au
-long du développement, mais aussi et surtout, pour que la relecture et la 
-compréhension soit aisées pour les développeurs du projet, ainsi que pour les
-futures personnes amenées à travailler dessus.
+        Ci-dessous, voici les règles de codage utilisées tout au long du projet
+    ainsi que dans le rapport. Elles sont là pour permettre une cohérence tout au
+    long du développement, mais aussi et surtout, pour que la relecture et la 
+    compréhension soit aisées pour les développeurs du projet, ainsi que pour les
+    futures personnes amenées à travailler dessus.
+
+    Cela regroupe:
+    \begin{itemize}
+    \item Un code en anglais (commentaire compris).
+    \item Les noms de classe commencent par une majuscule: MaClasse
+    \item Les noms de variables: 
+    \item Indentation de 4 espaces, pas de tabulation
+    \end{itemize}
+
+    Ci-dessous, une classe C++ d'exemple:
+
+    \begin{lstlisting}
+    #ifndef BADGER_FOO_HPP
+    #define BADGER_FOO_HPP
+
+    namespace badger
+    {
+        class FooBar
+        {
+
+        private:
+            int m_;
+        };
+
+    } // namespace badger
+
+    #endif //BADGER_FOO_HPP
+    \end{lstlisting}
+
+
+
+

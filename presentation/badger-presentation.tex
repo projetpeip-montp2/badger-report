@@ -26,10 +26,174 @@
 \end{frame}
 
 
+
 \begin{frame}{Introduction}
-    \begin{block}{Introduction}
-    Hello
-    \end{block}
+        \begin{block}{Introduction}
+ 		 Ce projet vise à mettre en place une partie de la semaine du numérique qui se déroulera lors des années à venir.
+		 On peut le décomposer en 2 sous projets:
+		\begin{itemize}
+			\item Le badger
+			\item Le site web
+		\end{itemize}
+	\end{block}
+
+    	\begin{block}{SDM}
+ 		 La semaine du numérique correspond à un évenement ponctuel coordonnée par polytech, en collaboration avec des intervenants extérieurs. 			 Cette derniere sera sanctionné comme tout autre unité d'eseignement par un QCM.
+	\end{block}	
+\end{frame}
+
+
+\begin{frame}{plan}
+
+ 	\tableofcontents
+\end{frame}
+
+\begin{frame}{developpement}
+ \section{developpement}
+
+	\begin{block}{github}
+		\begin{itemize}
+			\item git: Logiciel de gestion de version
+			\item github: site web collaboratif
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{wamp xampp}
+		\begin{itemize}
+			\item serveur web en localhost
+			\item phpMyAdmin
+			\item Apache
+			\item MySQL
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{c++}
+		\begin{itemize}
+			\item code blocks
+			\item Xcode
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}{badger}
+ \section{badger}
+  \subsection{fonctionnalité}
+	\begin{block}{fonctionnalité}
+		\begin{itemize}
+			\item controle présence éleve
+			\item atout: rapidité et éfficacité
+		\end{itemize}
+	\end{block}
+
+ \subsection{fonctionnement}
+	\begin{block}{fonctionnement}
+		\begin{itemize}
+			\item serie (rs232)
+			\item échange données PC-badger: bluethoot
+			\item echange données badger BDD polytech : internet (MySql)
+			\item atout: multiplateforme(windows.h,termios.h,???)
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}{site web}
+ \section{site web}
+  \subsection{utilité}
+	\begin{block}{utilité}
+		Etudiant:
+		\begin{itemize}
+			\item inscriptions aux conférences
+			\item visualisation de cours en ligne
+			\item passage QCM
+		\end{itemize}
+		Administrateur:		
+		\begin{itemize}
+			\item gestion des inscrits
+			\item gestion des salles
+			\item upload de cours
+			\item gestion des notes
+		\end{itemize}
+	\end{block}
+			
+\end{frame}
+
+\begin{frame}{architecture MVC}
+ \subsection{architecture MVC}
+	L'architecture MVC correspond à une maniere d'organiser le code afin de séparer:
+	\begin{itemize}
+		\item les données
+		\item leurs traitements
+		\item la présentation
+	\end{itemize}
+
+	Ce qui correspondra à :
+	\begin{itemize}
+		\item modèle
+		\item vue
+		\item contrôleur
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{modèle}
+   \subsubsection{modèle}
+	\begin{block}{modèle}
+	Gestion de l'organisation des données, c'est à dire traitements des données:
+		\begin{itemize}
+			\item requêtes SQL
+			\item fichier xml
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{vue}
+   \subsubsection{vue}
+	\begin{block}{vue}
+	Correspond à l'interface avec laquelle intéragit l'utilisateur
+		\begin{itemize}
+			\item interface homme/machine
+			\item contient le code html
+			\item fichier xml
+		\end{itemize}
+	\end{block}	
+\end{frame}
+
+
+\begin{frame}{contrôleur}
+   \subsubsection{contrôleur}
+	\begin{block}{contrôleur}
+	Permet la mise en lien du modèle et du controleur:
+		\begin{itemize}
+			\item met à jour la vue et/ou le modèle
+			\item répond aux évenements de l'utilisateur
+		\end{itemize}
+	\end{block}
+			
+\end{frame}
+
+
+\begin{frame}{interface administrateur}
+  \subsection {interface administrateur}
+	\begin{block}
+		aa
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{interface utilisateur}
+  \subsection {interface utilisateur}
+	\begin{block}
+		aa
+	\end{block}
+\end{frame}
+
+\begin{frame}{visionneuse}
+  \subsubsection {visionneuse}
+	\begin{block}
+		aa
+	\end{block}
 \end{frame}
 
 \end{document}

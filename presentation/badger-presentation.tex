@@ -58,16 +58,15 @@
 		\end{itemize}
 	\end{block}
 
-	\begin{block}{wamp xampp}
+	\begin{block}{serveur web}
 		\begin{itemize}
-			\item serveur web en localhost
+			\item wamp (windows), xampp (linux)
 			\item phpMyAdmin
-			\item Apache
 			\item MySQL
 		\end{itemize}
 	\end{block}
 
-	\begin{block}{c++}
+	\begin{block}{compilateur}
 		\begin{itemize}
 			\item code blocks
 			\item Xcode
@@ -78,7 +77,7 @@
 
 \begin{frame}{badger}
  \section{badger}
-  \subsection{fonctionnalité}
+  \subsection{utilité}
 	\begin{block}{fonctionnalité}
 		\begin{itemize}
 			\item controle présence éleve
@@ -93,6 +92,7 @@
 			\item échange données PC-badger: bluethoot
 			\item echange données badger BDD polytech : internet (MySql)
 			\item atout: multiplateforme(windows.h,termios.h,???)
+			\item comportement analogue au logiciel officiel du module MFR120U
 		\end{itemize}
 	\end{block}
 
@@ -176,23 +176,79 @@
 
 \begin{frame}{interface administrateur}
   \subsection {interface administrateur}
-	\begin{block}
-		aa
+	\begin{block}{gestion des conferences}
+		\begin{itemize}
+			\item upload de package, conference, question
+			\item modification d'un package ou conférence
+			\item ajout gestion manuelle de la présence des élèves
+		\end{itemize}
+		Remarque: un package correspond à un ensemble de conférences.
+	\end{block}
+
+	\begin{block}{upload de documents}
+		\begin{itemize}
+			\item cours au format pdf
+			\item cours au format image (zip)
+			\item suppression de cours
+		\end{itemize}
+		Remarque: les documents au format pdf sont librement téléchargeables
 	\end{block}
 \end{frame}
 
 
+\begin{frame}{interface administrateur}
+	\begin{block}{QCM et inscriptions}
+		\begin{itemize}
+			\item inscription d'une promotion à un QCM
+			\item modifier une inscription
+			\item gestion QCM et récupération des notes
+		\end{itemize}	
+	\end{block}
+
+	\begin{block}{salle}
+		\begin{itemize}
+			\item upload de salles
+			\item upload de disponibilités
+			\item ajout manuel d'une salle
+			\item édition directe des données
+			\item affichage des informations concernants les salles
+		\end{itemize}
+	\end{block}	
+\end{frame}
+
+\begin{frame}{interface administrateur}
+	\begin{block}{autres options}
+		\begin{itemize}
+			\item configuration d'une liste d'administrateurs
+			\item ouverture et cloture des inscriptions
+			\item remise à zero (vidage les tables)
+		\end{itemize}
+	\end{block}
+\end{frame}
+
 \begin{frame}{interface utilisateur}
   \subsection {interface utilisateur}
-	\begin{block}
-		aa
+	L'interface utilisateur, contiendra une présentation portant sur la présentation de la SDN, ainsi qu'un guide d'utilisation.
+	\begin{block}{actions autorisées}
+		\begin{itemize}
+			\item inscription packages
+			\item visualisations du planning
+			\item passages du QCM
+			\item soummissions de rapport
+		\end{itemize}
 	\end{block}
 \end{frame}
 
 \begin{frame}{visionneuse}
   \subsubsection {visionneuse}
-	\begin{block}
-		aa
+	Permet aux élèves de consulter les cours en ligne, au format pdf ou sous forme d'images.
+	\begin{block}{pdfbox}
+		\begin{itemize}
+			\item projet open source (Apache Software Foundation)
+			\item java 
+			\item conversion pdf -$>$ image
+			\item limitation: police arial!
+		\end{itemize}
 	\end{block}
 \end{frame}
 

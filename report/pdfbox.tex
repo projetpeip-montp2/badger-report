@@ -1,23 +1,42 @@
 \chapter{PDFBox}
-    Le site web comprend une partie permettant aux éleves de consulter des cours en ligne, 
-soit en récupérant des pdf ou alors en visionnant des "diapositives". Ces dernières 
-correspondent à des pages de fichiers pdf qui ont été au préalable convertit en image. 
-Cela a été possible en utilisant un projet open source PDFBox.
-	
+    Le site web comprend une partie permettant aux éleves de consulter des cours 
+en ligne, par les conférenciers soit en récupérant des pdf ou alors en visionnant
+des "diapositives". Ces dernières correspondent à des pages de fichiers pdf qui
+ont été au préalable convertit en image. 
 
-	\section{présentation du projet PDFBox}
+    Cela a été possible en utilisant un projet open source PDFBox \cite{pdfbox}.
+\newline
+\newline
+
+    \begin{figure}[h]
+        \begin{center}
+            \includegraphics[scale=0.6]{PDFBox.png} 
+        \end{center}
+
+        \caption{Logo PDFBox}
+        \label{Logo PDFBox}
+    \end{figure}
+
+\newpage
+
+
+
+	\section{Présentation du projet PDFBox}
 	PDFBox est une librairie open source codée en java, permettant de manipuler 
-des documents pdf. Elle permet la création de nouveau document PDF, la manipulation 
-de documents déja existant et permet même d'extraire du contenu depuis un document 
-toujours au format pdf.
+des documents pdf. Elle permet la création de manipuler les fichiers PDF de 
+nombreuses façon.
 
-	PDFBox est sous license Apache License v2.0, ce ui en fait un lobiciel libre et open source.
+	PDFBox est sous license Apache License v2.0, ce qui en fait un lobiciel libre 
+et open source.
 
 	Principales fonctionnalités:
 	\begin{itemize}
 		%expliquer pk difficile de differencier paragraphe si vraiment necessaire au rapport
 		\item Extraction de texte.
-			Cette fonction est toujours au stade de teste car il est difficile de différencier 2 paragraphes différents dans un fichier pdf (la position du texte est donnée par des positions absolue, ce qui permet de positionner le texte exactement la où on le souhaite).  
+		      Cette fonction est toujours au stade de devloppement car il est difficile de 
+              différencier deux paragraphes différents dans un fichier pdf (la position 
+              du texte est donnée par des positions absolue, ce qui permet de disposer 
+              le texte exactement la où on le souhaite).  
 		\item Fusion de documents PDF. 
 		\item Encrypter/Décrypter.
 		\item Créer un PDF depuis un fichier texte.
@@ -28,17 +47,24 @@ toujours au format pdf.
 		\item Imprimer un PDF.
 	\end{itemize}
 
-
-%TODO: Penser à inclure des images en tant qu'exemple 
-	\section{Problèmes rencontrés}
 		Il faut savoir que la fonction convertissant un pdf en images est encore
     au stade de développement. Ce qui veut dire que  les fonctionnalités ne sont 
     pas encore toutes implémentées ou encore que certains bugs subsistent encore.
 
-    Par exemple lors de tests, nous nous sommes rendues compte qu'il pouvait y 
+        Ci-dessous nous allons expliquer les problèmes que nous avons rencontrés,
+    ainsi que la manière dont nous avons résolus chacun d'entre-eux.
+
+        Avant toute chose, il est important de noter que la résolution à ceux-ci
+    à été possible grâce à la documentation de PDFBox et à celle de la classe 
+    java.awt.Font ainsi qu'au débugueur inclus dans l'environnement de dévelopement 
+    Eclipse.
+
+
+	\section{MediaBox et CropBox}
+        Lors de nos tests, nous nous sommes rendues compte qu'il pouvait y 
     avoir un problème de conversion avec un fichier pdf contenant à la fois une 
     "cropbox" et une "mediabox". Il faut savoir que lors de la visualisation d'un 
-    document pdf, par défaut on ne voit que la partie que l'auteur veut que l'on 
+    document pdf, par défaut, on ne voit que la partie que l'auteur veut que l'on 
     voit. Ce procédé est par exemple utilisé dans les imprimeries. 
 
 		\begin{itemize}
@@ -49,39 +75,21 @@ toujours au format pdf.
                   lors de la lecture du fichier avec Adobe Reader par exemple. 
 		\end{itemize}
 
-		Ensuite, la gestion des polices est faites via la classe "java.awt.Font".
-    Cette dernière nécessite de travailler avec des polices complètes. Or suivant 
-    le logiciel utilisé pour produire un PDF, les polices peuvent être incluses 
-    dans le fichier lui meme pour permettre à tout le monde de pouvoir le lire avec 
-	le style définit par son auteur. Or ces fichiers contenent les polices ne sont 
-    pas complets. De ce faite il manque certaines informations à la classe java.awt.Font 
-    donc il devient dès lors impossibles de convertir correctement le fichier PDF: 
-    les caractères utilisant les polices incriminées sont remplacés par d'autres 
-    caractères. Ce qui rend le fichier illisibles.
-
-	%solution aux problèmes
-	\section{Solutions}
-		\subsection{Mediabox/Cropbox}
-	    Dans cette partie, nous expliquerons comment nous avons contournés les 
-        problèmes rencontrés. Pour parvenir  à une version non parfaite mais 
-        purement fonctionnelle.
-
-	    Avant toute chose, il est important de noter que la résolution aux problèmes
-        rencontrées à été possible grâce à la documentation de la library PDFBox 
-        et de la classe java.awt.Font ainsi qu'au débugueur inclus dans l'environnement 
-        de dévelopement Eclipse.	
+        %TODO: Image contenant cropbox et mediabox 
     
-    	\subsection{Impréssion complète des diapositives}
-	    Le premier problème rencontré se rapporte au fait de ne pas pouvoir convertir
-        une page en entier si une cropbox est spécifiée (la médiabox étant obligatoirement 
-        spécifiée). Pour cela, il a fallut envoyer les bonnes dimensions de pages 
-        à chaque fois qu'une image est crée, et cela sans utiliser la fonction
+	        Ce premier problème se rapporte au fait de ne pas pouvoir convertir
+        une page en entier si une cropbox était spécifiée (la médiabox l'est 
+        obligatoirement elle). Pour cela, il a fallut envoyer les bonnes dimensions 
+        de pages à chaque fois qu'une image est crée, et cela sans utiliser la fonction
         getcropbox retournant un objet de type PDRectangle et qui ne fonctionne 
-        pas correctement (renvoie null pointeur exception). Donc on a plûtot fait
-        appel à la fonction findcropbox() qui elle fonctionne correctement.
+        pas correctement (lance un null pointeur exception). On a donc changé le
+        code pour faire appel à la fonction findcropbox() qui elle fonctionne 
+        correctement.
 
 
-	%afficher le code modifié.
+	%TODO: Dire quel fichier et quelles lignes on été modifiés
+
+
     \lstset{language=Java}
 	\begin{lstlisting} 
 private static void changeCropBoxes(PDDocument document,float a, float b, float c,float d)
@@ -105,29 +113,43 @@ private static void changeCropBoxes(PDDocument document,float a, float b, float 
 }
  \end{lstlisting}
 
-
-Une fois que les dimensions recherchées sont récuperées, on les affectes aux pages 
-du document PDF l'on veut convertir. Ainsi on obtient bien les bonnes dimensions 
-de pages.
-
-
-%schéma
-	\subsection{police embarquée}
-    Comme mentionnée précédemment, certains fichiers PDF, peuvent contenir eux 
-même la définition et que les glyphes correspondants aux caractères utilisées dans 
-le document.
-
-    Cependant, ces dernières n'étant pas complètes, elles peuvent être manipulées 
-via l'API de Adobe mais elle est très onéreuse. Nous avons essayer de modifier 
-nous même les polices incriminées mais sans résultats positifs.
-Nous avons donc choisis d'utiliser l'une des polices native: Arial.
-
-    De ce fait tous les documents  se verront ecrit avec cette police mais on gadre l'avantage de garder partiellement le style d'écriture (soulignement, couleur, taille).
+        Une fois que les dimensions recherchées sont récuperées, on les affectes
+    aux pages du document PDF l'on veut convertir. Ainsi on obtient bien les bonnes 
+    dimensions de pages.
 
 
 
+    \section{Polices embarquées}
+        Il faut savoir que suivant les softwares employés pour créer les PDF et
+    les polices utilisées, il est possible de ces dernières soient directement
+    inclues dans le fichier final. Cela est autorisé par la norme ISO régissant 
+    ce type de fichier. Or en n interne, la gestion des polices est faites via 
+    classe "java.awt.Font". Et malheuresement, cette dernière nécessite de travailler
+    avec des polices complètes.
+
+        Il arrive donc que suivant les fichiers à transformer en images, si la police 
+    est contenue dedans, le resultats soit illisible, dû à la confusion par rapport
+    au caractère manquant.
+
+        %TODO: Image de diapositive erronée.
+
+        Comme mentionnée précédemment, certains fichiers PDF, peuvent contenir eux 
+    même la définition ainsi que les glyphes correspondants aux caractères utilisées dans 
+    le document. Cependant, si ces dernières ne sont pas complètes, il subsistait
+    quelques erreurs.
+
+        Nous avons essayer de modifier nous même les polices incriminées mais 
+    sans résultats probants. Nous avons donc patché le code une deuxième fois 
+    en donnant la police système si le document en utilisait une interne.
+
+        De ce fait tous les documents se verront ecris avec cette police mais 
+    on garde l'avantage de garder partiellement le style d'écriture 
+    (soulignement, couleur, taille).
 
 
+
+
+%TODO: Donner les diffs en annexe
 
 
 

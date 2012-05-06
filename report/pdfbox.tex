@@ -1,87 +1,128 @@
 \chapter{PDFBox}
-	%intro
-	Le site web comprend une partie permettant aux éleves de consulter des cours en ligne, soit en récupérant des pdf ou alors en visionnant des "diapositives". Ces dernières correspondent à des pages de fichiers pdf qui ont été au préalable convertit en image. 
-	Cela a été possible en utilisant un projet open source PDFBox.
+    Le site web comprend une partie permettant aux éleves de consulter des cours en ligne, 
+soit en récupérant des pdf ou alors en visionnant des "diapositives". Ces dernières 
+correspondent à des pages de fichiers pdf qui ont été au préalable convertit en image. 
+Cela a été possible en utilisant un projet open source PDFBox.
 	
-	%presentation de pdfbox
+
 	\section{présentation du projet PDFBox}
-	PDFBox est une librairie open source codée en java, permettant de manipuler des documents pdf. Elle permet la création de nouveau document PDF, la manipulation de documents déja existant et permet même d'extraire du contenu depuis un document toujours au format pdf.
-	\newline
+	PDFBox est une librairie open source codée en java, permettant de manipuler 
+des documents pdf. Elle permet la création de nouveau document PDF, la manipulation 
+de documents déja existant et permet même d'extraire du contenu depuis un document 
+toujours au format pdf.
+
 	PDFBox est sous license Apache License v2.0, ce ui en fait un lobiciel libre et open source.
-	\newline \newline
+
 	Principales fonctionnalités:
-	%listing des principales fonctionnalitées
 	\begin{itemize}
 		%expliquer pk difficile de differencier paragraphe si vraiment necessaire au rapport
-		\item 	extraction de texte.
+		\item Extraction de texte.
 			Cette fonction est toujours au stade de teste car il est difficile de différencier 2 paragraphes différents dans un fichier pdf (la position du texte est donnée par des positions absolue, ce qui permet de positionner le texte exactement la où on le souhaite).  
-			\newline  \newline
-		\item  fusion de documents PDF. 
-			\newline  \newline
-			Cette fonction permet de fusionner deux document en un seul.
-		\item 	Encrypter/Décrypter.
-			 \newline  \newline
-		\item 	Créer un PDF depuis un fichier texte.
-			 \newline  \newline
-		\item 	Création d'images à partir d'un document PDF.
-			C'est ce qui va principalement nous intérésser. C'est cette dernière qui servira à fournir les diapositives que les élèves pourront consulter à partir du site web.
-			 \newline  \newline
-		\item 	Imprimer un PDF.
+		\item Fusion de documents PDF. 
+		\item Encrypter/Décrypter.
+		\item Créer un PDF depuis un fichier texte.
+		\item Création d'images à partir d'un document PDF. C'est ce qui va 
+              principalement nous intérésser. C'est cette dernière qui servira à 
+              fournir les diapositives que les élèves pourront consulter à partir 
+              du site web.
+		\item Imprimer un PDF.
 	\end{itemize}
 
-	%probleme rencontrées
-%%penser à inclure des images en tant qu'exemple 
-	\section{problème rencontrée}
-		Il faut savoir que la fonction convertissant un pdf en images est encore au stade de développement. Ce qui veut dire que  les fonctionnalités ne sont pas encore toutes implémentées ou encore que certains bugs subsistent encore. Par exemple lors de tests, nous nous sommes rendues
-		compte qu'il pouvait y avoir un problème de conversion avec un fichier pdf contenant à la fois une "cropbox" et une "mediabox". Il faut savoir que lors de la visualisation d'un document pdf, par défaut on ne voit que la partie que l'auteur veut que l'on voit. Ce procédé est par exemple
-		utilisé dans les imprimeries. 
-		\newline
+
+%TODO: Penser à inclure des images en tant qu'exemple 
+	\section{Problèmes rencontrés}
+		Il faut savoir que la fonction convertissant un pdf en images est encore
+    au stade de développement. Ce qui veut dire que  les fonctionnalités ne sont 
+    pas encore toutes implémentées ou encore que certains bugs subsistent encore.
+
+    Par exemple lors de tests, nous nous sommes rendues compte qu'il pouvait y 
+    avoir un problème de conversion avec un fichier pdf contenant à la fois une 
+    "cropbox" et une "mediabox". Il faut savoir que lors de la visualisation d'un 
+    document pdf, par défaut on ne voit que la partie que l'auteur veut que l'on 
+    voit. Ce procédé est par exemple utilisé dans les imprimeries. 
+
 		\begin{itemize}
-			\item   La cropbox correspond  à la partie visible par tous du document, c'est celle qui est destinée à être vue.
-			\item   La mediabox comprend la cropbox et correspond à la totalité réelle du document et non pas seulement à la partie visible lors de la lecture du fichier avec Adobe Reader par exemple. 
+			\item La cropbox correspond  à la partie visible par tous du document, 
+                  c'est celle qui est destinée à être vue.
+			\item La mediabox comprend la cropbox et correspond à la totalité 
+                  réelle du document et non pas seulement à la partie visible 
+                  lors de la lecture du fichier avec Adobe Reader par exemple. 
 		\end{itemize}
-		Ensuite, la gestion des polices est faites via la classe "java.awt.Font". Cette dernière nécessite de travailler avec des polices complètes. Or	suivant le logiciel utilisé pour produire un PDF, les polices peuvent être incluses dans le fichier lui meme pour permettre à tout le monde de pouvoir le lire avec 
-		le style définit par son auteur. Or ces fichiers contenent les polices ne sont  pas complets. De ce faite il manque certaines informations à la classe java.awt.Font donc il devient dès lors impossibles de convertir correctement le fichier PDF: les caractères utilisant les polices incriminées sont remplacés par d'autres 				caractères. Ce qui rend le fichier illisibles.
+
+		Ensuite, la gestion des polices est faites via la classe "java.awt.Font".
+    Cette dernière nécessite de travailler avec des polices complètes. Or suivant 
+    le logiciel utilisé pour produire un PDF, les polices peuvent être incluses 
+    dans le fichier lui meme pour permettre à tout le monde de pouvoir le lire avec 
+	le style définit par son auteur. Or ces fichiers contenent les polices ne sont 
+    pas complets. De ce faite il manque certaines informations à la classe java.awt.Font 
+    donc il devient dès lors impossibles de convertir correctement le fichier PDF: 
+    les caractères utilisant les polices incriminées sont remplacés par d'autres 
+    caractères. Ce qui rend le fichier illisibles.
 
 	%solution aux problèmes
-	\section{solution}
-		\subsection{mediabox/cropbox}
-	Dans cette partie, nous expliquerons comment nous avons contournés les problèmes rencontrés. Pour parvenir  à une version non parfaite mais purement fonctionnelle.
-	\newline
-	Avant toute chose, il est important de noter que la résolution aux problèmes rencontrées à été possible grâce à la documentation de la library PDFBox et de la classe java.awt.Font ainsi qu'au débugueur inclus dans l'environnement de dévelopement Eclipse.	
-	\subsection{impréssion complète des diapositives}
-		 Le premier problème rencontré se rapporte au fait de ne pas pouvoir convertir une page en entier si une cropbox est spécifiée (la médiabox étant obligatoirement spécifiée). Pour cela, il a fallut envoyer les bonnes dimensions de pages à chaque fois qu'une image est crée, et cela sans utiliser la fonction
-		 getcropbox retournant un objet de type PDRectangle et qui ne fonctionne pas correctement (renvoie null pointeur exception). Donc on a plûtot fait appel à la fonction findcropbox() qui elle fonctionne correctement.
-	%afficher le code modifié.
-	\begin{lstlisting} 
-	private static void changeCropBoxes(PDDocument document,float a, float b, float c,float d)
-  	  {
+	\section{Solutions}
+		\subsection{Mediabox/Cropbox}
+	    Dans cette partie, nous expliquerons comment nous avons contournés les 
+        problèmes rencontrés. Pour parvenir  à une version non parfaite mais 
+        purement fonctionnelle.
 
-      		List <PDPage> pages = document.getDocumentCatalog().getAllPages();
-      		for( int i = 0; i < pages.size(); i++ )
-      		{
-          			System.out.println("resizing page");
-	  		PDPage page = (PDPage)pages.get( i );
-	  		PDRectangle rectangle = new PDRectangle();
-	   		rectangle = page.getMediaBox();
-	   		a=0;
-	   		rectangle.setLowerLeftY(a);
-             		rectangle.setLowerLeftY(b);
-              		rectangle.setUpperRightX(c);
-             		rectangle.setUpperRightY(d);
-             		page.setMediaBox(rectangle);
-             		page.setCropBox(rectangle);
-     		 }
-  	  }
+	    Avant toute chose, il est important de noter que la résolution aux problèmes
+        rencontrées à été possible grâce à la documentation de la library PDFBox 
+        et de la classe java.awt.Font ainsi qu'au débugueur inclus dans l'environnement 
+        de dévelopement Eclipse.	
+    
+    	\subsection{Impréssion complète des diapositives}
+	    Le premier problème rencontré se rapporte au fait de ne pas pouvoir convertir
+        une page en entier si une cropbox est spécifiée (la médiabox étant obligatoirement 
+        spécifiée). Pour cela, il a fallut envoyer les bonnes dimensions de pages 
+        à chaque fois qu'une image est crée, et cela sans utiliser la fonction
+        getcropbox retournant un objet de type PDRectangle et qui ne fonctionne 
+        pas correctement (renvoie null pointeur exception). Donc on a plûtot fait
+        appel à la fonction findcropbox() qui elle fonctionne correctement.
+
+
+	%afficher le code modifié.
+    \lstset{language=Java}
+	\begin{lstlisting} 
+private static void changeCropBoxes(PDDocument document,float a, float b, float c,float d)
+{
+	List <PDPage> pages = document.getDocumentCatalog().getAllPages();
+	for( int i = 0; i < pages.size(); i++ )
+	{
+        System.out.println("resizing page");
+        PDPage page = (PDPage)pages.get( i );
+        PDRectangle rectangle = new PDRectangle();
+        rectangle = page.getMediaBox();
+        a=0;
+        rectangle.setLowerLeftY(a);
+        rectangle.setLowerLeftY(b);
+        rectangle.setUpperRightX(c);
+        rectangle.setUpperRightY(d);
+
+        page.setMediaBox(rectangle);
+        page.setCropBox(rectangle);
+	 }
+}
  \end{lstlisting}
 
-	Une fois que les dimensions recherchées sont récuperées, on les affectes aux pages du document PDF l'on veut convertir. Ainsi on obtient bien les bonnes dimensions de pages.
-	%schéma
-		\subsection{police embarquée}
-	\paragraph{
-	Comme mentionnée précédemment, certains fichiers PDF, peuvent contenir eux même la définition et que les glyphes correspondants aux caractères utilisées dans le document. \newline Cependant, ces dernières n'étant pas complètes, elles peuvent être manipulées via l'API de Adobe mais elle est très onéreuse. 				Nous avons essayer de modifier nous même les polices incriminées mais sans résultats positifs. Nous avons donc choisis d'utiliser l'une des polices native: Arial. \newline
-	De ce fait tous les documents  se verront ecrit avec cette police mais on gadre l'avantage de garder partiellement le style d'écriture (soulignement, couleur, taille).
-	}
+
+Une fois que les dimensions recherchées sont récuperées, on les affectes aux pages 
+du document PDF l'on veut convertir. Ainsi on obtient bien les bonnes dimensions 
+de pages.
+
+
+%schéma
+	\subsection{police embarquée}
+    Comme mentionnée précédemment, certains fichiers PDF, peuvent contenir eux 
+même la définition et que les glyphes correspondants aux caractères utilisées dans 
+le document.
+
+    Cependant, ces dernières n'étant pas complètes, elles peuvent être manipulées 
+via l'API de Adobe mais elle est très onéreuse. Nous avons essayer de modifier 
+nous même les polices incriminées mais sans résultats positifs.
+Nous avons donc choisis d'utiliser l'une des polices native: Arial.
+
+    De ce fait tous les documents  se verront ecrit avec cette police mais on gadre l'avantage de garder partiellement le style d'écriture (soulignement, couleur, taille).
 
 
 

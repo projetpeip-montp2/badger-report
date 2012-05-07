@@ -93,8 +93,18 @@ le lecteur pour palier aux défauts du lecteur (MFR120U).
 
     %TODO: parler du protocole
     \subsection{Expression fonctionnelle du besoin}
-        Les principales fonctions du programmes sont:
-
+     Les principales fonctions du programmes sont:
+    \begin{itemize}
+    \item connection au module: l'administrateur peut se conecteur pour avoir accés à certaines opérations nécéssitant des droits spécifiques. Par exemple la 
+     suppréssion des données.
+    \item déconnexion du module: uen fois que l'administrateur n'a plus besoin d'avoir recours aux opérations requ 
+    \item récuperer le dernier enregistrement.
+    \item donner le combre d'enregistrement.
+    \item supprimer les enregistrement.
+    \item rollback: permet de remettre à zero le curseur. C'est lui qui indique quel enregistrement doit atre affiché lorsque l'utilisateur le demande. Il avance    
+     automatiquement à chaque fois que l'on demande a voir un enregistrement.
+    \item upload de donnée sur le serveur.
+    \end{itemize}
 
     \subsection{Les solutions proposées pour répondre à ce besoin}
 

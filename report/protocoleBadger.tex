@@ -15,43 +15,97 @@ retournées par le prototype après avoir reçu une commande.
 \begin{table}[h]
 \begin{center}
 
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{|c|M{3cm}|}
     \hline
-    Réponse & Description \\
+    Réponse & Description \tabularnewline
     \hline
-    A & Succès \\
+    A & Succès \tabularnewline
     \hline
-    F & Exécution ratée \\
+    F & Exécution ratée \tabularnewline
     \hline
-    E & Base de données vide\\
+    E & Base de données vide \tabularnewline
     \hline
-    I & Commande inconnue\\
+    I & Commande inconnue ou données invalides \tabularnewline
     \hline
     \end{tabular}
 
 \end{center}
-\caption{Protocole série du lecteur}
-\label{Protocole série du lecteur}
+\caption{Réponses possibles du lecteur}
+\label{Réponses possibles du lecteur}
 \end{table}
 
 
 
 
 
-
+\newpage
 \section{Protocole de communication}
 
 \begin{table}[h]
 \begin{center}
-
-    \begin{tabular}{|c|}
+    \begin{tabular}{|c|c|c|c|c|}
     \hline
-    Description \\
+    \multicolumn{5}{|c|}{Supprime tous les enregistrements} \\
     \hline
-    \end{tabular}
-
+    -> & STX & \multicolumn{2}{c|}{E} & CR \\
+    \hline
+    <- & STX & \multicolumn{2}{c|}{A ou E} & CR \\
+    \hline
+    \end{tabular} 
 \end{center}
-\caption{Protocole série du lecteur}
-\label{Protocole série du lecteur}
 \end{table}
+
+        
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \multicolumn{5}{|c|}{Nombre enregistrements} \\
+    \hline
+    -> & STX & \multicolumn{2}{c|}{N} & CR \\
+    \hline
+    <- & STX & A & Number & CR \\
+    \hline
+    \multicolumn{5}{|c|}{} \\
+    \hline
+    \multicolumn{5}{|c|}{Number: 4 octets } \\
+    \hline
+    \end{tabular} 
+\end{center}
+\end{table}
+
+
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{10}{|c|}{Enregistrement suivant} \\
+    \hline
+    -> & STX & \multicolumn{7}{c|}{G} & CR \\
+    \hline
+    <- & STX & A & Date & Time & SP & Week & Event & Data & CR \\
+    \hline
+    <- & STX & \multicolumn{7}{c|}{E} & CR \\
+    \hline
+    \end{tabular} 
+\end{center}
+\end{table}
+
+
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    \multicolumn{4}{|c|}{Rollback} \\
+    \hline
+    -> & STX & R & CR \\
+    \hline
+    <- & STX & A & CR \\
+    \hline
+    <- & STX & E & CR \\
+    \hline
+    \end{tabular} 
+\end{center}
+\end{table}
+
 

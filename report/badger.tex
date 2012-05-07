@@ -113,6 +113,8 @@ ce qui à pour effet d'incrémenter ce curseur et de renvoyer la nouvelle valeur
 pointéé, ou faire un "rollback", c'est à dire remettre le curseur sur le tout
 premier enregistrement.
 
+    Le lecteur possédait également un système de droit d'accès avec de passe.
+
     Le programme que nous devions développer était en somme assez simple, puisqu'il
 devait offrir une interface permettant de se connecter au lecteur, de récupérer les
 données contenues suivant certains critères, les supprimer en mémoires si nécéssaire,
@@ -136,7 +138,8 @@ dans le code nous trouvons l'utilisation:
     \begin{itemize}
         \item Variadics templtes.
         \item Fonctions lambdas.
-        %\item std::function, std::bind, std::shared_ptr.
+        \item Rvalues references.
+        \item Move-constructor.
     \end{itemize}
 
     L'inconvénient de cela est bien sur le support par les compilateurs de cette
@@ -181,7 +184,9 @@ En effet il n'aura fallut changer que le baud rate, ainsi que quelques lignes
 pour que le programme soit opérationnel pour ce lecteur!
 
     De plus, plus besoin de cable, puisque le prototype fonctionne par bluetooh,
-conformement aux recommandations de Mr Cathebras.
+conformement aux recommandations de Mr Cathebras. Cela engendrera aussi disparition
+du système de droit d'accès puisque pour pouvoir se connecter à un module bluetooh
+il est possible de spécifier un code PIN.
 
 
 
@@ -200,10 +205,8 @@ entre autres:
 
     \begin{itemize}
         \item N: Retourne le nombre d'enregistrements.
-        \item G: Renvoie l'enregistrement suivant.
         \item E: Efface la mémoire des enregistrements.
         \item T: Retourne la date du lecteur.
-        \item V: Met en veille le lecteur.
     \end{itemize}
 
 En retour à chacune des commandes, le lecteur renvoie une séquence, de la forme:
@@ -223,7 +226,7 @@ la documentation officielle.
 
 
 \section{Architecture}
-    Le programme "badger" est décomposé en plusieurs dossier. 
+    Le programme ``badger'' est décomposé en plusieurs dossier. 
 
     Dans le dossier serial/ on trouve toute la bibliothèque concernant la communication
 série. Elle utilise l'idiome de programmation Pimpl (Private Implementation), afin 
@@ -259,10 +262,10 @@ exit
     \end{lstlisting}
 
     L'exemple ci-dessus, ouvre une connexion série sur le descripteur de fichier
-/dev/rfcomm0. La commande "count" renvoie le nombre d'enregistrement contenus sur 
+/dev/rfcomm0. La commande ``count'' renvoie le nombre d'enregistrement contenus sur 
 le module, alors que "send" envoie automatiquement dans une base de données (nommé
 dans le code) tout les enregistrements effectués le 25-12-2011 entre 10H et 17H.
-Enuiste "erase" vide la mémoire, "exit" ferme la connexion s'il elle existe, et
+Enuiste ``erase'' vide la mémoire, ``exit'' ferme la connexion s'il elle existe, et
 quitte le programme.
 
     L'ensemble des commandes pour l'interpréteur est aussi disponible en annexe.
@@ -271,10 +274,23 @@ quitte le programme.
 
 
 \section{Recommandations et limites}
-    Nous nous sommes rendus compte trop tard que la bibliothèque C++ boost.asio,
-appartenant à boost, comporte un module de gestion de la communication série. Il
-serait fortement bienvenue de remplacer 
- 
-%TODO: Parler de comment ne pas spécifié /dev/rfcomm0
-%TODO: Parler du pairage et code PIN.
+    Actuellement, le plus gros manque dans ce programme devant le manque de GUI et
+le manque de détection automatique du lecteur: en paramètre de la commande ``open''
+l'utilisateur doit spécifier le descripteur de fichier, qui change d'une plateforme
+à l'autre, voire de la version de l'OS employé ou du nombre de périphériques connectés:
+
+    \begin{itemize}
+        \item Windows: COMx, où x >= 1.
+        \item MacOS X: /dev/tty.Polytech-ERII
+        \item Linux: /dev/rfcommx, où x >= 0.
+    \end{itemize}
+
+    Donc nous sommes encore dans la recherche d'une solution ``viable''. Par
+rétro-ingéniérie -grâce à un programme écoutant les ports séries; nous avons
+trouvé comment le programme officiel reconnaissait si le lecteur MFR120U était 
+connecté ou pas: au lancement le programme envoie sur tous les ports la commande
+STX F CR, qui si elle est envoyé sur le MFR120U, retourne un résultat attendu.
+
+    Or cette façon nous dérange, dans le sens où l'on ne sais pas sur quel périphérique
+nous allons envoyer cette commande, et encore moins qu'elle va être sa réaction...
 

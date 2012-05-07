@@ -62,42 +62,120 @@ Ces deux technologies respectent des normes ISO.
 
 
 
-\section{Cahier des charges}
-%TODO: demander a catebras et tanby si les citer ne les dérange pas
-Avant tout, la décision de mise en place d'un lecteur de carte correspond au désire 
-d'un gain de temps et de facilité d'utilisation. De plus cela revêt un côté écologique 
-dans le sens où la consommation de papier ne sera pas afféctée par les fiches d'appels.
-Mr G.Catebras en collaboration avec Mr J.Tanby et V.Berry ont décidé de mettre en place 
-le lecteur pour palier aux défauts du lecteur (MFR120U).
 
-    \subsection{problème posé}
-    Le module MFR120U remplissait sa fonction principal mais doit être substitué 
-    à cause des défauts suivant:
+\section{MFR120U}
+    Rapidement après le début du projet, Mr Berry nous à mis en contact avec Mr
+Cathebras, directeur du département ERII à Polytech'. En effet, il souhaitait lui
+aussi mettre en place un système de présence informatisé, pour éviter de devoir
+le faire sur papier, avant de le repporter sur l'ordinateur.
+
+    Or il avait déjà creusé de son côté, puisqu'il avait acheté un lecteur de carte 
+Mifare, appellé module MFR120U, pour la somme de 120\euro. Ce lecteur présentait néanmoins
+plusieurs inconvénients majeurs:
 
     \begin{itemize}
-    \item Pour avertir qu'une carte a bien été badgée, le module doit pouvoir générer 
-    un signal lumineux clairement visible. Le MFR120U possède une led mais elle 
-    est cachée car la carte de l'étudiant lors du badgage. Un signal sonore étant
-    à bannir dans les salle de cours ou même dans un amphithéatre.
-    \item Sa taille trop petite et sa forme.
+        \item Programme d'utilisation exclusivemment sous les plateformes Windows.
+        \item Liaison série-USB avec l'ordinateur par cable, ce qui nécessitait 
+              à l'utilisateur d'installer un driver fournis également que pour
+              Windows.
+        \item Difficulté à savoir si la lecture de la carte avait réussi ou non.
     \end{itemize}
 
-    De ce fait nous avons mis en place un programme de badgage dont le fonctionnement
-    est analoque à celui du MFR120U qui sera utilisé de concert avec le module fournit
-    par Mr J.Tanby que nous avons rencontré pour lui notifier les caractéristiques
-    voulues ainsi que la technologie qu'il devait utiliser pour communiquer en 
-    bluethoot, pour que le programme (nous avon commensé le codage de l'application
-    en nous basant sur le MFR120U) soit compatible avec le module qu'il créera et 
-    pour minimiser au maximum les modifications à aporter.
+    Mr Cathebras avait donc demandé à un de ses collègues de travail du département
+ERII, Mr Tamby, s'il pouvait concevoir un module qui répondrait plus à ses attentes.
+De notre côté nous devions nous occuper de toute la partie software.
+
+    C'est ici que nous intervenont. Début février 2012 nous avons recontré Mr Cathebras,
+et nous avons pû discuter de l'interêt commun à développer un tel lecteur. En effet,
+s'il venait à faire ces preuves en plus lors des conférences, il pourrait ce voir
+industrialisé afin de voir son utilisation généralisé à Polytech. Il nous à donc
+confié le MFR120U pour que nous puissions nous faire la main dessus.
+
+    De plus il nous a fourni la documentation du lecteur. Or celle-ci nous fût d'un
+grand secour par la suite puisqu'elle comprenait tout le protocole de communication
+utilisé par le lecteur, ainsi que de nombreuses autres caractéristiques.
+
+    \begin{itemize}
+        \item Fabricant de la puce: Prolific Technology Inc. Les drivers pour Windows
+              et MacOS X sont disponibles sur leur site web \cite{prolific}.
+        \item Baud rate: 19200.
+        \item Communication série 8N1 : 8 bits de donnés, aucun de parité, et 1 de stop.
+        \item Possibilité de lire les cartes Mifare, mais pas que.
+        \item En interne, le lecteur possède une mémoire capable de stocker 8000
+              lectures de badge (date, heure, et informations de lus sur la carte).
+    \end{itemize}
+
+    Le programme que nous devions développer était en somme assez simple, puisqu'il
+devait offrir une interface permettant de se connecter au lecteur, de récupérer les
+données contenues suivant certains critères, les supprimer en mémoires si nécéssaire,
+et enfin les envoyer sur une base de données distante.
+
+    La version fonctionnelle pour le MFR120U (sans l'envoie en base de données)
+est disponible dans le repository git sous le tag v0.9-mfr120u.
 
 
-    %TODO: parler du protocole
-    \subsection{Expression fonctionnelle du besoin}
-        Les principales fonctions du programmes sont:
+\section{Protocole de communication}
 
 
-    \subsection{Les solutions proposées pour répondre à ce besoin}
 
+
+\section{Caractère multi-plateformes}
+    Afin de répondre à la demande multi-plateforme des professeurs, nous nous 
+sommes naturellement tourné vers le language C++. En effet, celui-ci offre un accès
+proche de la machine, intéréssant pour la communication série notamment. De plus,
+un étudiant ERII 3, Arthur Hiairrassary, à mis à notre disposition la bibliothèque
+pour faire transiter des informations séries.
+
+    Par contre nous sommes partis sur l'utilisation du nouveau standart C++11. Ainsi
+dans le code nous trouvons l'utilisation:
+
+    \begin{itemize}
+        \item Variadics templtes.
+        \item Fonctions lambdas.
+        %\item std::function, std::bind, std::shared_ptr.
+    \end{itemize}
+
+    L'inconvénient de cela est bien sur le support par les compilateurs de cette
+norme. Par exemple, msvc, le compilateur de Microsoft, ne prends en charge que peut
+de ces fonctionnalités, et n'est donc pas à même de compiler le code, même avec la
+beta de Visual Studio 2011.
+
+    Néanmoins l'utilisation de ce standard nous à permis de s'affranchir de nombreuses
+restrictions, et par conséquent un développement plus rapide, mais surtout bien
+plus sûr. En effet la S(T)L est bien plus avancée.
+
+    De plus l'inconvénient dû au compilateur msvc fût de courte durée puisqu'il
+existe g++ et clang++, qui eux supportent en grande partie le nouveau standard.
+Et en plus ils sont multi-plateformes! Le programme à pour l'instant été testé 
+avec succès dans les conditions suivantes:
+
+    \begin{itemize}
+        \item Windows 7, 64 bits, MinGW 4.6.1
+        \item MacOS X 10.7, 64 bits, clang++ 3.0 (sous machine virtuelle)
+        \item Linux >= 3.1, 64 bits, g++-4.6
+    \end{itemize}
+
+    Afin de permettre une compilation aisée sur toutes ces plateformes, nous avons
+optés pour l'utilisation de CMake afin de générer l'ensemble de l'environnement de
+façon automatique.
+
+
+
+\section{Prototype}
+    Début décembre nous avons pû rencontrer Mr Tamby, en charge de développer le
+prototype du nouveau lecteur. Durant la notre première réunion, il nous à donné
+bon nombres de renseignements et conseils. De notre côté, nous lui avons fournis
+l'ensemble des commandes que nous souhaitions retrouvées dans le prototype final.
+
+    Aux alentours de mi-avril, il nous invite donc à voir le premier prototype.
+
+% Photo du proto ici :)
+
+    Nous sommes alors très surpris par le respect dont Mr Tamby à fait preuve
+durant la réalisation du module, tant au niveau électronique que firmware.
+En effet il n'aura fallut changer que le baud rate, ainsi que quelques lignes
+pour que le programme soit opérationnel pour ce lecteur!
 
 \section{Modélisation}
+\section{Utilisation}
 \section{Recommandations}

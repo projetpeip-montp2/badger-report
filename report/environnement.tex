@@ -4,6 +4,12 @@
     règles et de conventions utiliser tout par la suite.
 
 \newpage
+    \section{Réunions et contacts}
+        Tout au long du projet, nous avons été en contact permanent avec Mr Berry,
+    que ce soit par e-mails, appels téléphoniques ou réunions. Ces dernières par
+    exemples étaient quasi-hebdomadaires, afin de rester le plus possible dans la
+    bonne direction. Nos recontres ont eu lieu à Polytech' ou au Lirmm.
+
 
     \section{Gestionnaire de versions}
         Dès le balbutiement du projet, nous avons décidé d'utiliser un gestionnaire
@@ -43,6 +49,9 @@
     nombreux projets de grandes tailles tels que : Git, Perl, Facebook, Twitter,
     JQuery, PHP, Python, etc.
 
+        De plus Mr Berry, de part le Lirmm, ne pouvait nous ouvrir qu'un serveur
+    subserversion, donc Git couplé avec GitHub est un excellent compromis.
+
     Nota Bene : son adoption sous les systèmes Windows relève encore du portage
     expérimental. Il a été codé par le créateur de Linux, pour versionner le code
     de ce dernier, et s'utilise par conséquent en lignes de commandes.
@@ -52,7 +61,7 @@
 
 
 
-
+\newpage
     \section{Règles de codage}
         Ci-dessous, voici les règles de codage utilisées tout au long du projet
     ainsi que dans le rapport. Elles sont là pour permettre une cohérence tout au
@@ -63,29 +72,38 @@
     Cela regroupe:
     \begin{itemize}
     \item Un code en anglais (commentaire compris).
-    \item Les noms de classe commencent par une majuscule: MaClasse
-    \item Les noms de variables: 
-    \item Indentation de 4 espaces, pas de tabulation
+    \item Eviter de dépasser 80 caractères si possibles.
+    \item Indentation de 4 espaces, pas de tabulation.
     \end{itemize}
 
-    Ci-dessous, une classe C++ d'exemple:
+    Ci-dessous, un fichier C++ d'exemple.
+\newline
 
     \begin{lstlisting}
-    #ifndef BADGER_FOO_HPP
-    #define BADGER_FOO_HPP
+#ifndef BADGER_FOO_HPP
+#define BADGER_FOO_HPP
 
-    namespace badger
+#include <string>
+
+namespace badger
+{
+    ///////////////////////////////////
+    /// \brief Sample class
+    ///
+    /// Use for example.
+    ///////////////////////////////////
+    class FooBar
     {
-        class FooBar
-        {
+    public:
+        virtual const int& doSomething() const = 0;
 
-        private:
-            int m_;
-        };
+    private:
+        int m_attribute;
+    };
 
-    } // namespace badger
+} // namespace badger
 
-    #endif //BADGER_FOO_HPP
+#endif //BADGER_FOO_HPP
     \end{lstlisting}
 
 

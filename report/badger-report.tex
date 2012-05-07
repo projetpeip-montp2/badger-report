@@ -8,6 +8,7 @@
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{eurosym}
+\usepackage{array}
 
 \include{code}
 
@@ -25,6 +26,7 @@
 
 
 \begin{document}
+    % Epaisseur entre paragraphe, valable aussi pour les puces, etc.
     \setlength{\parskip}{0.1in}
 
     \pagestyle{fancy}
@@ -36,6 +38,7 @@
     \cfoot{\thepage}
     \rfoot{}
 
+    % Paragraphe sur la page de garde
     \renewcommand{\maketitlehookd}
     {
         \vspace{8cm}
@@ -45,6 +48,9 @@
         aux salles et l'évaluation des participants. Une solution alliant 
         informatique et électronique est pressentie. 
     }
+
+    % Nouveau type de colonne multi-lignes
+    \newcolumntype{M}[1]{>{\raggedright}m{#1}}
 
 \frontmatter
     \maketitle
@@ -59,7 +65,8 @@
     \include{pdfbox}
 
 \appendix
-    \chapter{Schéma électrique du lecteur de cartes}
+    \include{protocoleBadger}
+    \include{commandesBadger}
 
 \backmatter
     \include{conclusion}

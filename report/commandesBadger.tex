@@ -1,0 +1,47 @@
+\chapter{Commandes de l'interpréteur}
+
+    Ci-dessous l'ensemble des commandes utilisables dans l'interpréteur. Remarque:
+les dates sont au format JJ-MM-AAAA, et les heures au format HH-MM-SS.
+
+\begin{table}[h]
+\begin{center}
+
+    \renewcommand{\arraystretch}{1.2}
+
+    \begin{tabular}{|c|M{2.5cm}|M{6cm}|}
+    \hline
+    Commande & Paramètre(s) & Résultat \tabularnewline
+    \hline
+    ? &  & Renvoie la liste des commandes possibles. \tabularnewline
+    \hline
+    open & filename & Ouvre une connexion série sur filename \tabularnewline
+    \hline
+    close &  & Ferme la connexion si elle existe \tabularnewline
+    \hline
+    next &  &  Renvoie l'enregistrement suivant \tabularnewline
+    \hline
+    rollback &  & Remet le curseur à zéro \tabularnewline
+    \hline
+    erase &  & Efface les enregistrements (avec confirmation) \tabularnewline
+    \hline
+    count &  & Renoie le nombre d'enregistrements \tabularnewline
+    \hline
+    getDateTime &  & Renvoie la date \tabularnewline
+    \hline
+    setDateTime & date time & Change la date \tabularnewline
+    \hline
+    display & date startTime endTime & Affiche les enregistrements suivants les critères. \tabularnewline
+    \hline
+    send & passwd Date startTime endTime & Affiche les enregistrements suivants les critères. \tabularnewline
+    \hline
+    quit &  & Ferme le programme \tabularnewline
+    \hline
+    exit &  & Alias de exit \tabularnewline
+    \hline
+    \end{tabular}
+
+\end{center}
+\caption{Commandes de l'interpréteur}
+\label{Commandes de l'interpréteur}
+\end{table}
+

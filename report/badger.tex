@@ -91,6 +91,8 @@ s'il venait à faire ces preuves en plus lors des conférences, il pourrait ce v
 industrialisé afin de voir son utilisation généralisé à Polytech. Il nous à donc
 confié le MFR120U pour que nous puissions nous faire la main dessus.
 
+%TODO: Photo MFR120U
+
     De plus il nous a fourni la documentation du lecteur. Or celle-ci nous fût d'un
 grand secour par la suite puisqu'elle comprenait tout le protocole de communication
 utilisé par le lecteur, ainsi que de nombreuses autres caractéristiques.
@@ -105,6 +107,12 @@ utilisé par le lecteur, ainsi que de nombreuses autres caractéristiques.
               lectures de badge (date, heure, et informations de lus sur la carte).
     \end{itemize}
 
+    En interne, la gestions des enregistrements fonctionnes grâce à un curseur.
+De base, il pointe sur le premier enregistrements. On ne peut que demander le suivant,
+ce qui à pour effet d'incrémenter ce curseur et de renvoyer la nouvelle valeur
+pointéé, ou faire un "rollback", c'est à dire remettre le curseur sur le tout
+premier enregistrement.
+
     Le programme que nous devions développer était en somme assez simple, puisqu'il
 devait offrir une interface permettant de se connecter au lecteur, de récupérer les
 données contenues suivant certains critères, les supprimer en mémoires si nécéssaire,
@@ -112,10 +120,6 @@ et enfin les envoyer sur une base de données distante.
 
     La version fonctionnelle pour le MFR120U (sans l'envoie en base de données)
 est disponible dans le repository git sous le tag v0.9-mfr120u.
-
-
-\section{Protocole de communication}
-
 
 
 
@@ -169,13 +173,107 @@ l'ensemble des commandes que nous souhaitions retrouvées dans le prototype fina
 
     Aux alentours de mi-avril, il nous invite donc à voir le premier prototype.
 
-% Photo du proto ici :)
+%TODO: Photo du proto ici :)
 
     Nous sommes alors très surpris par le respect dont Mr Tamby à fait preuve
 durant la réalisation du module, tant au niveau électronique que firmware.
 En effet il n'aura fallut changer que le baud rate, ainsi que quelques lignes
 pour que le programme soit opérationnel pour ce lecteur!
 
-\section{Modélisation}
+    De plus, plus besoin de cable, puisque le prototype fonctionne par bluetooh,
+conformement aux recommandations de Mr Cathebras.
+
+
+
+\section{Protocole de communication}
+    Le protocole de communication utilisée n'est pas difficile. Il est orienté 
+texte, puisqu'il repose sur le jeu de caractère ASCII, soit 8bits pour chacun des
+caracrères, ce qui correspond sur les processeurs Intel en C++ au type char. 
+Toute commande s'effectue de la sorte:
+
+STX Command [Data] CR
+
+    Les caractères STX et CR, sont dis non-imprimables, prenant respectivement les
+valeurs 0x02 et 0x0D. "Commande" est codé sur un seul caractère, alors que "Data"
+est optionnel et dépend de la commande. Pour le programme du prototype nous avons
+entre autres:
+
+    \begin{itemize}
+        \item N: Retourne le nombre d'enregistrements.
+        \item G: Renvoie l'enregistrement suivant.
+        \item E: Efface la mémoire des enregistrements.
+        \item T: Retourne la date du lecteur.
+        \item V: Met en veille le lecteur.
+    \end{itemize}
+
+En retour à chacune des commandes, le lecteur renvoie une séquence, de la forme:
+
+STX ReturnValue [Data] CR
+
+    En général, "ReturnValue" est équivalent à au caractère A, 0x41, pour dire que
+la commande c'est bien déroulé. "Data" est une nouvelle fois optionnel.
+
+    La liste exhaustive des commandes du protocole pour le prototype est disponible
+en annexe du rapport. 
+
+    Attention, elles difèrent quelque peu de celle du MFR120U, elles présentes sur 
+la documentation officielle.
+
+
+
+
+\section{Architecture}
+    Le programme "badger" est décomposé en plusieurs dossier. 
+
+    Dans le dossier serial/ on trouve toute la bibliothèque concernant la communication
+série. Elle utilise l'idiome de programmation Pimpl (Private Implementation), afin 
+de séparer interface et implémentation. Cela est dû au fait qu'elle est implémentée
+pour les systèmes POSIX d'un côté (Linux et MacOS), et Win32 de l'autre. Ces derniers
+ne supportent pas de façon optimale la norme POSIX.
+
+    Le répertoire console/ contient quant à lui tout le système d'interpreteur.
+Il est issue d'un projet de moteur de rendus 3D d'un de nous.
+
+    Enfin le dossier badger/ contient le programme final, faisant appel à ceux
+ci-dessus. Il contient de plus une classe permettant d'envoyer des requêtes SQL
+à une base de donnée MySQL distante. Le programme fonctionne sous la forme d'un 
+interpréteur de commandes.
+
+
+
+
+
 \section{Utilisation}
-\section{Recommandations}
+    Ci-dessous voici l'exemple d'utilisation sous Linux, une fois placer dans le
+répertoire du binaire du programme badger:
+
+    \begin{lstlisting}
+./badger
+
+open /dev/rfcomm0
+count
+send passwd 25-12-2011 10:00:00 17:00:00
+erase
+close
+exit
+    \end{lstlisting}
+
+    L'exemple ci-dessus, ouvre une connexion série sur le descripteur de fichier
+/dev/rfcomm0. La commande "count" renvoie le nombre d'enregistrement contenus sur 
+le module, alors que "send" envoie automatiquement dans une base de données (nommé
+dans le code) tout les enregistrements effectués le 25-12-2011 entre 10H et 17H.
+Enuiste "erase" vide la mémoire, "exit" ferme la connexion s'il elle existe, et
+quitte le programme.
+
+    L'ensemble des commandes pour l'interpréteur est aussi disponible en annexe.
+
+
+
+
+\section{Recommandations et limites}
+    Nous nous sommes rendus compte trop tard que la bibliothèque C++ boost.asio,
+appartenant à boost, comporte un module de gestion de la communication série. Il
+serait fortement bienvenue de remplacer 
+ 
+
+

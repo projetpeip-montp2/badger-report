@@ -49,7 +49,7 @@ ont été au préalable convertit en image.
      \item jpedal qui aurait fait un bon candidat si son utilisation était gratuite.
      \item itext qui comme PDFsam permet seulement de manipuler les 
      documents pdf.
-     \item PDFbox: notre chois s'est portée sur cette dernière car elle embarque une 
+     \item PDFbox: notre choix s'est portée sur cette dernière car elle embarque une 
      fonction (au stade de dévellopement) qui permet de convertir les pages d'un
      document en image, en plus d'en permettre la manipulation.
     \end{itemize}
@@ -100,23 +100,24 @@ ont été au préalable convertit en image.
     document pdf, par défaut, on ne voit que la partie que l'auteur veut que l'on 
     voit. Ce procédé est par exemple utilisé dans les imprimeries. 
 
-		\begin{itemize}
-			\item La cropbox correspond  à la partie visible par tous du document, 
-                  c'est celle qui est destinée à être vue.
-			\item La mediabox comprend la cropbox et correspond à la totalité 
-                  réelle du document et non pas seulement à la partie visible 
-                  lors de la lecture du fichier avec Adobe Reader par exemple. 
-		\end{itemize}
+    \begin{itemize}
+    \item La cropbox correspond  à la partie visible par tous du document, 
+     c'est celle qui est destinée à être vue.
+    \item La mediabox comprend la cropbox et correspond à la totalité 
+     réelle du document et non pas seulement à la partie visible 
+     lors de la lecture du fichier avec Adobe Reader par exemple. 
+    \end{itemize}
+   %TODO si l'espace n'est pas suffisant, en latex le texte placé apres 
+   %l'images se retrouve devant, d'ou le saut de page,
+    \newpage
 
-        %TODO: Image contenant cropbox et mediabox 
-    
      \begin{figure}[h]
             \begin{center}
             \includegraphics[scale=0.6]{crop_media_box.jpg} 
             \end{center}
             \caption{Hiérarchie des différentes box}
             \label{Hiérarchie des différentes box}
-     \end{figure}
+     \end{figure} 
 
 	        Ce premier problème se rapporte au fait de ne pas pouvoir convertir
         une page en entier si une cropbox était spécifiée (la médiabox l'est 
@@ -127,14 +128,12 @@ ont été au préalable convertit en image.
         code pour faire appel à la fonction findcropbox() qui elle fonctionne 
         correctement.
 
-
 	%TODO: Dire quel fichier et quelles lignes on été modifiés
 
-
     \lstset{language=Java}
-	\begin{lstlisting} 
-private static void changeCropBoxes(PDDocument document,float a, float b, float c,float d)
-{
+    \begin{lstlisting} 
+    private static void changeCropBoxes(PDDocument document,float a, float b, float c,float d)
+    {
 	List <PDPage> pages = document.getDocumentCatalog().getAllPages();
 	for( int i = 0; i < pages.size(); i++ )
 	{
@@ -151,8 +150,8 @@ private static void changeCropBoxes(PDDocument document,float a, float b, float 
         page.setMediaBox(rectangle);
         page.setCropBox(rectangle);
 	 }
-}
- \end{lstlisting}
+    }
+    \end{lstlisting}
 
         Une fois que les dimensions recherchées sont récuperées, on les affectes
     aux pages du document PDF l'on veut convertir. Ainsi on obtient bien les bonnes 

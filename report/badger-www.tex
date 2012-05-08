@@ -4,11 +4,17 @@
     Afin de présenter au mieux les objectifs du site Web, il est important de comprendre comment
     est censé se dérouler la Semaine du Numérique.
 
-    ... Description
-
     Les packages (appelés aussi cycles de conférences) correspondent à un ensemble de conférences regroupées autour d'un même thème.
     Chaque étudiant peut donc choisir parmi le panel disponible, c'est donc un système "à la carte", permettant
     ainsi de personnaliser cette unité d'enseignement.
+
+    Les étudiants doivent s'inscrire via la plateforme web à des packages avant la date limite, une fois cette date fixée,
+    il ne leur est plus possible de modifier leur choix.
+
+    L'administrateur devra le cas échéant réglait les problèmes d'inscriptions pour certains étudiants avant que les conférences ne commencent.
+
+    La Semaine du Numérique consiste donc en une semaine banalisée pour les différentes sections de Polytech' Montpellier
+    où des intervenants de différentes sociétés aborderont différents thèmes liés à l'informatique au coeur de l'entreprise.
 
     Une fois les conférences passées, les étudiants doivent passer un QCM généré en fonction des packages qu'ils ont choisi.
     Les étudiants doivent également rendre un rapport pour chaque package auxquels ils se sont inscrits.
@@ -19,25 +25,245 @@
     L'application devait donc fournir un certain nombre de fonctionnalités vis à vis des étudiants,
     mais aussi pour l'administration, afin de gérer les potentiels conflits.
 
-    Du côté utilisateurs, (également appelé Frontend), les étudiants ont accès aux pages suivantes:
-
-    Les packages disposent d'une courte description présentant le thème, ainsi qu'une liste de conférences.
-    Ces conférences ont également une conférence, ainsi que le nom (et parfois la société) du conférencier,
-    la date, l'horaire et la salle où celle-ci aura lieu.
-    Les étudiants ont donc accès à la liste des packages, et peuvent s'inscrire et se désinscrire
-    d'un package à tout moment dans la limite des inscriptions.
-
-    Les étudiants peuvent voir le planning des conférences auxquels ils sont inscrits
+    Du côté utilisateur, (également appelé Frontend), les étudiants ont accès aux sections suivantes:
 
     \begin{itemize}
-    \item Inscription / Désinscription d'un package de conférences
-    \item Accès à un planning des packages sélectionnés
-    \item Passage d'un QCM généré en fonction des choix étudiants
-    \item Dépôt de rapports sur le serveur
-    \end{itemize}    
+    \item Conférences
+    \item Q.C.M
+    \item Rapports
+    \end{itemize}
+
+    Conférences
+
+    Les packages disposent d'une courte description présentant le thème, ainsi qu'une liste de conférences.
+    Ces conférences ont également une description, et le nom (et/ou la société) du conférencier est également disponible.
+    On dispose bien sûr de la date, l'horaire et la salle où celle-ci aura lieu.
+
+    De plus, les documents en rapport avec le package peuvent soit être téléchargé depuis le site Web,
+    soit être consulté par la visionneuse en ligne. La création d'une visionneuse en ligne se justifie par le fait
+    qu'il est possible que les conférenciers ne souhaitent pas fournir leur présentation en téléchargement direct.
+
+    Les étudiants ont donc accès à la liste des packages, et peuvent s'inscrire et se désinscrire
+    d'un package à tout moment dans la limite des inscriptions, mais également dans la limite des places disponibles.
+    Chaque package dispose donc d'un quota de place, ansi, le premier à faire ses choix est le premier servi.
+
+    Afin de faciliter la navigation, une fonctionnalité permet de lister directement les packages auxquels l'utilisateur
+    s'est inscrit.
+
+    Les étudiants peuvent voir le planning des conférences auxquels ils sont inscrits, encore une fois pour faciliter l'accès
+    aux informations "pertinentes".
+
+    Q.C.M
+
+    Le Q.C.M est la première manière de noter les étudiants, et surtout, la principale raison de le création de cette interface Web.
+    En effet, en plus d'automatiser les inscriptions, l'utilisation d'un site Web permet de générer facilement un Q.C.M
+    personnalisé pour chaque étudiant, reposant sur les conférences auxquels il s'est inscrit.
+
+    C'est l'occasion de préciser qu'une fois que l'étudiant s'est inscrit à un package, il s'engage à être présent à chaque
+    conférence qui le compose. En effet, les questions sont liées à un package et non à une conférence, aussi, il est tout à fait
+    possible que si un étudiant n'assiste pas à une conférence, il ait tout de même à répondre à une question en rapport avec cette
+    conférence.
+
+    La note du Q.C.M ne repose en réalité pas entièrement sur les questions posées. Il est possible de déterminer une note de présence
+    telle que si l'étudiant assiste bien à chaque conférence où il est inscrit, il aura déjà une base de point pour le Q.C.M.
+
+    La notation est basée sur le système suivant:
+    Note finale = Note de présence + Note du Q.C.M
+
+        Note de présence = Présences / Conférences
+
+    Note du Q.C.M:
+        Soient F (resp. V) le nombre de réponses fausses (resp. justes), et 
+
+    Note du Q.C.M = 
+
+    Concernant la page de passage du Q.C.M, il s'agit d'un formulaire classique avec des checkboxes pour chaque question.
+    Le bouton "Envoyer mes réponses" est protégé par une fenêtre de confirmation, afin de pouvoir revérifier ces réponses.
+
+    Chaque étudiant récupère donc des questions choisies aléatoirement par celles possibles (i.e: les questions liées aux packages qu'a
+    suivi l'étudiant), son Q.C.M est généré, et ne changera plus.
+
+    Les questions qui lui sont posées ont été enregistrée. Les réponses de l'utilisateur sont également sauvées dans la base de données,
+    pour faciliter la décision pour une possible harmonisation.
+
+    Le Q.C.M ne peut être passé qu'une fois.
+
+    Rapports
+
+    Les étudiants ont également pour travail de rendre un rapport faisant une synthèse des informations données lors des conférences.
+    Il est donc possible d'uploader pour chaque package un rapport.
+
+    Nous passons maintenant à la partie administrateur du site web:
+
+    Il fallait avoir une gestion aussi fine que possible pour pouvoir mettre en place toutes les composantes de l'application.
+    On dispose donc d'un menu avec ces différentes options:
+
+    \begin{itemize}
+    \item Conférences
+    \item Documents
+    \item Q.C.M et inscriptions
+    \item Salles
+    \item Configuration
+    \item Remise à zéro
+    \end{itemize}
+
+    Pour les conférences, on upload dans un premier temps les packages de conférences via un fichier CSV (Coma Separated Values)
+    dans lequel les informations sont contenues de la manière suivante:
+
+    \begin{itemize}
+    \item Nombre max d'inscrits
+    \item Nom français
+    \item Nom anglais
+    \item Description française
+    \item Description anglais
+    \end{itemize}
+
+    On peut ensuite pour chaque package uploader un fichier CSV contenant des conférences:
+
+    \begin{itemize}
+    \item Conférencier (et/ou entreprise)
+    \item Nom français
+    \item Nom anglais
+    \item Description française
+    \item Description anglais
+    \item Date
+    \item Horaire de début
+    \item Horaire de fin
+    \end{itemize}
+
+    Ainsi que des questions, et leurs réponses associées; ici, le CSV a un format plus spécifique, fonctionnant sur cette construction:
+    
+    Une ligne contenant la question, dont la composition est la suivante:
+
+    \begin{itemize}
+    \item Question en français
+    \item Question en anglais
+    \item Statut (Obligatoire - Possible - Impossible)
+    \end{itemize}
+
+    Chaque ligne suivante peut soit être une chaîne de caractères terminale ("__vbmifare*"), ou une réponse:
+
+    \begin{itemize}
+    \item Réponse en français
+    \item Réponse en anglais
+    \item Bonne réponse ('T' - 'F')
+    \end{itemize}
+
+    Le fichier est lu séquentiellement la question puis ses réponses et itérent ainsi jusqu'à la fin du fichier.
+
+    Après avoir uploadé ces informations, il faut également pouvoir éditer en direct sans repasser par le fichier CSV.
+    Il y a donc un module d'édition permettant de modifier toutes les informations des packages et des conférences.
+    Notons que ces pages d'édition permettent donc de modifier et de supprimer les informations, et qu'il existe des pages
+    similaire pour toutes autres données à fournir.
+
+    Pour toutes informations de type Date et Horaires, il faut respecter les deux formats suivants:
+
+    Date ==> JJ-MM-AAAA
+    Horaire ==> HH:MM:SS
+
+    Voilà une page classique d'édition, permettant une gestion fine des packages:
+
+    [screenshot_packages.png]
+
+    Pour l'upload de documents, c'est à dire des présentations directement téléchargeables, ou des images pour la visionneuse.
+
+    L'upload pour le téléchargement est basique, il suffit d'indiquer à quel package le document réfère, et le fichier en lui même.
+    Dans le cas de l'upload d'images, il suffit de les regrouper dans un fichier zippé (format .zip) en faisant en sorte qu'elle soit
+    nommé de manière croissante. Le plus simple est probablement d'utiliser des noms de ce type:
+
+    [screenshot_images.png]
+
+    Une fois la Semaine du Numérique finie, l'administrateur doit inscrire les promotions ayant suivi les conférences pour leur
+    séance de Q.C.M:
+
+    Il faut sélectionner la promotion, et indiquer la date et l'horaire de la séance. Il sera alors possible aux étudiants d'accéder
+    à la page du Q.C.M que durant ce créneau.
+
+    Un menu d'édition sur la même base que les autres permet l'édition en direct des inscriptions.
+
+    Une fonctionnalité permet également de récupérer les notes au format CSV également, les informations étant écrites de la manière suivante:
+
+    \begin{itemize}
+    \item Département
+    \item Année
+    \item Nom d'utilisateur
+    \item Note
+    \item Commentaire
+    \end{itemize}
+
+    Il faut également indiquer les salles et les disponibilités de celles-ci pour chaque conférence, afin de pouvoir les associer.
+    Une interface permet directement la création, l'édition et la suppression des salles et de ses disponibilités.
+
+    La page de configuration permet de modifier les administrateurs du site. Ceux-ci sont enregistrés comme tels dans la base de données.
+    Pour ajouter un administrateur, il faut utiliser son nom d'utilisateur, et les séparer par des points-virgules.
+
+    Comme sécurité, l'administrateur qui applique cette modification est automatiquement ajouté à la liste des admins.
+
+    Il est également possible de verrouiller les inscriptions aux conférences, dans le cas où d'importantes modifications
+    auraient a être faites.
+
+    La remise a zéro permet elle de vider les tables de la base de données. La suppression est DEFINITIVE, il n'y a pas de
+    backup possible une fois vidée. Le bouton demande une confirmation avant de réaliser cette action.
 
     \section{Modélisation}
+
+        // Modélisation à ajouter
     \section{Framework}
+
+    Pour la réalisation du site web, nous avions pensé organiser notre code en utilisant de simple scripts.
+    Ces pages utilisent l'architecture MVC (Modèle Vue Controlleur) afin de bien compartimenter chaque partie.
+
+    [EXPLICATIONS ARCHITECTURE MVC]
+
+    Chaque page aurait été accessible depuis l'index, et l'action fournie par l'url donne la page à affichier.
+    Ce développement ne convenait pas car la taille de l'application était un peu trop conséquente.
+
+    Nous avons donc appris davantage de techniques sur les patrons de conception, et avons organisé notre code
+    grâce à un framework "artisanal". Cette partie a pour but de présenter ce framework reposant sur l'architecture MVC.
+    Le framework, basé sur l'architecture MVC, récupère donc uniquement le controlleur et ses paramétres (optionnels) depuis
+    l'url, et exécute le controlleur. Chaque controlleur existe en tant que route. Si une route est associée au nom du controlleur,
+    alors le controlleur est executé, et la page est générée puis envoyée. Si la route n'existe pas, on est redirigé vers l'index.
+
+    La première classe, la plus essentielle, représente l'application en elle même. C'est par elle que transite chaque information.
+    Il existe donc deux applications complémentaires, une pour les utilisateurs, et une pour les admins.
+    L'application contient les requêtes et les réponses HTTP, donnant ainsi les informations que l'utilisateur envoie et reçoit.
+
+    La classe HTTPRequest contient les variables GET et POST, les cookies ainsi que l'url entrée par l'utilisateur.
+    La classe HTTPResponse contient quant à elle la page associée à la réponse, et permet l'ajout de cookies, l'ajout d'entêtes
+    ainsi que l'exécution de la page, ou une redirection.
+
+    Les ApplicationComponants, constitue le lien direct vers l'application, reliant ainsi chaque composant aux autres.
+
+    Le Router est la classe qui dérive de l'ApplicationComponant, et qui récupère dans le controlleur associé.
+    Une route s'écrit de la manière suivante:
+    <route url="/lectures/show-([0-9]+)\.html" module="lectures" action="show" vars="idPackage"/>
+
+    L'url du fichier controlleur est indiquée, chaque controlleur dispose d'un module associé, d'un nom d'action existant dans ce
+    fichier controlleur. On voit également qu'il est possible de fournir des valeurs dans l'url. Ces valeurs seront récupérées afin
+    d'être accessible en données GET. On peut mettre des conditions sur ces variables afin qu'elles respectent l'expression régulière
+    utilisée.
+
+    La page elle même est composée d'un template et d'une vue générée.
+    Le template contient principalement le design général du site, le header, le menu ainsi que le footer.
+    La vue contient les informations relatives à la route choisie, c'est la partie la plus importante.
+
+    Une Page dérive également de l'ApplicationComponant, et permet donc de passer des variables depuis le controlleur à la vue,
+    cette classe contient également le nom de la vue associée.
+
+    Il ne reste plus qu'à construire les controlleurs de chaque module.
+    Afin de continuer avec l'approche orientée objet, on définit la classe BackController, qui permet d'être
+    suffisamment générique pour être commune à chaque futur controlleur.
+
+    Le BackController contient donc les informations suivantes, obtenues depuis la route:
+
+    \begin{itemize}
+    \item Nom du module
+    \item Nom de l'action
+    \item Nom de la vue
+    \item Référence vers la Page
+    \end{itemize}
+
+        
         \cite{ref_framework_mvc}
 
     \section{Check list}

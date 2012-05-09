@@ -3,7 +3,7 @@
 Afin de vérifier l'assiduité des élèves lors des conférences, nous mettons en
 place un système de badge.
 
-Il nous fallait une solution alliant plusieurs critères comme un coût et temps
+Il nous fallait une solution alliant plusieurs critères comme un coût limité,un temps
 de développement réduit et de la fabilité.
 
     \section{Historique}
@@ -12,25 +12,26 @@ Dès le début du projet, Monsieur Berry nous a proposé plusieurs pistes à
 explorer pour le badge en lui même. Il fallait que chaque participant aux
 conférences puisse être identifié de manière unique:
 
-    \begin{itemize}
-    \item Money Kart: C'est une entreprise basée près de Grenoble, spécialisée
-    dans la création de cartes à puce, notamment Moneo. L'avantage de cette solution
-    résidait dans la design des cartes. On aurait pu les faire graver
-    de façon à faire un buzz autour de la Semaine du Numérique. De plus la société
-    vendait également des lecteurs prêts à l'emploi.
-    Malheureusement, il nous fût impossible d'obtenir un devis de la part d'un
-    commercial, même après de multiples relances. Cette solution nécessitait aussi
-    un investissement financier.
-    \item Carte étudiantes: Rapidement cette solution à fait l'unanimité. En effet,
-    elle était bien plus facile à mettre en place: chaque titulaire de carte délivrée
-    par l'UM2 possède un numéro unique, appelé numéro Mifare, accessible grâce à
-    la technologie RFID. Or, Polytech possède une base de donnée faisant le lien entre
-    ce numéro et les élèves.
-    \end{itemize}
+\begin{itemize}
+\item Money Kart: C'est une entreprise basée près de Grenoble, spécialisée
+dans la création de cartes à puce, notamment Moneo. L'avantage de cette solution
+résidait dans la design des cartes. On aurait pu les faire graver
+de façon à faire un buzz autour de la Semaine du Numérique. De plus la société
+vendait également des lecteurs prêts à l'emploi.
+Malheuresement, il nous fût impossible d'obtenir un devis de la part d'un
+commercial, même après de multiples relance. Cette solution nécéssitait aussi
+un investissement financier.
+
+\item Carte étudiant: Rapidement cette solution à fait l'unanimité. En effet,
+elle était bien plus facile à mettre en place: chaque titulaire de carte délivrée
+par l'UM2 possède un numéro unique, appelé numéro Mifare, accessible grâce à
+la technologie RFID. Or Polytech possède une base de données faisant le lien entre
+ce numéro et les élèves.
+\end{itemize}
 
     \section{RFID et Mifare}
 
-RFID, de l'anglais ``Radio Frequency IDentification'' est une technologie 
+RFID, de l'anglais ``radio frequency identification'' est une techonlogie 
 mise au point pour permettre de lire à distance des données contenues dans des
 marqueurs, les étiquettes RFID.
 
@@ -56,7 +57,7 @@ est utilisée dans les cas suivants:
 Mifare est une des technologies de carte à puce sans contact les plus répandues
 dans le monde avec 3,5 milliards de cartes et 40 millions de modules de lecture/encodage.
 
-Ces deux technologies respectent des normes ISO.
+Ces deux technologies respectent les normes ISO.
 
 \section{MFR120U}
 
@@ -65,30 +66,31 @@ Cathebras, directeur du département ERII à Polytech'. En effet, il souhaitait 
 aussi mettre en place un système de présence informatisé, pour éviter de devoir
 le faire sur papier, avant de le reporter sur l'ordinateur.
 
-Or, il avait déjà commencé à travailler de son côté, puisqu'il avait acheté un lecteur de carte 
-Mifare, appellé module MFR120U, pour la somme de 120\euro. Ce lecteur présentait néanmoins
+Or il avait déjà creusé de son côté, puisqu'il avait acheté un lecteur de carte 
+Mifare, appelé module MFR120U, pour la somme de 120\euro. Ce lecteur présentait néanmoins
 plusieurs inconvénients majeurs:
 
     \begin{itemize}
-    \item Programme d'utilisation exclusivemment sous les plateformes Windows
-    \item Liaison série-USB avec l'ordinateur par câble, ce qui nécessitait 
-          à l'utilisateur d'installer un driver fourni également uniquement pour Windows
-    \item Difficulté à savoir si la lecture de la carte a réussi ou non
+        \item Programme d'utilisation exclusivemment sous les plateformes Windows.
+        \item Liaison série-USB avec l'ordinateur par câble, ce qui nécessitait 
+              à l'utilisateur d'installer un driver fournis également que pour
+              Windows.
+        \item Difficulté à savoir si la lecture de la carte avait réussi ou non.
     \end{itemize}
 
 Mr Cathebras avait donc demandé à un de ses collègues de travail du département
 ERII, Mr Tamby, s'il pouvait concevoir un module qui répondrait plus à ses attentes.
 De notre côté, nous devions nous occuper de toute la partie software.
 
-C'est ici que nous intervenont. Début février 2012, nous avons recontré Mr Cathebras,
-et nous avons pu discuter de l'interêt commun à développer un tel lecteur. En effet,
-s'il venait à faire ces preuves en plus lors des conférences, il pourrait se voir
+C'est ici que nous intervenont. Début février 2012 nous avons recontré Mr Cathebras,
+et nous avons pu discuter de l'intérêt commun à développer un tel lecteur. En effet,
+s'il venait à faire ses preuves en plus lors des conférences, il pourrait se voir
 industrialisé afin de voir son utilisation généralisée à Polytech. Il nous à donc
 confié le MFR120U pour que nous puissions nous faire la main dessus.
 
-%TODO: Photo MFR120U
+%TODO: Photo MFR120U 
 
-De plus, il nous a fourni la documentation du lecteur. Or celle-ci nous fût d'un
+De plus il nous a fourni la documentation du lecteur. Or celle-ci nous fût d'un
 grand secours par la suite puisqu'elle comprenait tout le protocole de communication
 utilisé par le lecteur, ainsi que de nombreuses autres caractéristiques.
 

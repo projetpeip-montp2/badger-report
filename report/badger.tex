@@ -1,40 +1,38 @@
 \chapter{Lecteur de cartes}
-Afin de vérifier l'assiduité des élèves lors des conférences nous mettons en
+
+Afin de vérifier l'assiduité des élèves lors des conférences, nous mettons en
 place un système de badge.
 
 Il nous fallait une solution alliant plusieurs critères comme un coût et temps
 de développement réduit et de la fabilité.
 
-\newpage
+    \section{Historique}
 
-
-
-\section{Historique}
-Dès le début du projet Monsieur Berry nous a proposé plusieurs pistes à 
+Dès le début du projet, Monsieur Berry nous a proposé plusieurs pistes à 
 explorer pour le badge en lui même. Il fallait que chaque participant aux
 conférences puisse être identifié de manière unique:
 
-\begin{itemize}
-\item Money Kart: C'est une entreprise basée près de Grenoble, spécialisée
-dans la création de cartes à puce, notamment Moneo. L'avantage de cette solution
-résidait dans la design des cartes. On aurait pu les faire graver
-de façon à faire un buzz autour de la Semaine du Numérique. De plus la société
-vendait également des lecteurs prêts à l'emploi.
-Malheuresement, il nous fût impossible d'obtenir un devis de la part d'un
-commercial, même après de multiples relance. Cette solution nécéssitait aussi
-un investissement financier.
+    \begin{itemize}
+    \item Money Kart: C'est une entreprise basée près de Grenoble, spécialisée
+    dans la création de cartes à puce, notamment Moneo. L'avantage de cette solution
+    résidait dans la design des cartes. On aurait pu les faire graver
+    de façon à faire un buzz autour de la Semaine du Numérique. De plus la société
+    vendait également des lecteurs prêts à l'emploi.
+    Malheureusement, il nous fût impossible d'obtenir un devis de la part d'un
+    commercial, même après de multiples relances. Cette solution nécessitait aussi
+    un investissement financier.
+    \item Carte étudiantes: Rapidement cette solution à fait l'unanimité. En effet,
+    elle était bien plus facile à mettre en place: chaque titulaire de carte délivrée
+    par l'UM2 possède un numéro unique, appelé numéro Mifare, accessible grâce à
+    la technologie RFID. Or, Polytech possède une base de donnée faisant le lien entre
+    ce numéro et les élèves.
+    \end{itemize}
 
-\item Carte étudiantes: Rapidement cette solution à fait l'unanimité. En effet,
-elle était bien plus facile à mettre en place: chaque titulaire de carte délivrée
-par l'UM2 possède un numéro unique, appelé numéro Mifare, accessible grâce à
-la technologie RFID. Or Polytech possède une base de donnée faisant le lien entre
-ce numéro et les élèves.
-\end{itemize}
+    \section{RFID et Mifare}
 
-\section{RFID et Mifare}
-RFID, de l'anglais ``radio frequency identification'' est une techonlogie 
+RFID, de l'anglais ``Radio Frequency IDentification'' est une technologie 
 mise au point pour permettre de lire à distance des données contenues dans des
-marqueurs, étiquettes RFID.
+marqueurs, les étiquettes RFID.
 
     \begin{figure}[h]
         \begin{center}
@@ -47,207 +45,196 @@ marqueurs, étiquettes RFID.
 
 
 C'est une technologie employée quotidiennement par tout le monde puisqu'elle
-sert entre autre à:
+est utilisée dans les cas suivants:
 
-\begin{itemize}
-\item Passeport bimométrique français.
-\item Accès transport public, comme le tramway de Montpellier.
-\item Inventaires.
-\end{itemize}
+    \begin{itemize}
+    \item Passeport bimométrique français
+    \item Accès transport public, comme le tramway de Montpellier
+    \item Inventaires
+    \end{itemize}
 
 Mifare est une des technologies de carte à puce sans contact les plus répandues
 dans le monde avec 3,5 milliards de cartes et 40 millions de modules de lecture/encodage.
 
 Ces deux technologies respectent des normes ISO.
 
-
-
-
 \section{MFR120U}
-    Rapidement après le début du projet, Mr Berry nous à mis en contact avec Mr
+
+Rapidement après le début du projet, Mr Berry nous à mis en contact avec Mr
 Cathebras, directeur du département ERII à Polytech'. En effet, il souhaitait lui
 aussi mettre en place un système de présence informatisé, pour éviter de devoir
-le faire sur papier, avant de le repporter sur l'ordinateur.
+le faire sur papier, avant de le reporter sur l'ordinateur.
 
-    Or il avait déjà creusé de son côté, puisqu'il avait acheté un lecteur de carte 
+Or, il avait déjà commencé à travailler de son côté, puisqu'il avait acheté un lecteur de carte 
 Mifare, appellé module MFR120U, pour la somme de 120\euro. Ce lecteur présentait néanmoins
 plusieurs inconvénients majeurs:
 
     \begin{itemize}
-        \item Programme d'utilisation exclusivemment sous les plateformes Windows.
-        \item Liaison série-USB avec l'ordinateur par cable, ce qui nécessitait 
-              à l'utilisateur d'installer un driver fournis également que pour
-              Windows.
-        \item Difficulté à savoir si la lecture de la carte avait réussi ou non.
+    \item Programme d'utilisation exclusivemment sous les plateformes Windows
+    \item Liaison série-USB avec l'ordinateur par câble, ce qui nécessitait 
+          à l'utilisateur d'installer un driver fourni également uniquement pour Windows
+    \item Difficulté à savoir si la lecture de la carte a réussi ou non
     \end{itemize}
 
-    Mr Cathebras avait donc demandé à un de ses collègues de travail du département
+Mr Cathebras avait donc demandé à un de ses collègues de travail du département
 ERII, Mr Tamby, s'il pouvait concevoir un module qui répondrait plus à ses attentes.
-De notre côté nous devions nous occuper de toute la partie software.
+De notre côté, nous devions nous occuper de toute la partie software.
 
-    C'est ici que nous intervenont. Début février 2012 nous avons recontré Mr Cathebras,
-et nous avons pû discuter de l'interêt commun à développer un tel lecteur. En effet,
-s'il venait à faire ces preuves en plus lors des conférences, il pourrait ce voir
-industrialisé afin de voir son utilisation généralisé à Polytech. Il nous à donc
+C'est ici que nous intervenont. Début février 2012, nous avons recontré Mr Cathebras,
+et nous avons pu discuter de l'interêt commun à développer un tel lecteur. En effet,
+s'il venait à faire ces preuves en plus lors des conférences, il pourrait se voir
+industrialisé afin de voir son utilisation généralisée à Polytech. Il nous à donc
 confié le MFR120U pour que nous puissions nous faire la main dessus.
 
 %TODO: Photo MFR120U
 
-    De plus il nous a fourni la documentation du lecteur. Or celle-ci nous fût d'un
-grand secour par la suite puisqu'elle comprenait tout le protocole de communication
+De plus, il nous a fourni la documentation du lecteur. Or celle-ci nous fût d'un
+grand secours par la suite puisqu'elle comprenait tout le protocole de communication
 utilisé par le lecteur, ainsi que de nombreuses autres caractéristiques.
 
     \begin{itemize}
-        \item Fabricant de la puce: Prolific Technology Inc. Les drivers pour Windows
-              et MacOS X sont disponibles sur leur site web \cite{prolific}.
-        \item Baud rate: 19200.
-        \item Communication série 8N1 : 8 bits de donnés, aucun de parité, et 1 de stop.
-        \item Possibilité de lire les cartes Mifare, mais pas que.
-        \item En interne, le lecteur possède une mémoire capable de stocker 8000
-              lectures de badge (date, heure, et informations de lus sur la carte).
+    \item Fabricant de la puce: Prolific Technology Inc. Les drivers pour Windows
+          et MacOS X sont disponibles sur leur site web \cite{prolific}
+    \item Baud rate: 19200
+    \item Communication série 8N1 : 8 bits de donnés, aucun de parité, et 1 de stop
+    \item Possibilité de lire les cartes Mifare, ainsi que d'autres normes
+    \item En interne, le lecteur possède une mémoire capable de stocker 8000
+          lectures de badge (date, heure, et informations contenues sur la carte)
     \end{itemize}
 
-    En interne, la gestions des enregistrements fonctionnes grâce à un curseur.
-De base, il pointe sur le premier enregistrements. On ne peut que demander le suivant,
+En interne, la gestion des enregistrements fonctionne grâce à un curseur.
+De base, il pointe sur le premier enregistrement. On ne peut que demander le suivant,
 ce qui à pour effet d'incrémenter ce curseur et de renvoyer la nouvelle valeur
-pointéé, ou faire un "rollback", c'est à dire remettre le curseur sur le tout
+pointée, ou faire un ``rollback'', c'est à dire remettre le curseur sur le tout
 premier enregistrement.
 
-    Le lecteur possédait également un système de droit d'accès avec de passe.
+Le lecteur possédait également un système de droit d'accès avec un mot de passe.
 
-    Le programme que nous devions développer était en somme assez simple, puisqu'il
+Le programme que nous devions développer était en somme assez simple, puisqu'il
 devait offrir une interface permettant de se connecter au lecteur, de récupérer les
-données contenues suivant certains critères, les supprimer en mémoires si nécéssaire,
+données contenues suivant certains critères, les supprimer en mémoire si nécéssaire,
 et enfin les envoyer sur une base de données distante.
 
-    La version fonctionnelle pour le MFR120U (sans l'envoie en base de données)
+La version fonctionnelle pour le MFR120U (sans l'envoi en base de données)
 est disponible dans le repository git sous le tag v0.9-mfr120u.
 
+        \section{Caractère multi-plateformes}
 
-
-\section{Caractère multi-plateformes}
-    Afin de répondre à la demande multi-plateforme des professeurs, nous nous 
+Afin de répondre à la demande multi-plateforme des professeurs, nous nous 
 sommes naturellement tourné vers le language C++. En effet, celui-ci offre un accès
 proche de la machine, intéréssant pour la communication série notamment. De plus,
 un étudiant ERII 3, Arthur Hiairrassary, à mis à notre disposition la bibliothèque
 pour faire transiter des informations séries.
 
-    Par contre nous sommes partis sur l'utilisation du nouveau standart C++11. Ainsi
-dans le code nous trouvons l'utilisation:
+Par contre, nous avons développé avec le nouveau standard C++11. Ainsi
+dans le code nous trouvons l'utilisation des concepts suivants:
 
     \begin{itemize}
-        \item Variadics templtes.
-        \item Fonctions lambdas.
-        \item Rvalues references.
-        \item Move-constructor.
+    \item Variadics templates
+    \item Fonctions lambdas
+    \item Rvalues references
+    \item Move-constructor
     \end{itemize}
 
-    L'inconvénient de cela est bien sur le support par les compilateurs de cette
-norme. Par exemple, msvc, le compilateur de Microsoft, ne prends en charge que peut
+L'inconvénient de cela est bien sur le support par les compilateurs de cette
+norme. Par exemple, msvc, le compilateur de Microsoft, ne prend en charge que peu
 de ces fonctionnalités, et n'est donc pas à même de compiler le code, même avec la
 beta de Visual Studio 2011.
 
-    Néanmoins l'utilisation de ce standard nous à permis de s'affranchir de nombreuses
+Néanmoins, l'utilisation de ce standard nous à permis de s'affranchir de nombreuses
 restrictions, et par conséquent un développement plus rapide, mais surtout bien
 plus sûr. En effet la S(T)L est bien plus avancée.
 
-    De plus l'inconvénient dû au compilateur msvc fût de courte durée puisqu'il
+De plus, l'inconvénient dû au compilateur msvc fût de courte durée puisqu'il
 existe g++ et clang++, qui eux supportent en grande partie le nouveau standard.
-Et en plus ils sont multi-plateformes! Le programme à pour l'instant été testé 
+Et en plus ils sont multi-plateformes! Le programme a pour l'instant été testé 
 avec succès dans les conditions suivantes:
 
     \begin{itemize}
-        \item Windows 7, 64 bits, MinGW 4.6.1
-        \item MacOS X 10.7, 64 bits, clang++ 3.0 (sous machine virtuelle)
-        \item Linux >= 3.1, 64 bits, g++-4.6
+    \item Windows 7, 64 bits, MinGW 4.6.1
+    \item MacOS X 10.7, 64 bits, clang++ 3.0 (sous machine virtuelle)
+    \item Linux >= 3.1, 64 bits, g++-4.6
     \end{itemize}
 
-    Afin de permettre une compilation aisée sur toutes ces plateformes, nous avons
+Afin de permettre une compilation aisée sur toutes ces plateformes, nous avons
 optés pour l'utilisation de CMake afin de générer l'ensemble de l'environnement de
 façon automatique.
 
+    \section{Prototype}
 
+Début décembre, nous avons pu rencontrer Mr Tamby, en charge de développer le
+prototype du nouveau lecteur. Durant notre première réunion, il nous a donné
+bon nombre de renseignements et conseils. De notre côté, nous lui avons fourni
+l'ensemble des commandes que nous souhaitions retrouver dans le prototype final.
 
-\section{Prototype}
-    Début décembre nous avons pû rencontrer Mr Tamby, en charge de développer le
-prototype du nouveau lecteur. Durant la notre première réunion, il nous à donné
-bon nombres de renseignements et conseils. De notre côté, nous lui avons fournis
-l'ensemble des commandes que nous souhaitions retrouvées dans le prototype final.
-
-    Aux alentours de mi-avril, il nous invite donc à voir le premier prototype.
+Aux alentours de mi-avril, il nous invite donc à voir le premier prototype.
 
 %TODO: Photo du proto ici :)
 
-    Nous sommes alors très surpris par le respect dont Mr Tamby à fait preuve
+Nous sommes alors très surpris par le respect dont Mr Tamby a fait preuve
 durant la réalisation du module, tant au niveau électronique que firmware.
-En effet il n'aura fallut changer que le baud rate, ainsi que quelques lignes
-pour que le programme soit opérationnel pour ce lecteur!
+En effet il n'aura fallu changer que le baud rate, ainsi que quelques lignes
+pour que le programme soit opérationnel pour ce lecteur !
 
-    De plus, plus besoin de cable, puisque le prototype fonctionne par bluetooh,
-conformement aux recommandations de Mr Cathebras. Cela engendrera aussi disparition
-du système de droit d'accès puisque pour pouvoir se connecter à un module bluetooh
+De plus, plus besoin de câble, puisque le prototype fonctionne par Bluetooth,
+conformément aux recommandations de Mr Cathebras. Cela engendrera aussi la disparition
+du système de droit d'accès puisque pour pouvoir se connecter à un module Bluetooth,
 il est possible de spécifier un code PIN.
 
+    \section{Protocole de communication}
 
-
-\section{Protocole de communication}
-    Le protocole de communication utilisée n'est pas difficile. Il est orienté 
-texte, puisqu'il repose sur le jeu de caractère ASCII, soit 8bits pour chacun des
-caracrères, ce qui correspond sur les processeurs Intel en C++ au type char. 
+Le protocole de communication utilisé n'est pas difficile. Il est orienté 
+texte, puisqu'il repose sur le jeu de caractères ASCII, soit 8 bits pour chacun des
+caractères, ce qui correspond sur les processeurs Intel en C++ au type char. 
 Toute commande s'effectue de la sorte:
 
 STX Command [Data] CR
 
-    Les caractères STX et CR, sont dis non-imprimables, prenant respectivement les
-valeurs 0x02 et 0x0D. "Commande" est codé sur un seul caractère, alors que "Data"
+Les caractères STX et CR, sont non-imprimables, prenant respectivement les
+valeurs 0x02 et 0x0D. ``Commande'' est codée sur un seul caractère, alors que ``Data''
 est optionnel et dépend de la commande. Pour le programme du prototype nous avons
 entre autres:
 
     \begin{itemize}
-        \item N: Retourne le nombre d'enregistrements.
-        \item E: Efface la mémoire des enregistrements.
-        \item T: Retourne la date du lecteur.
+    \item N: Retourne le nombre d'enregistrements
+    \item E: Efface la mémoire des enregistrements
+    \item T: Retourne la date du lecteur
     \end{itemize}
 
 En retour à chacune des commandes, le lecteur renvoie une séquence, de la forme:
 
 STX ReturnValue [Data] CR
 
-    En général, "ReturnValue" est équivalent à au caractère A, 0x41, pour dire que
-la commande c'est bien déroulé. "Data" est une nouvelle fois optionnel.
+En général, ``ReturnValue'' est le caractère A, 0x41, pour dire que
+la commande s'est bien déroulé. ``Data'' est une nouvelle fois optionnel.
 
-    La liste exhaustive des commandes du protocole pour le prototype est disponible
+La liste exhaustive des commandes du protocole pour le prototype est disponible
 en annexe du rapport. 
 
-    Attention, elles difèrent quelque peu de celle du MFR120U, elles présentes sur 
+Attention, elles diffèrent quelque peu de celles du MFR120U, présentes sur 
 la documentation officielle.
 
+    \section{Architecture}
 
+Le programme ``badger'' est décomposé en plusieurs dossier. 
 
-
-\section{Architecture}
-    Le programme ``badger'' est décomposé en plusieurs dossier. 
-
-    Dans le dossier serial/ on trouve toute la bibliothèque concernant la communication
+Dans le dossier serial/ on trouve toute la bibliothèque concernant la communication
 série. Elle utilise l'idiome de programmation Pimpl (Private Implementation), afin 
 de séparer interface et implémentation. Cela est dû au fait qu'elle est implémentée
 pour les systèmes POSIX d'un côté (Linux et MacOS), et Win32 de l'autre. Ces derniers
 ne supportent pas de façon optimale la norme POSIX.
 
-    Le répertoire console/ contient quant à lui tout le système d'interpreteur.
-Il est issue d'un projet de moteur de rendus 3D d'un de nous.
+Le répertoire console/ contient quant à lui tout le système d'interpréteur.
+Il est issu d'un projet de moteur de rendus 3D d'un des membres du projet.
 
-    Enfin le dossier badger/ contient le programme final, faisant appel à ceux
+Enfin le dossier badger/ contient le programme final, faisant appel à ceux
 ci-dessus. Il contient de plus une classe permettant d'envoyer des requêtes SQL
-à une base de donnée MySQL distante. Le programme fonctionne sous la forme d'un 
+à une base de données MySQL distante. Le programme fonctionne sous la forme d'un 
 interpréteur de commandes.
 
+    \section{Utilisation}
 
-
-
-
-\section{Utilisation}
-    Ci-dessous voici l'exemple d'utilisation sous Linux, une fois placer dans le
+Ci-dessous, voici l'exemple d'utilisation sous Linux, une fois placé dans le
 répertoire du binaire du programme badger:
 
     \begin{lstlisting}
@@ -261,36 +248,33 @@ close
 exit
     \end{lstlisting}
 
-    L'exemple ci-dessus, ouvre une connexion série sur le descripteur de fichier
+L'exemple ci-dessus, ouvre une connexion série sur le descripteur de fichier
 /dev/rfcomm0. La commande ``count'' renvoie le nombre d'enregistrement contenus sur 
-le module, alors que "send" envoie automatiquement dans une base de données (nommé
+le module, alors que ``send'' envoie automatiquement dans une base de données (nommée
 dans le code) tout les enregistrements effectués le 25-12-2011 entre 10H et 17H.
 Enuiste ``erase'' vide la mémoire, ``exit'' ferme la connexion s'il elle existe, et
 quitte le programme.
 
-    L'ensemble des commandes pour l'interpréteur est aussi disponible en annexe.
+L'ensemble des commandes pour l'interpréteur est aussi disponible en annexe.
 
+    \section{Recommandations et limites}
 
-
-
-\section{Recommandations et limites}
-    Actuellement, le plus gros manque dans ce programme devant le manque de GUI et
+Actuellement, le plus gros manque dans ce programme (sans considérer une IHM) est
 le manque de détection automatique du lecteur: en paramètre de la commande ``open''
 l'utilisateur doit spécifier le descripteur de fichier, qui change d'une plateforme
 à l'autre, voire de la version de l'OS employé ou du nombre de périphériques connectés:
 
     \begin{itemize}
-        \item Windows: COMx, où x >= 1.
-        \item MacOS X: /dev/tty.Polytech-ERII
-        \item Linux: /dev/rfcommx, où x >= 0.
+    \item Windows: COMx, où x >= 1.
+    \item MacOS X: /dev/tty.Polytech-ERII
+    \item Linux: /dev/rfcommx, où x >= 0.
     \end{itemize}
 
-    Donc nous sommes encore dans la recherche d'une solution ``viable''. Par
-rétro-ingéniérie -grâce à un programme écoutant les ports séries; nous avons
+Donc nous sommes encore dans la recherche d'une solution ``viable''. Par
+rétro-ingéniérie grâce à un programme écoutant les ports séries; nous avons
 trouvé comment le programme officiel reconnaissait si le lecteur MFR120U était 
 connecté ou pas: au lancement le programme envoie sur tous les ports la commande
 STX F CR, qui si elle est envoyé sur le MFR120U, retourne un résultat attendu.
 
-    Or cette façon nous dérange, dans le sens où l'on ne sais pas sur quel périphérique
+Or cette façon nous dérange, dans le sens où l'on ne sait pas sur quel périphérique
 nous allons envoyer cette commande, et encore moins qu'elle va être sa réaction...
-

@@ -1,85 +1,86 @@
 \chapter{Environnement}
-    Dans ce chapitre nous allons présenter l'environnement dans lequel nous avons
-    développé les deux projets. Il va aussi servir à introduire un ensemble de
-    règles et de conventions utiliser tout par la suite.
+
+Dans ce chapitre, nous allons présenter l'environnement dans lequel nous avons
+développé les deux projets. Il va aussi servir à introduire un ensemble de
+règles et de conventions utilisées par la suite.
+Nous présenterons également les technologies utilisées au cours de ce projet.
 
 \newpage
-    \section{Réunions et contacts}
-        Tout au long du projet, nous avons été en contact permanent avec Mr Berry,
-    que ce soit par e-mails, appels téléphoniques ou réunions. Ces dernières par
-    exemples étaient quasi-hebdomadaires, afin de rester le plus possible dans la
-    bonne direction. Nos recontres ont eu lieu à Polytech' ou au Lirmm.
 
+    \section{Réunions et contacts}
+
+Tout au long du projet, nous avons été en contact permanent avec Mr Berry,
+que ce soit par e-mails, appels téléphoniques ou réunions. Ces dernières
+étaient quasi-hebdomadaires, afin de rester le plus possible dans la
+bonne direction. Nos recontres ont eu lieu à Polytech' ou au Lirmm.
 
     \section{Gestionnaire de versions}
-        Dès le balbutiement du projet, nous avons décidé d'utiliser un gestionnaire
-    de version. En effet, celui-ci nous permettait d'avoir un contrôle total des modifications
-    tout au long du développement.
 
-    Notre choix s'est naturellement porté sur Git \cite{git}. Cela s'explique 
-    par les aspects suivants:
+Dès le balbutiement du projet, nous avons décidé d'utiliser un gestionnaire
+de version. En effet, celui-ci nous permettait d'avoir un contrôle total des modifications
+tout au long du développement.
+
+Notre choix s'est naturellement porté sur Git \cite{git}. Cela s'explique 
+par les aspects suivants:
 
     \begin{itemize}
-    \item Multi-plateformes.
-    \item Gestions des branches.
-    \item Developpement actif et forte communauté d'utilisation.
-    \item Rapidité d'éxécution comparé à svn, hg, etc. 
+    \item Multi-plateformes
+    \item Gestions des branches
+    \item Developpement actif et forte communauté d'utilisation
+    \item Rapidité d'éxécution comparé à Subversion, Mercurial, etc
     \end{itemize}
 
-    De plus certains d'entre nous l'avait déjà utilisé précédement: git est assez
-    complèxe à prendre en main au début et l'entraide était de mise.
+De plus, certains d'entre nous l'avait déjà utilisé précédement: git est assez
+complexe à prendre en main au début et l'entraide était de mise.
 
-    Mais surtout, le plus important pour nous est le site web GitHub \cite{github}.
-    Il fait office de serveur centralisé pour git. Mais pas seulement puisqu'il 
-    propose entre autre:
+Mais surtout, le plus important pour nous est le site web GitHub \cite{github}.
+Il fait office de serveur centralisé pour git. Mais pas seulement puisqu'il 
+propose entre autre:
 
     \begin{itemize}
-    \item L'hébergement de projets sous Git.
+    \item L'hébergement de projets sous Git
     \item Des fonctionnalités de type réseaux sociaux, dont :
         \begin{itemize}
-        \item Les flux.
-        \item Le suivi de personnes ou de projets.
-        \item Les graphes de réseau pour les dépôts.
+        \item Les flux
+        \item Le suivi de personnes ou de projets
+        \item Les graphes de réseau pour les dépôts
         \end{itemize}
-    \item Un pastebin nommé Gist.
-    \item Un wiki et une page web pour chaque dépôt.
+    \item Un pastebin nommé Gist
+    \item Un wiki et une page web pour chaque dépôt
     \end{itemize}
 
-    C'est un site web qualifié de professionnel puisqu'il est utiliser par de 
-    nombreux projets de grandes tailles tels que : Git, Perl, Facebook, Twitter,
-    JQuery, PHP, Python, etc.
+C'est un site web qualifié de professionnel puisqu'il est utilisé par de 
+nombreux projets de grandes tailles tels que : Git, Perl, Facebook, Twitter,
+JQuery, PHP, Python, etc.
 
-        De plus Mr Berry, de part le Lirmm, ne pouvait nous ouvrir qu'un serveur
-    subserversion, donc Git couplé avec GitHub est un excellent compromis.
+De plus, Mr Berry, de part le Lirmm, ne pouvait nous ouvrir qu'un serveur
+Subversion, donc Git couplé avec GitHub est un excellent compromis.
 
-    Nota Bene : son adoption sous les systèmes Windows relève encore du portage
-    expérimental. Il a été codé par le créateur de Linux, pour versionner le code
-    de ce dernier, et s'utilise par conséquent en lignes de commandes.
-
-
-
-
-
+Nota Bene : son adoption sous les systèmes Windows relève encore du portage
+expérimental. Il a été codé par le créateur de Linux, pour versionner le code
+de ce dernier, et s'utilise par conséquent en lignes de commandes.
 
 \newpage
-    \section{Règles de codage}
-        Ci-dessous, voici les règles de codage utilisées tout au long du projet
-    ainsi que dans le rapport. Elles sont là pour permettre une cohérence tout au
-    long du développement, mais aussi et surtout, pour que la relecture et la 
-    compréhension soient simplifiées pour les développeurs du projet, ainsi que pour les
-    futures personnes amenées à travailler dessus.
 
-    Cela regroupe:
+    \section{Règles de codage}
+
+Ci-dessous, voici les règles de codage utilisées tout au long du projet
+ainsi que dans le rapport. Elles sont là pour permettre une cohérence tout au
+long du développement, mais aussi et surtout, pour que la relecture et la 
+compréhension soient simplifiées pour les développeurs du projet, ainsi que pour les
+futures personnes amenées à travailler dessus.
+
+Cela regroupe:
+
     \begin{itemize}
     \item Un code en anglais (commentaire compris).
     \item Eviter de dépasser 80 caractères si possibles.
     \item Indentation de 4 espaces, pas de tabulation.
     \end{itemize}
 
-    Ci-dessous, un fichier C++ d'exemple.
-\newline
+Ci-dessous, un fichier C++ d'exemple.
 
-    \begin{lstlisting}
+\begin{lstlisting}
 #ifndef BADGER_FOO_HPP
 #define BADGER_FOO_HPP
 
@@ -87,25 +88,67 @@
 
 namespace badger
 {
-    ///////////////////////////////////
-    /// \brief Sample class
-    ///
-    /// Use for example.
-    ///////////////////////////////////
-    class FooBar
-    {
-    public:
-        virtual const int& doSomething() const = 0;
+///////////////////////////////////
+/// \brief Sample class
+///
+/// Use for example.
+///////////////////////////////////
+class FooBar
+{
+public:
+virtual const int& doSomething() const = 0;
 
-    private:
-        int m_attribute;
-    };
+private:
+int m_attribute;
+};
 
 } // namespace badger
 
 #endif //BADGER_FOO_HPP
-    \end{lstlisting}
+\end{lstlisting}
 
+    \section{Technologies utilisées}
 
+        \subsection{C++}
 
+// VICTOR
 
+        \subsection{CMake}
+
+// Victor
+
+        \subsection{XHTML / CSS}
+
+Le xHTML (extensive HyperText Markup Langage) et le CSS (Cascade Style Sheet) sont
+des langages de description, et non des langages de programmation.
+Ces deux langages sont complémentaires, le HTML sert à représenter ``le fond'', le contenu
+en lui même, alors que le CSS représente ``la forme'', c'est le design du site, permettant
+une mise en page entièrement configurable via le système de balises du code HTML.
+
+Il s'agit de deux langages simples à apprendre, car il s'agit uniquement d'imbriquer des
+balises pour le HTML, et d'affecter des propriétés de styles à ces balises dans le CSS.
+Toutefois, la réalisation d'un design agréable et fonctionnel n'est pas une tâche aisée,
+aussi, nous avons reçu de l'aide pour le style graphique.
+
+        \subsection{PHP}
+
+PHP (PHP: Hypertext Preprocessor) est un langage de programmation interprété que l'on écrit
+dans des fichiers de script à l'extension .php. Ce langage est interprété par le serveur
+et permet principalement la génération de pages web dynamiques.
+
+Nous avons principalement utilisé le fait que PHP est devenu un langage objet dans sa dernière version
+ce qui nous a permis de construire une architecture basée sur l'héritage pour notre framework.
+En plus de la programmation orientée objet, nous avons utilisés de nombreuses fonctionnalités avancées
+de la librairie standard.
+
+        \subsection{Javascript / AJAX}
+
+// William
+
+        \subsection{SQL / MySQL}
+
+// William
+
+        \subsection{Java}
+
+// Jamal

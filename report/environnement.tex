@@ -107,13 +107,56 @@ int m_attribute;
 
         \subsection{C++}
 
-// VICTOR
+    // Victor
 
         \subsection{CMake}
 
-// Victor
+CMake \cite{cmake}, pour "Cross platform Make", est un programme qui permet à partir 
+de scripts uniques, de générer l'ensemble des fichiers de constructions standard 
+du programmes, et celà, comme son nom l'indique, de manière multi-plateformes.
 
-        \subsection{XHTML / CSS}
+En effet, CMake est capable de créer projets pour Visual Studio ou XCode, et même 
+des Makefiles; et cela pour bon nombre de compilateurs (msvc, gcc, clang, etc) et 
+de plateformes (Windows, MacOS, Linux, BSD, etc). Cela est possible grâce au
+système de générateur de CMake.
+
+    \begin{figure}[h]
+        \begin{center}
+        \includegraphics[scale=0.4]{images/CMakeFonctionnement.png} 
+        \end{center}
+        \caption{Fonctionnement de CMake}
+        \label{Fonctionnement de CMake}
+     \end{figure} 
+
+Il est comparable au programme SCons ou aux Autotools.
+
+C'est un projet en développement constant, puisque la dernière version date du 19
+avril 2012. De plus de nombreux projets reconnus l'utilisent, comme Bullet, Ogre
+ou encore KDE.
+
+Les scripts décrivant les projets sont écris dans les fichiers CMakeLists.txt.
+Ci-dessous, un exemple minimal pour compiler un projet.
+
+    \lstset{language=Bash}
+    \begin{lstlisting} 
+cmake_minimum_required(VERSION 2.6)
+		
+# Configuration
+project(my_project)
+set(EXECUTABLE_OUTPUT_PATH bin/${CMAKE_BUILD_TYPE})
+
+file(GLOB_RECURSE source_files src/*)
+
+add_executable(my_exe ${source_files})
+    \end{lstlisting}
+
+Le programme CMake s'utilise soit en lignes de commandes, soit avec une un logiciel
+possèdant une IHM.
+
+Dans le projet, nous avons utilisés ce système de génération pour le programme 
+gérant la communication avec le lecteur de carte.
+
+        \subsection{xHTML / CSS}
 
 Le xHTML (extensive HyperText Markup Langage) et le CSS (Cascade Style Sheet) sont
 des langages de description, et non des langages de programmation.
@@ -128,7 +171,7 @@ aussi, nous avons reçu de l'aide pour le style graphique.
 
         \subsection{PHP}
 
-PHP (PHP: Hypertext Preprocessor) est un langage de programmation interprété que l'on écrit
+PHP \cite{php} (PHP: Hypertext Preprocessor) est un langage de programmation interprété que l'on écrit
 dans des fichiers de script à l'extension .php. Ce langage est interprété par le serveur
 et permet principalement la génération de pages web dynamiques.
 

@@ -57,10 +57,10 @@ s'est inscrit.
 Les étudiants peuvent voir le planning des conférences auxquels ils sont inscrits, encore une fois pour faciliter l'accès
 aux informations "pertinentes".
 
-            \subsubsection{Q.C.M}
+            \subsubsection{Q.C.M.}
 
-Le Q.C.M est la première manière de noter les étudiants, et surtout, la principale raison de la création de cette interface Web.
-En effet, en plus d'automatiser les inscriptions, l'utilisation d'un site Web permet de générer facilement un Q.C.M
+Le Q.C.M. est la première manière de noter les étudiants, et surtout, la principale raison de la création de cette interface Web.
+En effet, en plus d'automatiser les inscriptions, l'utilisation d'un site Web permet de générer facilement un Q.C.M.
 personnalisé pour chaque étudiant, reposant sur les conférences auxquels il s'est inscrit.
 
 C'est l'occasion de préciser qu'une fois que l'étudiant s'est inscrit à un package, il s'engage à être présent à chaque
@@ -68,48 +68,60 @@ conférence qui le compose. En effet, les questions sont liées à un package et
 possible que si un étudiant n'assiste pas à une conférence, il ait tout de même à répondre à une question en rapport avec cette
 conférence.
 
-La note du Q.C.M ne repose en réalité pas entièrement sur les questions posées. Il est possible de déterminer une note de présence
+La note du Q.C.M. ne repose en réalité pas entièrement sur les questions posées. Il est possible de déterminer une note de présence
 telle que si l'étudiant assiste bien à chaque conférence où il est inscrit, il aura déjà une base de point pour le Q.C.M.
 
 La notation est basée sur le système suivant:
-\begin{equation}N_{f} = N_{p} + N_{Q.C.M}\end{equation}
+\begin{equation}N_{f} = N_{p} + N_{Q.C.M.}\end{equation}
 
 \begin{equation}
-    N_{p} = \sum_{i = 0}^{Nb_{inscrs.}} \text{coeff} \times \frac{N_{pmax}}{Nb_{inscrs.}} {,}
+    N_{p} = \sum_{i = 0}^{Nb_{inscrs.}} X_{i} \times \frac{N_{pmax}}{Nb_{inscrs.}} {,}
     \left\{
     \begin{array}{l l}
-        \text{coeff = 1 ssi }Status_{i} = \text{Present}\\
-        \text{coeff = -1 ssi }Status_{i} = \text{Absent}\\
+        X_{i} = 1 \text{ si }Status_{i} = \text{Present}\\
+        X_{i} = -1\text{ si }Status_{i} = \text{Absent}\\
     \end{array}
     \right.
 \end{equation}
 
-\begin{equation}N_{Q.C.M} = \end{equation}
+\begin{equation}
+    N_{Q.C.M.} = \sum_{i = 0}^{Nb_{repsVals.}} X_{i} \times RepsQuest_{i} {,}
+    \left\{
+    \begin{array}{l l}
+        X_{i} = \frac{1}{RepsQuestV_{i}} \text{ si }Reponse_{i} = \text{Vrai}\\
+        X_{i} = -\frac{1}{RepsQuestF_{i}} \text{ si }Reponse_{i} = \text{Faux}\\
+    \end{array}
+    \right.
+\end{equation}
 
 $$
 \text{Avec respectivement:}
 \left\{
-\begin{array}{l l l l l l}
+\begin{array}{l l l l l l l l}
 N_{f} = \text{Note finale}\\
 N_{p} = \text{Note de présence}\\
 N_{pmax} = \text{Note de présence maximale}\\
-N_{Q.C.M} = \text{Note de Q.C.M}\\
+N_{Q.C.M.} = \text{Note de Q.C.M.}\\
 Nb_{inscrs.} = \text{Nombre d'inscriptions de l'élève}\\
-Status_{i} = Status de la i^{ème} inscription\\
+Status_{i} = \text{Status de la ième inscription}\\
+Nb_{repsVals.} = \text{Nombres de réponses validées au Q.C.M.}\\
+RepsQuest_{i} = \text{Nombres de réponses dans la question associée}\\
+RepsQuestV_{i} = \text{Nombres de réponses vrai dans question la associée}\\
+RepsQuestF_{i} = \text{Nombres de réponses fausse dans question la associée}\\
 \end{array}
 \right.
 $$
 
-Concernant la page de passage du Q.C.M, il s'agit d'un formulaire classique avec des checkboxes pour chaque question.
+Concernant la page de passage du Q.C.M., il s'agit d'un formulaire classique avec des checkboxes pour chaque question.
 Le bouton "Envoyer mes réponses" est protégé par une fenêtre de confirmation, afin de pouvoir revérifier ses réponses.
 
 Chaque étudiant récupère donc des questions choisies aléatoirement parmi celles possibles (i.e: les questions liées aux packages qu'a
-suivi l'étudiant), son Q.C.M est généré, et ne changera plus.
+suivi l'étudiant), son Q.C.M. est généré, et ne changera plus.
 
 Les questions qui lui sont posées ont été enregistrées. Les réponses de l'utilisateur sont également sauvées dans la base de données,
 pour faciliter la décision dans le cas d'une harmonisation.
 
-Le Q.C.M ne peut être passé qu'une fois.
+Le Q.C.M. ne peut être passé qu'une fois.
 
             \subsubsection{Rapports}
 

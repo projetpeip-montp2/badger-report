@@ -72,17 +72,36 @@ La note du Q.C.M ne repose en réalité pas entièrement sur les questions posé
 telle que si l'étudiant assiste bien à chaque conférence où il est inscrit, il aura déjà une base de point pour le Q.C.M.
 
 La notation est basée sur le système suivant:
-Note finale = Note de présence + Note du Q.C.M
+\begin{equation}N_{f} = N_{p} + N_{Q.C.M}\end{equation}
 
-Note de présence = Présences / Conférences
+\begin{equation}
+    N_{p} = \sum_{i = 0}^{Nb_{inscrs.}} \text{coeff} \times \frac{N_{pmax}}{Nb_{inscrs.}} {,}
+    \left\{
+    \begin{array}{l l}
+        \text{coeff = 1 ssi }Status_{i} = \text{Present}\\
+        \text{coeff = -1 ssi }Status_{i} = \text{Absent}\\
+    \end{array}
+    \right.
+\end{equation}
 
-Note du Q.C.M:
-Soient F (resp. V) le nombre de réponses fausses (resp. justes), et 
+\begin{equation}N_{Q.C.M} = \end{equation}
 
-Note du Q.C.M = 
+$$
+\text{Avec respectivement:}
+\left\{
+\begin{array}{l l l l l l}
+N_{f} = \text{Note finale}\\
+N_{p} = \text{Note de présence}\\
+N_{pmax} = \text{Note de présence maximale}\\
+N_{Q.C.M} = \text{Note de Q.C.M}\\
+Nb_{inscrs.} = \text{Nombre d'inscriptions de l'élève}\\
+Status_{i} = Status de la i^{ème} inscription\\
+\end{array}
+\right.
+$$
 
 Concernant la page de passage du Q.C.M, il s'agit d'un formulaire classique avec des checkboxes pour chaque question.
-Le bouton "Envoyer mes réponses" est protégé par une fenêtre de confirmation, afin de pouvoir revérifier ces réponses.
+Le bouton "Envoyer mes réponses" est protégé par une fenêtre de confirmation, afin de pouvoir revérifier ses réponses.
 
 Chaque étudiant récupère donc des questions choisies aléatoirement parmi celles possibles (i.e: les questions liées aux packages qu'a
 suivi l'étudiant), son Q.C.M est généré, et ne changera plus.
@@ -168,6 +187,7 @@ Horaire ==> HH:MM:SS
 
 Voilà une page classique d'édition, permettant une gestion fine des packages:
 
+%TODO: Ajouter un screenchot
 [screenshot\_packages.png]
 
             \subsubsection{Documents}
@@ -178,6 +198,7 @@ L'upload pour le téléchargement est basique, il suffit d'indiquer à quel pack
 Dans le cas de l'upload d'images, il suffit de les regrouper dans un fichier zippé (format .zip) en faisant en sorte qu'elle soit
 nommé de manière croissante. Le plus simple est probablement d'utiliser des noms de ce type:
 
+%TODO: Ajouter un screenchot
 [screenshot\_images.png]
 
             \subsubsection{QCM et inscriptions}

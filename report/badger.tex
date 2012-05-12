@@ -183,6 +183,44 @@ conformément aux recommandations de Mr Cathebras. Cela engendrera aussi la disp
 du système de droit d'accès puisque pour pouvoir se connecter à un module Bluetooth,
 il est possible de spécifier un code PIN.
 
+Le firmware du lecteur est un mélange des langages C et assembleur, pour un total
+d'environ 1700 lignes de code. Ci-dessous des brides du code, afin de montrer
+que celui-ci reste très proche de la machine.
+
+    \lstset{language=C}
+    \begin{lstlisting} 
+// Choix du sens des ports I/O
+    // Registre OPTION_REG relatif aux interruptions
+    OPTION_REG = 0b10000000;
+
+    // Registre INTCON relatif aux interruptions
+    INTCON = 0b11000000;
+    ANSELH=0;
+
+    // Detecter l'interruption sur RB4
+    IOCB =0b00010000;
+    \end{lstlisting}
+
+
+    \lstset{language=[x86masm]Assembler}
+    \begin{lstlisting} 
+#asm
+
+inter_suite:
+	movwf	saveW		// sauvegarde du registre W	
+	movf	STATUS,0
+	movwf	savesta		// sauvegarde du registre STATUS
+	movf    PCLATH,0
+	movwf	savePCLATH
+
+	bcf		PCLATH,4
+	bcf		PCLATH,3
+
+	bcf	    STATUS,RP0
+
+// ...
+    \end{lstlisting}
+
     \section{Protocole de communication}
 
 Le protocole de communication utilisé n'est pas difficile. Il est orienté 

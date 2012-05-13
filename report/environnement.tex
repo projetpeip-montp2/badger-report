@@ -6,14 +6,12 @@ règles et de conventions utilisées par la suite.
 Nous présenterons également les technologies utilisées au cours de ce projet.
 
     \section{Réunions et contacts}
-
 Tout au long du projet, nous avons été en contact permanent avec Mr Berry,
 que ce soit par e-mails, appels téléphoniques ou réunions. Ces dernières
 étaient quasi-hebdomadaires, afin de rester le plus possible dans la
 bonne direction. Nos recontres ont eu lieu à Polytech' ou au Lirmm.
 
     \section{Gestionnaire de versions}
-
 Dès le balbutiement du projet, nous avons décidé d'utiliser un gestionnaire
 de version. En effet, celui-ci nous permettait d'avoir un contrôle total des modifications
 tout au long du développement.
@@ -156,8 +154,8 @@ possèdant une IHM.
 Dans le projet, nous avons utilisés ce système de génération pour le programme 
 gérant la communication avec le lecteur de carte.
 
-        \subsection{xHTML / CSS}
 
+        \subsection{xHTML / CSS}
 Le xHTML (extensive HyperText Markup Langage) et le CSS (Cascade Style Sheet) sont
 des langages de description, et non des langages de programmation.
 Ces deux langages sont complémentaires, le HTML sert à représenter ``le fond'', le contenu
@@ -169,52 +167,83 @@ balises pour le HTML, et d'affecter des propriétés de styles à ces balises da
 Toutefois, la réalisation d'un design agréable et fonctionnel n'est pas une tâche aisée,
 aussi, nous avons reçu de l'aide pour le style graphique.
 
+
         \subsection{PHP}
+PHP \cite{php} (PHP: Hypertext Preprocessor) est un langage de programmation 
+interprété que l'on écrit dans des fichiers de script à l'extension .php. Ce 
+langage est interprété par le serveur et permet principalement la génération de 
+pages web dynamiques.
 
-PHP \cite{php} (PHP: Hypertext Preprocessor) est un langage de programmation interprété que l'on écrit
-dans des fichiers de script à l'extension .php. Ce langage est interprété par le serveur
-et permet principalement la génération de pages web dynamiques.
+Nous avons principalement utilisé le fait que PHP est devenu un langage objet dans 
+sa dernière révision majeure ce qui nous a permis de construire une architecture
+basée sur l'héritage pour notre framework. En plus de la programmation orientée
+objet, nous avons utilisés de nombreuses fonctionnalités avancées de la librairie 
+standard.
 
-Nous avons principalement utilisé le fait que PHP est devenu un langage objet dans sa dernière version
-ce qui nous a permis de construire une architecture basée sur l'héritage pour notre framework.
-En plus de la programmation orientée objet, nous avons utilisés de nombreuses fonctionnalités avancées
-de la librairie standard.
 
         \subsection{Javascript / AJAX}
-
 Javascript est un langage de programmation de scripts s'exécutant chez le client.
-Intégré dans la totalité des navigateurs récents, il permet la création d'applications web avancées (dites "riches") et donc 
-de développer et de dynamiser les interactions entre l'utilisateur et le serveur.
+Intégré dans la totalité des navigateurs récents, il permet la création d'applications 
+web avancées (dites "riches") et donc de développer et de dynamiser les interactions
+entre l'utilisateur et le serveur.
 
-Dans notre projet, Javascript nous sert à implémenter la méthode AJAX (Asynchronous Javascript And XML).
-Elle permet l'exécution de requêtes HTTP en différé, sans avoir à recharger la page courante, et donc la récupération de données provenant du serveur.
-En pratique, nous l'utilisons notamment pour l'édition dynamique en ligne de la partie Administration, facilitant les opérations d'altération des données.
+Dans notre projet, Javascript nous sert à implémenter la méthode AJAX (Asynchronous 
+Javascript And XML). Elle permet l'exécution de requêtes HTTP en différé, sans 
+avoir à recharger la page courante, et donc la récupération de données provenant du 
+serveur. En pratique, nous l'utilisons notamment pour l'édition dynamique en ligne 
+de la partie Administration, facilitant les opérations d'altération des données.
 
-Le Javascript possède le même défaut que toutes les technologies implémentées au niveau du navigateur,
-à savoir que la norme du langage n'est pas toujours respectée et un script codé pour un navigateur pourra s'exécuter différement sur un autre navigateur.
+Le Javascript possède le même défaut que toutes les technologies implémentées au
+niveau du navigateur, à savoir que la norme du langage n'est pas toujours respectée 
+et un script codé pour un navigateur pourra s'exécuter différement sur un autre
+navigateur.
 
-Afin de faciliter le développement en Javascript, nous avons utilisé jQuery, une librairie développée par John Resig et fournissant
-une interface permettant de programmer en faisant abstraction de ces défauts d'implémentation. De plus, jQuery possède
-une série de fonctions complétant celles fournies par Javascript.
+Afin de faciliter le développement en Javascript, nous avons utilisé jQuery, une 
+librairie développée par John Resig et fournissant une interface permettant de 
+programmer en faisant abstraction de ces défauts d'implémentation. De plus, jQuery 
+possède une série de fonctions complétant celles fournies par Javascript.
+
 
         \subsection{SQL / MySQL}
+Le SQL est un langage permettant de communiquer avec un serveur de base de données. 
+Il permet de commander l'ajout, la modification, la suppression ou encore la 
+récupéraiton de données dans la base et est donc indispensable pour un application 
+dynamique.
 
-Le SQL est un langage permettant de communiquer avec un serveur de base de données. Il permet de commander l'ajout, 
-la modification, la suppression ou encore la récupéraiton de données dans la base et est donc indispensable pour un application dynamique.
+Pour ce projet, nous avons utilisé le même type de serveur que Polytech, nommé
+MySQL, qui est le serveur le plus connu et le plus répandu, bien que possédant 
+un certain nombre de défauts.
 
-Pour ce projet, nous avons utilisé le même type de serveur que Polytech, nommé MySQL, qui est le serveur le plus connu
-et le plus répandu, bien que possédant un certain nombre de défauts.
 
         \subsection{Java}
-Java est un langage de programmation orienté objet. Il a la particularité de pouvoir fournir des 
-programmes qui seront assez facilement portables sur plusieurs plateformes. Il présente une certaine
-ressemblance au c++, avec quelques nuances comme l'absence de la gestion de la mémoire via les pointeurs
-ou encore l'accent sur l'aspect orienté objet.
-Nous avons été amenés à l'utiliser dans le cadre de la modification de PDFBox. 
+Java est un langage de programmation orienté objet. Il a la particularité de 
+pouvoir fournir des programmes qui seront assez facilement portables sur plusieurs 
+plateformes. Il présente une certaine ressemblance au c++, avec quelques nuances 
+comme l'absence de la gestion de la mémoire via les pointeurs ou encore l'accent 
+sur l'aspect orienté objet. Nous avons été amenés à l'utiliser dans le cadre de 
+la modification de PDFBox. 
+
 
        \subsection{UML}
-UML ne correspond pas à un langage de progammation, mais plutôt à un langage graphique de modélisation.
-Sa création a été motivée dans le but d'harmoniser les différentes méthodes de modélisation. Aujourd'hui il s'impose comme 
-un standard. Nous l'avons choisi principalement pour 2 raisons car il correspond à l'un des enseignements suivi cette année
-et parce que c'est un standard.
+UML ne correspond pas à un langage de progammation, mais plutôt à un langage 
+graphique de modélisation. Sa création a été motivée dans le but d'harmoniser les
+différentes méthodes de modélisation. Aujourd'hui il s'impose comme un standard. 
+Nous l'avons choisi principalement pour 2 raisons car il correspond à l'un des 
+enseignements suivi cette annéeet parce que c'est un standard.
+
+
+
+    \section{Juridique}
+Comme le projet est voué à être ré-utilisé par la suite, tout le code que nous 
+avons écrit ce trouve sous licence BSD, pour "Berkeley software distribution
+license". Le texte complet de la license est contenu en annexe.
+
+Dans l'ensemble de nos répertoires Git, la licence se trouve à la racine, dans les
+fichiers COPYING. Dans les fichiers compilés (.cpp, .hpp, etc), on la retrouve
+également en en-tête, contrairement aus fichiers lus très fréquemment, comme les
+scripts PHP et Javascript.
+
+Cela lui confère entre autres d'être libre et elle permet de réutiliser tout ou 
+une partie du logiciel sans restriction, qu'il soit intégré dans un logiciel libre 
+ou propriétaire.
 

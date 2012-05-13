@@ -106,7 +106,7 @@ voit. Ce procédé est par exemple utilisé dans les imprimeries.
 
     \begin{figure}[h]
         \begin{center}
-        \includegraphics[scale=0.6]{images/boxesInPDF.jpg} 
+        \includegraphics[scale=0.4]{images/boxesInPDF.jpg} 
         \end{center}
         \caption{Hiérarchie des différentes box}
         \label{Hiérarchie des différentes box}
@@ -186,7 +186,28 @@ minimiser la taille du fichier pdf. Dans le codag même du pdf, ces polices sont
 car elles leur nom comporte 6 caractères aléatoiressuivi d'un plus et du nom original 
 de la police.
         %TODO: Image de diapositive erronée.
+    \begin{figure}[h]
+        \begin{center}
+            \includegraphics[scale=0.2]{images/GLSE301_2011-2012_seance_11_badConv.jpg} 
+        \end{center}
 
+        \caption{conversion éronnée}
+        \label{conversion éronnée}
+    \end{figure}
+
+
+Alors que le résultat attendu estle suivant (photo obtenue après modification de
+PDFBox):
+
+
+ \begin{figure}[h]
+        \begin{center}
+            \includegraphics[scale=0.2]{images/GLSE301_2011-2012_seance_11_goodConv.jpg} 
+        \end{center}
+
+        \caption{conversion correcte}
+        \label{conversion correcte}
+    \end{figure}
 Comme mentionnée précédemment, certains fichiers PDF peuvent contenir eux 
 même la définition ainsi que les glyphes correspondants aux caractères utilisés dans 
 le document. Cependant, si ces dernières ne sont pas complètes, il subsistait

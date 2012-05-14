@@ -160,7 +160,7 @@ classe "java.awt.Font". Et malheureusement, cette dernière nécessite de travai
 avec des polices complètes.  Les polices pouvant poser ce problème sont: les police de type "Type 1" ou
 "TrueType".
 Par exemple, les polices "TrueType Font" sont composées de plusieurs tables. Chaque 
-tables étant une séquence mot (en anglais word, correspondant à une unité d'information composée de 
+table étant une séquence mot (en anglais word, correspondant à une unité d'information composée de 
 16 bits). Ils existent plusieurs tables:
 \begin{itemize}
 \item La table cmap qui fait le lien entre les caractères et les glyphes correspondantes.
@@ -168,22 +168,21 @@ tables étant une séquence mot (en anglais word, correspondant à une unité d'
 \item La table hmtx qui defini la taille des caractères
 \end{itemize}
 %p258 
-En plus de ces tables, des tables optionnelles existent (exempel: cvt ).
-Cetaines tables peuvent manquer lorsqu'on inclue une police partiellement comme la table "name".
-En plus de cela certaines informations comme le "font descriptor" sont modifiées pour permettre la fusion de 2 documents
-utilisant la même police partielle mais composé de glyphes différentes ou bien de différencier une police partielle d'une complète.
+En plus de ces tables, des tables optionnelles existent (exemple: cvt).
+Certaine tables peuvent manquer lorsque l'on inclue une police partiellement comme la table "name".
+En plus de cela, certaines informations comme le "font descriptor" sont modifiées pour permettre la fusion de 2 documents
+utilisant la même police partielle mais composée de glyphes différentes ou bien de différencier une police partielle d'une complète.
 Ceci est la preuve que on ne peut pas traiter une police partielle et complète de la même façon. Cette affirmation est appuyée par
 la documentation portant sur les spécification du format pdf lui même.
 
-
 Il arrive donc que suivant les fichiers à transformer en images, si la police 
-est contenue dedans, le resultats soit illisible, dû à la confusion par rapport
+est contenue dedans, le resultat soit illisible, dû à la confusion par rapport
 au caractère manquant. 
 Les polices posant problème sont des polices à la fois incluses dans le pdf mais que
 partiellement. On dit de ces polices qu'elles sont "subset" c'est à dire qu'elles appartiennent
 à un plus grand ensemble. Si elles sont modifiées par rapport à l'original c'est pour
-minimiser la taille du fichier pdf. Dans le codag même du pdf, ces polices sont visibles 
-car elles leur nom comporte 6 caractères aléatoiressuivi d'un plus et du nom original 
+minimiser la taille du fichier pdf. Dans le codage même du pdf, ces polices sont visibles 
+car leur nom comporte 6 caractères aléatoires suivis d'un plus et du nom original 
 de la police.
         %TODO: Image de diapositive erronée.
     \begin{figure}[h]
@@ -214,15 +213,15 @@ le document. Cependant, si ces dernières ne sont pas complètes, il subsistait
 quelques erreurs.
 
 Nous avons essayé de modifier nous même les polices incriminées mais 
-sans résultat probant. En fait l'une des solution serait de réécrire une partie des
+sans résultat probant. En fait l'une des solutions serait de réécrire une partie des
 libraries permettant la manipulation des polices, pour prendre en charge les polices 
-incomplètes. Mais cela pourrait poser des problèmes de license car le fait de n'integrer une
+incomplètes. Mais cela pourrait poser des problèmes de license car le fait d'intégrer une
 police que partiellement permet d'outrepasser certaines limitations imposées par les licenses car 
-l'utilisateur final ne pourra pas les extraires pour les utiliser ou alors il ne pourra n'en utiliser qu'une
+l'utilisateur final ne pourra pas les extraire pour les utiliser ou alors il ne pourra n'en utiliser qu'une
 partie.
 
  Nous avons donc patché le code une deuxième fois 
-en donnant la police système si le document en utilisait une interne.
+en donnant la police système si le document en utilise une interne.
 
 De ce fait, tous les documents se verront écrit avec cette police mais 
 on garde l'avantage de garder partiellement le style d'écriture 

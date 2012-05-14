@@ -64,7 +64,7 @@ conférenciers ne souhaitent pas fournir leur présentation en téléchargement 
 Les étudiants ont donc accès à la liste des packages, et peuvent s'inscrire et
 se désinscrire d'un package à tout moment dans la limite des inscriptions, mais
 également dans la limite des places disponibles.
-Chaque package dispose donc d'un quota de place, ansi, le premier à faire ses choix
+Chaque package dispose donc d'un quota de place, ainsi, le premier à faire ses choix
 est le premier servi.
 
 Afin de faciliter la navigation, une fonctionnalité permet de lister directement
@@ -73,9 +73,9 @@ les packages auxquels l'utilisateur s'est inscrit.
 Les étudiants peuvent voir le planning des conférences auxquels ils sont inscrits,
 encore une fois pour faciliter l'accès aux informations "pertinentes".
 
-            \subsubsection{QCM.}
+            \subsubsection{QCM}
 
-Le QCM. est la première manière de noter les étudiants, et surtout, la principale
+Le QCM est la première manière de noter les étudiants, et surtout, la principale
 raison de la création de cette interface Web. En effet, en plus d'automatiser les
 inscriptions, l'utilisation d'un site Web permet de générer facilement un QCM
 personnalisé pour chaque étudiant, reposant sur les conférences auxquels il s'est inscrit.
@@ -84,8 +84,8 @@ personnalisé pour chaque étudiant, reposant sur les conférences auxquels il s
         \begin{center}
         \includegraphics[scale=0.4]{images/screenshotQCM.png} 
         \end{center}
-        \caption{Design du site web}
-        \label{Design du site web}
+        \caption{Passage d'un QCM}
+        \label{Passage d'un QCM}
     \end{figure}
 
 C'est l'occasion de préciser qu'une fois que l'étudiant s'est inscrit à un package,
@@ -96,10 +96,10 @@ il ait tout de même à répondre à une question en rapport avec cette confére
 
 La note du QCM ne repose en réalité pas entièrement sur les questions posées.
 Il est possible de déterminer une note de présence telle que si l'étudiant assiste
-bien à chaque conférence où il est inscrit, il aura déjà une base de point pour le QCM.
+bien à chaque conférence où il est inscrit, il aura déjà une base de point pour le QCM
 
 La notation est basée sur le système suivant:
-\begin{equation}N_{f} = N_{p} + N_{QCM.}\end{equation}
+\begin{equation}N_{f} = N_{p} + N_{QCM}\end{equation}
 
 \begin{equation}
     N_{p} = \sum_{i = 0}^{Nb_{inscrs.}} X_{i} \times \frac{N_{pmax}}{Nb_{inscrs.}} {,}
@@ -112,7 +112,7 @@ La notation est basée sur le système suivant:
 \end{equation}
 
 \begin{equation}
-    N_{QCM.} = \sum_{i = 0}^{Nb_{repsVals.}} X_{i} \times RepsQuest_{i} {,}
+    N_{QCM} = \sum_{i = 0}^{Nb_{repsVals.}} X_{i} \times RepsQuest_{i} {,}
     \left\{
     \begin{array}{l l}
         X_{i} = \frac{1}{RepsQuestV_{i}} \text{ si }Reponse_{i} = \text{Vrai}\\
@@ -128,10 +128,10 @@ $$
 N_{f} = \text{Note finale}\\
 N_{p} = \text{Note de présence}\\
 N_{pmax} = \text{Note de présence maximale}\\
-N_{QCM.} = \text{Note de QCM.}\\
+N_{QCM} = \text{Note de QCM}\\
 Nb_{inscrs.} = \text{Nombre d'inscriptions de l'élève}\\
 Status_{i} = \text{Status de la ième inscription}\\
-Nb_{repsVals.} = \text{Nombres de réponses validées au QCM.}\\
+Nb_{repsVals.} = \text{Nombres de réponses validées au QCM}\\
 RepsQuest_{i} = \text{Nombres de réponses dans la question associée}\\
 RepsQuestV_{i} = \text{Nombres de réponses vrai dans question la associée}\\
 RepsQuestF_{i} = \text{Nombres de réponses fausse dans question la associée}\\
@@ -139,16 +139,16 @@ RepsQuestF_{i} = \text{Nombres de réponses fausse dans question la associée}\\
 \right.
 $$
 
-Concernant la page de passage du QCM., il s'agit d'un formulaire classique avec des checkboxes pour chaque question.
+Concernant la page de passage du QCM, il s'agit d'un formulaire classique avec des checkboxes pour chaque question.
 Le bouton "Envoyer mes réponses" est protégé par une fenêtre de confirmation, afin de pouvoir revérifier ses réponses.
 
 Chaque étudiant récupère donc des questions choisies aléatoirement parmi celles possibles (i.e: les questions liées aux packages qu'a
-suivi l'étudiant), son QCM. est généré, et ne changera plus.
+suivi l'étudiant), son QCM est généré, et ne changera plus.
 
 Les questions qui lui sont posées ont été enregistrées. Les réponses de l'utilisateur sont également sauvées dans la base de données,
 pour faciliter la décision dans le cas d'une harmonisation.
 
-Le QCM. ne peut être passé qu'une fois.
+Le QCM ne peut être passé qu'une fois.
 
             \subsubsection{Rapports}
 
@@ -212,7 +212,7 @@ Chaque ligne suivante peut soit être une chaîne de caractères terminale ("\_\
     \item Bonne réponse ('T' - 'F')
     \end{itemize}
 
-Le fichier est lu séquentiellement la question puis ses réponses et itérent ainsi jusqu'à la fin du fichier.
+Le fichier est lu séquentiellement la question puis ses réponses et itére ainsi jusqu'à la fin du fichier.
 
 Après avoir uploadé ces informations, il faut également pouvoir éditer en direct sans repasser par le fichier CSV.
 Il y a donc un module d'édition permettant de modifier toutes les informations des packages et des conférences.
@@ -221,8 +221,10 @@ similaire pour toutes autres données à fournir.
 
 Pour toutes informations de type Date et Horaires, il faut respecter les deux formats suivants:
 
-Date ==> JJ-MM-AAAA
-Horaire ==> HH:MM:SS
+    \begin{itemize}
+    \item Date : JJ-MM-AAAA
+    \item Horaire : HH:MM:SS
+    \end{itemize}
 
 Voilà une page classique d'édition, permettant une gestion fine des packages:
 
@@ -230,9 +232,12 @@ Voilà une page classique d'édition, permettant une gestion fine des packages:
         \begin{center}
         \includegraphics[scale=0.4]{images/screenshotPackages.png} 
         \end{center}
-        \caption{Design du site web}
-        \label{Design du site web}
+        \caption{Vue des packages}
+        \label{Vue des packages}
     \end{figure}
+
+Il suffit de cliquer sur le texte afin de le rendre modifiable, et ensuite de retirer
+le focus à la zone de texte, la modification est donc prise en compte.
 
             \subsubsection{Documents}
 
@@ -246,14 +251,14 @@ nommé de manière croissante. Le plus simple est probablement d'utiliser des no
         \begin{center}
         \includegraphics[scale=0.4]{images/screenshotImages.png} 
         \end{center}
-        \caption{Design du site web}
-        \label{Design du site web}
+        \caption{Visionneuse en ligne}
+        \label{Visionneuse en ligne}
     \end{figure}
 
             \subsubsection{QCM et inscriptions}
 
 Une fois la Semaine du Numérique finie, l'administrateur doit inscrire les promotions ayant suivi les conférences pour leur
-séance de QCM. Il faut sélectionner la promotion, et indiquer la date et l'horaire de la séance. Il sera alors possible aux étudiants d'accéder à la page du QCM que durant ce créneau.
+séance de QCM Il faut sélectionner la promotion, et indiquer la date et l'horaire de la séance. Il sera alors possible aux étudiants d'accéder à la page du QCM que durant ce créneau.
 
 Un menu d'édition sur la même base que les autres permet l'édition en direct des inscriptions.
 
@@ -397,7 +402,15 @@ informations que nous ne stockons pas dans notre propre BDD (Base de données), 
 
 Le Router est une classe qui dérive de l'ApplicationComponant, et qui récupère dans le contrôleur associé.
 Une route s'écrit de la manière suivante:
-<route url="/lectures/show-([0-9]+)\.html" module="lectures" action="show" vars="idPackage"/>
+
+    \lstset{language=XML}
+    \begin{lstlisting} 
+<route url="/lectures/show-([0-9]+)\.html"
+       module="lectures"
+       action="show"
+       vars="idPackage"/>
+    \end{lstlisting}
+
 L'url du fichier contrôleur est indiquée, chaque contrôleur dispose d'un module associé, d'un nom d'action existant pour ce
 contrôleur. On voit également qu'il est possible de fournir des valeurs dans l'url. Ces valeurs seront récupérées afin
 d'être accessible en données GET. On peut mettre des conditions sur ces variables afin qu'elles respectent l'expression régulière

@@ -16,6 +16,9 @@ Dès le balbutiement du projet, nous avons décidé d'utiliser un gestionnaire
 de version. En effet, celui-ci nous permettait d'avoir un contrôle total des modifications
 tout au long du développement.
 
+Avec le recul, nous avons eu raison puisque le nombre de lignes de codes dépasse 
+les 11 000 (actuel, pas le nombre d'additions et de délétions).
+
 Notre choix s'est naturellement porté sur Git \cite{git}. Cela s'explique 
 par les aspects suivants:
 
@@ -104,11 +107,22 @@ int m_attribute;
     \section{Technologies utilisées}
 
         \subsection{C++}
+Le langage C++ est particulièrement adapté pour notre projet puisque que celui-ci
+sera amené à être proche d'un faible niveau d'abstraction sur certains points
+comme la communication série/bluetooh.
 
-    // Victor
+C'est aussi un langage permettant la programmation sous de multiples paradigmes
+tels que:
+
+    \begin{itemize}
+    \item Programmation procédurale
+    \item Programmation orienté-objet
+    \item Programmation générique
+    \end{itemize}
+
+De plus son usage est très répandu, ce qui nous a permis d'avoir de nombreux conseils.
 
         \subsection{CMake}
-
 CMake \cite{cmake}, pour "Cross platform Make", est un programme qui permet à partir 
 de scripts uniques, de générer l'ensemble des fichiers de constructions standard 
 du programmes, et celà, comme son nom l'indique, de manière multi-plateformes.

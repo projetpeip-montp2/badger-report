@@ -31,7 +31,6 @@
     \end{block}
 \end{frame}
 
-\subsection{Fonctionnement des conférences}
 \begin{frame}{Fonctionnement des conférences}
     \begin{block}{Package}
     Ensemble de conférences reliées autour d'un même thème
@@ -42,7 +41,6 @@
     \end{block}
 \end{frame}
 
-\subsection{Notation}
 \begin{frame}{Notation}
     \begin{block}{Critères de notation}
     \begin{itemize}
@@ -92,8 +90,40 @@
     \end{block}
 \end{frame}
 
+\subsection{Framework}
+\begin{frame}{Architecture MVC}
+    \begin{block}{Architecture MVC}
+    \begin{itemize}
+    \item Modèle
+    \item Vue
+    \item Contrôleur
+    \end{itemize}
+    Abstraction séparant la manipulation de données, l'affichage et la logique de l'application
+    \end{block}
+\end{frame}
+
 \begin{frame}{Framework}
-    \begin{block}{Framework}
-    
+    \begin{block}{Définition}
+    Ensemble d'outils et de composants logiciels organisés conformément à un plan d'architecture et des patterns, formant un squelette de programme.
+    \end{block}
+
+    \begin{block}{Avantages}
+    Framework orienté objet présenté sur le Site du Zéro
+    \begin{itemize}
+    \item Organisation du code
+    \item Séparation Utilisateur / Administrateur simple
+    \item Traitement de formulaires simplifié
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Framework - Aspect technique}
+    \begin{block}{Classes}
+    \begin{itemize}
+    \item Application: Pont entre les différentes instances de Componant
+    \item Componant: Composant de l'Application (dispose d'une référence vers l'Application)
+    \item Page (dérive de Componant): Encapsulation du template et le corps de page
+    \item Controller (dérive de Componant): Encapsulation du template et le corps de page
+    \end{itemize}
     \end{block}
 \end{frame}

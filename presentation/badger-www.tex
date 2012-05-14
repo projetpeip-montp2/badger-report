@@ -98,7 +98,7 @@
     \item Vue
     \item Contrôleur
     \end{itemize}
-    Abstraction séparant la manipulation de données, l'affichage et la logique de l'application
+    Abstraction séparant la manipulation des données, l'affichage et la logique de l'application.
     \end{block}
 \end{frame}
 
@@ -118,12 +118,40 @@
 \end{frame}
 
 \begin{frame}{Framework - Aspect technique}
-    \begin{block}{Classes}
+    La plupart de ces classes sont abstraites et sont faites pour implémenter soi même les actions voulues.
+    \begin{block}{Classes hiérarchisées}
     \begin{itemize}
     \item Application: Pont entre les différentes instances de Componant
-    \item Componant: Composant de l'Application (dispose d'une référence vers l'Application)
+    \item Componant: Composant de l'Application (disposant d'une référence vers l'Application)
     \item Page (dérive de Componant): Encapsulation du template et le corps de page
-    \item Controller (dérive de Componant): Encapsulation du template et le corps de page
+    \item Router (dérive de Componant): Chargement de la page depuis l'url
+    \item BackController (dérive de Componant): Encapsulation du modèle et de la vue
+    \item Manager: Lecture / Ecriture sur la base de données
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Framework - Aspect technique}
+    Classes "outil" simplifiant le code des contrôleurs
+    \begin{block}{Classes annexe}
+    \begin{itemize}
+    \item Date: Gestion de dates (Formats string et MySQL)
+    \item Hour: Gestion des heures (Idem)
+    \item Form: Gestion simplifiée des formulaires HTML
+    \item Database: 
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\subsection{Technologies utilisées}
+\begin{frame}{Technologies utilisées}
+    Technologies utilisées pour la plateforme Web:
+    \begin{block}{Technologies:}
+    \begin{itemize}
+    \item xHTML / CSS
+    \item PHP
+    \item SQL / MySQL
+    \item Javascript / AJAX
     \end{itemize}
     \end{block}
 \end{frame}

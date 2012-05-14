@@ -2,77 +2,104 @@
 
     \section{Timeline de la Semaine du Numérique}
 
-Afin de présenter au mieux les objectifs du site Web, il est important de comprendre comment
-est censé se dérouler la Semaine du Numérique.
+Afin de présenter au mieux les objectifs du site Web, il est important de comprendre
+comment est censé se dérouler la Semaine du Numérique.
 
-Les packages (appelés aussi cycles de conférences) correspondent à un ensemble de conférences regroupées autour d'un même thème.
-Chaque étudiant peut donc choisir parmi le panel disponible, c'est donc un système "à la carte", permettant
-ainsi de personnaliser cette unité d'enseignement.
+Les packages (appelés aussi cycles de conférences) correspondent à un ensemble de
+conférences regroupées autour d'un même thème.
+Chaque étudiant peut donc choisir parmi le panel disponible, c'est donc un système
+"à la carte", permettant ainsi de personnaliser cette unité d'enseignement.
 
-Les étudiants doivent s'inscrire via la plateforme web à des packages avant la date limite, une fois cette date dépassée,
-il ne leur est plus possible de modifier leur choix.
+Les étudiants doivent s'inscrire via la plateforme web à des packages avant la date
+limite, une fois cette date dépassée, il ne leur est plus possible de modifier leur choix.
 
-L'administrateur devra si nécessaire régler les problèmes d'inscriptions pour certains étudiants avant que les conférences ne commencent.
+L'administrateur devra si nécessaire régler les problèmes d'inscriptions pour certains
+étudiants avant que les conférences ne commencent.
 
-La Semaine du Numérique consiste donc en une semaine banalisée pour les différentes sections de Polytech' Montpellier
-où des intervenants aborderont certains thèmes liés à l'informatique au coeur de l'entreprise.
+La Semaine du Numérique consiste donc en une semaine banalisée pour les différentes
+sections de Polytech' Montpellier où des intervenants aborderont certains thèmes liés
+à l'informatique au coeur de l'entreprise.
 
-Une fois les conférences passées, les étudiants doivent passer un QCM généré en fonction des packages qu'ils ont choisi.
-Ils devront également rendre un rapport pour chaque package auxquels ils se sont inscrits.
+Une fois les conférences passées, les étudiants doivent passer un QCM généré en
+fonction des packages qu'ils ont choisi. Ils devront également rendre un rapport
+pour chaque package auxquels ils se sont inscrits.
 
     \section{Cahier des charges}
 
-Le site Web que nous avons développé est une plateforme de communication entre les étudiants
-et Mr Berry, en charge de la Semaine du Numérique (ainsi que de notre projet).
-L'application devait donc fournir un certain nombre de fonctionnalités vis à vis des étudiants,
-mais aussi pour l'administration, afin de mettre en ligne les informations et de gérer les potentiels conflits.
+Le site Web que nous avons développé est une plateforme de communication entre les
+étudiants et Mr Berry, en charge de la Semaine du Numérique (ainsi que de notre projet).
+L'application devait donc fournir un certain nombre de fonctionnalités vis à vis
+des étudiants, mais aussi pour l'administration, afin de mettre en ligne les
+informations et de gérer les potentiels conflits.
+
+On notera également que la partie utilisateur devait permettre d'afficher toutes
+les informations en plusieurs langues. Le framework utilisé facilite en grande partie
+la réalisation d'un site multi-lingue, même si l'implémentation d'une nouvelle
+langue demanderait une quantité de travail assez conséquente. Il est donc possible
+de visiter intégralement le site en Français et en Anglais.
 
         \subsection{Partie utilisateur}
 
-Du côté utilisateur, (également appelé Frontend), les étudiants ont accès aux sections suivantes:
+Du côté utilisateur, (également appelé Frontend), les étudiants ont accès aux sections
+suivantes:
 
     \begin{itemize}
     \item Conférences
-    \item Q.C.M
+    \item QCM
     \item Rapports
     \end{itemize}
 
             \subsubsection{Conférences}
 
-Les packages disposent d'une courte description présentant le thème, ainsi qu'une liste de conférences.
-Ces conférences ont également une description, et le nom du conférencier (et/ou la société) est également disponible.
+Les packages disposent d'une courte description présentant le thème, ainsi qu'une
+liste de conférences. Ces conférences ont également une description, et le nom du
+conférencier (et/ou la société) est également disponible.
 On dispose bien sûr de la date, l'horaire et la salle où celle-ci aura lieu.
 
-De plus, les documents en rapport avec le package peuvent soit être téléchargé depuis le site Web,
-soit être consulté par la visionneuse en ligne. La création d'une visionneuse en ligne se justifie par le fait
-qu'il est possible que les conférenciers ne souhaitent pas fournir leur présentation en téléchargement direct.
+De plus, les documents en rapport avec le package peuvent soit être téléchargé
+depuis le site Web, soit être consulté par la visionneuse en ligne. La création
+d'une visionneuse en ligne se justifie par le fait qu'il est possible que les
+conférenciers ne souhaitent pas fournir leur présentation en téléchargement direct.
 
-Les étudiants ont donc accès à la liste des packages, et peuvent s'inscrire et se désinscrire
-d'un package à tout moment dans la limite des inscriptions, mais également dans la limite des places disponibles.
-Chaque package dispose donc d'un quota de place, ansi, le premier à faire ses choix est le premier servi.
+Les étudiants ont donc accès à la liste des packages, et peuvent s'inscrire et
+se désinscrire d'un package à tout moment dans la limite des inscriptions, mais
+également dans la limite des places disponibles.
+Chaque package dispose donc d'un quota de place, ansi, le premier à faire ses choix
+est le premier servi.
 
-Afin de faciliter la navigation, une fonctionnalité permet de lister directement les packages auxquels l'utilisateur
-s'est inscrit.
+Afin de faciliter la navigation, une fonctionnalité permet de lister directement
+les packages auxquels l'utilisateur s'est inscrit.
 
-Les étudiants peuvent voir le planning des conférences auxquels ils sont inscrits, encore une fois pour faciliter l'accès
-aux informations "pertinentes".
+Les étudiants peuvent voir le planning des conférences auxquels ils sont inscrits,
+encore une fois pour faciliter l'accès aux informations "pertinentes".
 
-            \subsubsection{Q.C.M.}
+            \subsubsection{QCM.}
 
-Le Q.C.M. est la première manière de noter les étudiants, et surtout, la principale raison de la création de cette interface Web.
-En effet, en plus d'automatiser les inscriptions, l'utilisation d'un site Web permet de générer facilement un Q.C.M.
+Le QCM. est la première manière de noter les étudiants, et surtout, la principale
+raison de la création de cette interface Web. En effet, en plus d'automatiser les
+inscriptions, l'utilisation d'un site Web permet de générer facilement un QCM
 personnalisé pour chaque étudiant, reposant sur les conférences auxquels il s'est inscrit.
 
-C'est l'occasion de préciser qu'une fois que l'étudiant s'est inscrit à un package, il s'engage à être présent à chaque
-conférence qui le compose. En effet, les questions sont liées à un package et non à une conférence, aussi, il est tout à fait
-possible que si un étudiant n'assiste pas à une conférence, il ait tout de même à répondre à une question en rapport avec cette
-conférence.
+    \begin{figure}[h]
+        \begin{center}
+        \includegraphics[scale=0.4]{images/screenshotQCM.png} 
+        \end{center}
+        \caption{Design du site web}
+        \label{Design du site web}
+    \end{figure}
 
-La note du Q.C.M. ne repose en réalité pas entièrement sur les questions posées. Il est possible de déterminer une note de présence
-telle que si l'étudiant assiste bien à chaque conférence où il est inscrit, il aura déjà une base de point pour le Q.C.M.
+C'est l'occasion de préciser qu'une fois que l'étudiant s'est inscrit à un package,
+il s'engage à être présent à chaque conférence qui le compose. En effet, les
+questions sont liées à un package et non à une conférence.
+Il est tout à fait possible que si un étudiant n'assiste pas à une conférence,
+il ait tout de même à répondre à une question en rapport avec cette conférence.
+
+La note du QCM ne repose en réalité pas entièrement sur les questions posées.
+Il est possible de déterminer une note de présence telle que si l'étudiant assiste
+bien à chaque conférence où il est inscrit, il aura déjà une base de point pour le QCM.
 
 La notation est basée sur le système suivant:
-\begin{equation}N_{f} = N_{p} + N_{Q.C.M.}\end{equation}
+\begin{equation}N_{f} = N_{p} + N_{QCM.}\end{equation}
 
 \begin{equation}
     N_{p} = \sum_{i = 0}^{Nb_{inscrs.}} X_{i} \times \frac{N_{pmax}}{Nb_{inscrs.}} {,}
@@ -85,7 +112,7 @@ La notation est basée sur le système suivant:
 \end{equation}
 
 \begin{equation}
-    N_{Q.C.M.} = \sum_{i = 0}^{Nb_{repsVals.}} X_{i} \times RepsQuest_{i} {,}
+    N_{QCM.} = \sum_{i = 0}^{Nb_{repsVals.}} X_{i} \times RepsQuest_{i} {,}
     \left\{
     \begin{array}{l l}
         X_{i} = \frac{1}{RepsQuestV_{i}} \text{ si }Reponse_{i} = \text{Vrai}\\
@@ -101,10 +128,10 @@ $$
 N_{f} = \text{Note finale}\\
 N_{p} = \text{Note de présence}\\
 N_{pmax} = \text{Note de présence maximale}\\
-N_{Q.C.M.} = \text{Note de Q.C.M.}\\
+N_{QCM.} = \text{Note de QCM.}\\
 Nb_{inscrs.} = \text{Nombre d'inscriptions de l'élève}\\
 Status_{i} = \text{Status de la ième inscription}\\
-Nb_{repsVals.} = \text{Nombres de réponses validées au Q.C.M.}\\
+Nb_{repsVals.} = \text{Nombres de réponses validées au QCM.}\\
 RepsQuest_{i} = \text{Nombres de réponses dans la question associée}\\
 RepsQuestV_{i} = \text{Nombres de réponses vrai dans question la associée}\\
 RepsQuestF_{i} = \text{Nombres de réponses fausse dans question la associée}\\
@@ -112,16 +139,16 @@ RepsQuestF_{i} = \text{Nombres de réponses fausse dans question la associée}\\
 \right.
 $$
 
-Concernant la page de passage du Q.C.M., il s'agit d'un formulaire classique avec des checkboxes pour chaque question.
+Concernant la page de passage du QCM., il s'agit d'un formulaire classique avec des checkboxes pour chaque question.
 Le bouton "Envoyer mes réponses" est protégé par une fenêtre de confirmation, afin de pouvoir revérifier ses réponses.
 
 Chaque étudiant récupère donc des questions choisies aléatoirement parmi celles possibles (i.e: les questions liées aux packages qu'a
-suivi l'étudiant), son Q.C.M. est généré, et ne changera plus.
+suivi l'étudiant), son QCM. est généré, et ne changera plus.
 
 Les questions qui lui sont posées ont été enregistrées. Les réponses de l'utilisateur sont également sauvées dans la base de données,
 pour faciliter la décision dans le cas d'une harmonisation.
 
-Le Q.C.M. ne peut être passé qu'une fois.
+Le QCM. ne peut être passé qu'une fois.
 
             \subsubsection{Rapports}
 
@@ -136,7 +163,7 @@ On dispose donc d'un menu avec ces différentes options:
     \begin{itemize}
     \item Conférences
     \item Documents
-    \item Q.C.M et inscriptions
+    \item QCM et inscriptions
     \item Salles
     \item Configuration
     \item Remise à zéro
@@ -199,8 +226,13 @@ Horaire ==> HH:MM:SS
 
 Voilà une page classique d'édition, permettant une gestion fine des packages:
 
-%TODO: Ajouter un screenchot
-[screenshot\_packages.png]
+    \begin{figure}[h]
+        \begin{center}
+        \includegraphics[scale=0.4]{images/screenshotPackages.png} 
+        \end{center}
+        \caption{Design du site web}
+        \label{Design du site web}
+    \end{figure}
 
             \subsubsection{Documents}
 
@@ -210,13 +242,18 @@ L'upload pour le téléchargement est basique, il suffit d'indiquer à quel pack
 Dans le cas de l'upload d'images, il suffit de les regrouper dans un fichier zippé (format .zip) en faisant en sorte qu'elle soit
 nommé de manière croissante. Le plus simple est probablement d'utiliser des noms de ce type:
 
-%TODO: Ajouter un screenchot
-[screenshot\_images.png]
+    \begin{figure}[h]
+        \begin{center}
+        \includegraphics[scale=0.4]{images/screenshotImages.png} 
+        \end{center}
+        \caption{Design du site web}
+        \label{Design du site web}
+    \end{figure}
 
             \subsubsection{QCM et inscriptions}
 
 Une fois la Semaine du Numérique finie, l'administrateur doit inscrire les promotions ayant suivi les conférences pour leur
-séance de Q.C.M. Il faut sélectionner la promotion, et indiquer la date et l'horaire de la séance. Il sera alors possible aux étudiants d'accéder à la page du Q.C.M que durant ce créneau.
+séance de QCM. Il faut sélectionner la promotion, et indiquer la date et l'horaire de la séance. Il sera alors possible aux étudiants d'accéder à la page du QCM que durant ce créneau.
 
 Un menu d'édition sur la même base que les autres permet l'édition en direct des inscriptions.
 
@@ -246,20 +283,19 @@ Il est également possible de verrouiller les inscriptions aux conférences, dan
 auraient a être faites.
 
             \subsubsection{Remise à zéro}
-La remise a zéro permet elle de vider les tables de la base de données. La suppression est DEFINITIVE, il n'y a pas de
+La remise a zéro permet elle de vider les tables de la base de données. La suppression est \emph{définitive}, il n'y a pas de
 backup possible une fois vidée. Le bouton demande une confirmation avant de réaliser cette action.
 
     \section{Modélisation}
 Peu de temps après le début du projet, il nous a été demandé de fournir une modélisatiton du site web. De cette manière
 nous pouvons affirmer ou infirmer notre compréhensions vis à vis du travail à réaliser et des fonctionnalitées recherchées.
 Ainsi nous pouvions répondre du mieux possible aux attentes et fournir un site web corrrespondant à ce qui est recherché.
-Naturellement nous avons opté pour le langage UML. On peut ainsi représenter et synthétiser les principales fonctions. Nous avons opter
-pour l'utilisation des diagrammes statiques de cas d'utilisation. Ils mettent en oeuvre pour chaque type d'utilisateurles différentes action 
-qu'ils peuvent réaliser sans pour autant donner d'informations précises sur la façon de les implémenter.
-Nous ne présenterons ici, seulement les diagrammes principaux. Les autres seront présents en annexes pour des raisons de lisibilité.
+Naturellement nous avons opté pour le langage UML. On peut ainsi représenter et synthétiser les principales fonctions.
+
+Nous avons opté pour l'utilisation des diagrammes statiques de cas d'utilisation. Ils mettent en oeuvre pour chaque type d'utilisateur les différentes actions qu'ils peuvent réaliser sans pour autant donner d'informations précises sur la façon de les implémenter.
+Nous ne présenterons ici, que les diagrammes principaux. Les autres seront présents en annexe pour des raisons de lisibilité.
 Afin de ne pas surcharger nos diagrammes, nous posons la convention suivante: Certain cas d'utilisation peuvent présenter 
-dans leur description l'expression suivante: "(c++). Cette dernière signifie que le cas d'utilisation en question est detaillé sur une autre feuille, 
-reprennant le cas d'utilisation en question.
+dans leur description le symbole suivant: "(++)". Cela signifie que le cas d'utilisation en question est detaillé sur une autre feuille, reprenant l'intégralité du diagramme.
 
  
     \section{Framework}
@@ -402,22 +438,55 @@ Langles et Kevin Yot.
 La photo ci-dessous correspond au résultat: une charte graphique avec une dominante 
 bleu, rapellant les couleurs de Polytech, nuancée par une touche de blanc.
 
-  \begin{figure}[h]
+    \begin{figure}[h]
         \begin{center}
         \includegraphics[scale=0.4]{images/screenSiteWeb.png} 
         \end{center}
         \caption{Design du site web}
         \label{Design du site web}
-     \end{figure} 
+    \end{figure}
 
 
 
     \section{Règles d'utilisation}
 
+Afin d'exploiter au mieux l'interface Web du côté administrateur, il est primordial
+de suivre la timeline, cela permet ainsi d'être sûr de ne pas tomber sur les "effets de bord"
+liés à l'implémentation.
+
         \subsection{Check list}
 
+La timeline suit le schéma suivant:
 
+    \begin{itemize}
+    \item Création des packages ainsi que les conférences, il est \emph{très important} que
+           les dates et les horaires soient fixés, et qu'il ne change plus à partir du début des
+           inscriptions des étudiants.
+    \item Création des séances de QCM pour les promotions participant à la Semaine du Numérique,
+           en n'hésitant pas à y mettre des dates distantes, qui pourront être modifiées plus tard.
+    \item Envoi d'un mail récapitulatif, rappelant aux étudiants n'ayant pas fait tous leurs choix
+           qu'ils seront répartis automatiquement.
+    \item Verrouillage \emph{manuel} des inscriptions à la date limite.
+    \item Affectation des étudiants ayant des inscriptions manquantes.
+    \item Changement des dates des séances de QCM si besoin.
+    \item Récupération des notes.
+    \end{itemize}
 
         \subsection{Recommandations}
 
+Pour le déploiement du site web, les pré-requis sont les suivants:
 
+    \begin{itemize}
+    \item Serveur Apache2
+    \item Serveur PHP 5.2 (ou supérieur)
+    \item Serveur MySQL 5.0 (ou supérieur)
+    \item Extensions PHP mysqli, zip
+    \item Module URL-Rewriting activé sur le serveur Apache
+    \end{itemize}
+
+Le fichier .htaccess à la racine de l'application contient les règles pour
+l'URL-Rewriting. Certains serveurs bloquent les fichiers .htaccess, il est alors
+nécessaire d'écrire ces règles dans le fichier de configuration d'Apache.
+
+Nous avons suivi l'architecture du serveur Polytech, il faut donc placer le code
+dans un répertoire nommé "vbMifare/" situé à la racine du serveur Apache.

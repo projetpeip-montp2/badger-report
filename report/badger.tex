@@ -19,8 +19,7 @@ résidait dans la design des cartes. On aurait pu les faire graver
 de façon à faire un buzz autour de la Semaine du Numérique. De plus la société
 vendait également des lecteurs prêts à l'emploi.
 Malheureusement, il nous fut impossible d'obtenir un devis de la part d'un
-commercial, même après de multiples relance. Cette solution nécessitait aussi
-un investissement financier.
+commercial, même après de multiples relance.
 
 \item Carte étudiant: Rapidement cette solution a fait l'unanimité. En effet,
 elle était bien plus facile à mettre en place: chaque titulaire de carte délivrée
@@ -37,7 +36,7 @@ marqueurs, les étiquettes RFID.
 
     \begin{figure}[h]
         \begin{center}
-            \includegraphics[scale=0.6]{images/RFIDtag.jpg} 
+            \includegraphics[scale=0.3]{images/RFIDtag.jpg} 
         \end{center}
 
         \caption{Etiquette RFID}
@@ -92,7 +91,7 @@ confié le MFR120U pour que nous puissions nous faire la main dessus.
 
     \begin{figure}[h]
         \begin{center}
-            \includegraphics[scale=0.75]{images/mfr.jpg}
+            \includegraphics[scale=0.55]{images/mfr.jpg}
         \end{center}
         \caption{MFR120U}
         \label{MFR120U}
@@ -117,8 +116,6 @@ De base, il pointe sur le premier enregistrement. On ne peut que demander le sui
 ce qui a pour effet d'incrémenter ce curseur et de renvoyer la nouvelle valeur
 pointée, ou faire un ``rollback'', c'est à dire remettre le curseur sur le tout
 premier enregistrement.
-
-Le lecteur possédait également un système de droit d'accès avec un mot de passe.
 
 Le programme que nous devions développer était en somme assez simple, puisqu'il
 devait offrir une interface permettant de se connecter au lecteur, de récupérer les
@@ -267,7 +264,7 @@ en annexe du rapport.
 
 Attention, elles diffèrent quelque peu de celles du MFR120U, présentes sur 
 la documentation officielle.
-
+\newpage
 
     \section{Architecture matérielle}
 Ci-dessous se trouve un schéma représentant le prototype du lecteur de carte.
@@ -299,7 +296,7 @@ Enfin le dossier badger/ contient le programme final, faisant appel à ceux
 ci-dessus. Il contient de plus une classe permettant d'envoyer des requêtes SQL
 à une base de données MySQL distante. Le programme fonctionne sous la forme d'un 
 interpréteur de commandes.
-
+\newpage
 
     \section{Utilisation}
 Ci-dessous, voici l'exemple d'utilisation sous Linux, une fois placé dans le
@@ -345,4 +342,4 @@ connecté ou pas: au lancement le programme envoie sur tous les ports la command
 STX F CR, qui si elle est envoyé sur le MFR120U, retourne un résultat attendu.
 
 Or cette façon nous dérange, dans le sens où l'on ne sait pas sur quel périphérique
-nous allons envoyer cette commande, et encore moins quelle va être sa réaction...
+nous allons envoyer cette commande, et encore moins quel va être sa réaction...

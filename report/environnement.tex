@@ -5,6 +5,7 @@ développé les deux projets. Il va aussi servir à introduire un ensemble de
 règles et de conventions utilisées par la suite.
 Nous présenterons également les technologies utilisées au cours de ce projet.
 
+
     \section{Réunions et contacts}
 Tout au long du projet, nous avons été en contact permanent avec Mr Berry,
 que ce soit par e-mails, appels téléphoniques ou réunions. Ces dernières
@@ -12,6 +13,8 @@ que ce soit par e-mails, appels téléphoniques ou réunions. Ces dernières
 bonne direction. Nos recontres ont eu lieu à Polytech' ou au Lirmm.
 
     \section{Gestionnaire de versions}
+
+        \subsection{Git}
 Dès le balbutiement du projet, nous avons décidé d'utiliser un gestionnaire
 de version. En effet, celui-ci nous permettait d'avoir un contrôle total des modifications
 tout au long du développement.
@@ -31,7 +34,9 @@ par les aspects suivants:
 
     De plus certains d'entre nous l'avait déjà utilisé précédement, ce qui a facilité
     l'exploitation de cet outil au sein du groupe.
+\newpage
 
+        \subsection{GitHub}
     Mais surtout, le plus important pour nous reste quand même le site web GitHub \cite{github}.
     Il fait office de serveur centralisé pour git. Mais pas seulement puisqu'il 
     propose entre autre:
@@ -67,37 +72,25 @@ long du développement, mais aussi et surtout, pour que la relecture et la
 compréhension soient simplifiées pour les développeurs du projet, ainsi que pour les
 futures personnes amenées à travailler dessus.
 
-Cela regroupe:
-
-    \begin{itemize}
-    \item Un code en anglais (commentaire compris).
-    \item Eviter de dépasser 80 caractères si possible.
-    \item Indentation de 4 espaces, pas de tabulation.
-    \end{itemize}
-
+Cela regroupe donc un code en anglais (commentaire compris), ne pas dépasser 80 
+caractères si possible ainsin qu'une indentation de 4 espaces, pas de tabulation.
 Ci-dessous, un fichier C++ d'exemple.
 
 \begin{lstlisting}
 #ifndef BADGER_FOO_HPP
 #define BADGER_FOO_HPP
 
-#include <string>
-
 namespace badger
 {
-///////////////////////////////////
-/// \brief Sample class
-///
-/// Use for example.
-///////////////////////////////////
-class FooBar
-{
-public:
-virtual const int& doSomething() const = 0;
 
-private:
-int m_attribute;
-};
+    class FooBar
+    {
+    public:
+        virtual const int& doSomething() const = 0;
+
+    private:
+        int m_attribute;
+    };
 
 } // namespace badger
 
@@ -119,8 +112,6 @@ tels que:
     \item Programmation orienté-objet
     \item Programmation générique
     \end{itemize}
-
-De plus son usage est très répandu, ce qui nous a permis d'avoir de nombreux conseils.
 
         \subsection{CMake}
 CMake \cite{cmake}, pour "Cross platform Make", est un programme qui permet à partir 

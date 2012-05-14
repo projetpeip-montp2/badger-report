@@ -26,13 +26,13 @@ par les aspects suivants:
     \item Multi-plateformes.
     \item Gestions des branches.
     \item Développement actif et forte communauté d'utilisation.
-    \item Rapidité d'éxécution comparé à svn, hg, etc. 
+    \item Rapidité d'exécution comparé à svn, hg, etc. 
     \end{itemize}
 
-    De plus certains d'entre nous l'avait déjà utilisé précédement: git est assez
-    complèxe à prendre en main au début cependant l'entraide était de mise.
+    De plus certains d'entre nous l'avait déjà utilisé précédement, ce qui a facilité
+    l'exploitation de cet outil au sein du groupe.
 
-    Mais surtoût, le plus important pour nousreste quand même le site web GitHub \cite{github}.
+    Mais surtout, le plus important pour nous reste quand même le site web GitHub \cite{github}.
     Il fait office de serveur centralisé pour git. Mais pas seulement puisqu'il 
     propose entre autre:
 
@@ -52,11 +52,11 @@ C'est un site web qualifié de professionnel puisqu'il est utilisé par de
 nombreux projets de grandes tailles tels que : Git, Perl, Facebook, Twitter,
 JQuery, PHP, Python, etc.
 
-De plus, Mr Berry, de part le Lirmm, ne pouvait nous ouvrir qu'un serveur
+De plus, Mr Berry, de par le Lirmm, ne pouvait nous ouvrir qu'un serveur
 Subversion, donc Git couplé avec GitHub est un excellent compromis.
 
-Nota Bene : son adoption sous les systèmes Windows relève encore du portage
-expérimental. Il a été codé par le créateur de Linux, pour versionner le code
+N.B. son adoption sous les systèmes Windows relève encore du portage
+expérimental. Git a été codé par le créateur de Linux, pour versionner le code
 de ce dernier, et s'utilise par conséquent en lignes de commandes.
 
     \section{Règles de codage}
@@ -71,7 +71,7 @@ Cela regroupe:
 
     \begin{itemize}
     \item Un code en anglais (commentaire compris).
-    \item Eviter de dépasser 80 caractères si possibles.
+    \item Eviter de dépasser 80 caractères si possible.
     \item Indentation de 4 espaces, pas de tabulation.
     \end{itemize}
 
@@ -109,7 +109,7 @@ int m_attribute;
         \subsection{C++}
 Le langage C++ est particulièrement adapté pour notre projet puisque que celui-ci
 sera amené à être proche d'un faible niveau d'abstraction sur certains points
-comme la communication série/bluetooh.
+comme la communication série/Bluetooth.
 
 C'est aussi un langage permettant la programmation sous de multiples paradigmes
 tels que:
@@ -125,10 +125,10 @@ De plus son usage est très répandu, ce qui nous a permis d'avoir de nombreux c
         \subsection{CMake}
 CMake \cite{cmake}, pour "Cross platform Make", est un programme qui permet à partir 
 de scripts uniques, de générer l'ensemble des fichiers de constructions standard 
-du programmes, et celà, comme son nom l'indique, de manière multi-plateformes.
+du programme, et cela, comme son nom l'indique, de manière multi-plateforme.
 
-En effet, CMake est capable de créer projets pour Visual Studio ou XCode, et même 
-des Makefiles; et cela pour bon nombre de compilateurs (msvc, gcc, clang, etc) et 
+En effet, CMake est capable de créer des projets pour Visual Studio ou XCode, et même 
+des Makefile; et cela pour bon nombre de compilateurs (msvc, gcc, clang, etc) et 
 de plateformes (Windows, MacOS, Linux, BSD, etc). Cela est possible grâce au
 système de générateur de CMake.
 
@@ -146,8 +146,8 @@ C'est un projet en développement constant, puisque la dernière version date du
 avril 2012. De plus de nombreux projets reconnus l'utilisent, comme Bullet, Ogre
 ou encore KDE.
 
-Les scripts décrivant les projets sont écris dans les fichiers CMakeLists.txt.
-Ci-dessous, un exemple minimal pour compiler un projet.
+Les scripts décrivant les projets sont écrits dans les fichiers CMakeLists.txt.
+Ci-dessous, un exemple minimal pour compiler un projet:
 
     \lstset{language=Bash}
     \begin{lstlisting} 
@@ -163,14 +163,14 @@ add_executable(my_exe ${source_files})
     \end{lstlisting}
 
 Le programme CMake s'utilise soit en lignes de commandes, soit avec une un logiciel
-possèdant une IHM.
+possédant une IHM\,\footnote{Interface Human Machine}.
 
-Dans le projet, nous avons utilisés ce système de génération pour le programme 
+Dans le projet, nous avons utilisé ce système de génération pour le programme 
 gérant la communication avec le lecteur de carte.
 
 
         \subsection{xHTML / CSS}
-Le xHTML (extensive HyperText Markup Langage) et le CSS (Cascade Style Sheet) sont
+Le xHTML\,\footnote{extensive HyperText Markup Langage} et le CSS\,\footnote{Cascade Style Sheet} sont
 des langages de description, et non des langages de programmation.
 Ces deux langages sont complémentaires, le HTML sert à représenter ``le fond'', le contenu
 en lui même, alors que le CSS représente ``la forme'', c'est le design du site, permettant
@@ -183,7 +183,7 @@ aussi, nous avons reçu de l'aide pour le style graphique.
 
 
         \subsection{PHP}
-PHP \cite{php} (PHP: Hypertext Preprocessor) est un langage de programmation 
+PHP\,\footnote{PHP Hypertext Preprocessor} \cite{php} est un langage de programmation 
 interprété que l'on écrit dans des fichiers de script à l'extension .php. Ce 
 langage est interprété par le serveur et permet principalement la génération de 
 pages web dynamiques.
@@ -191,7 +191,7 @@ pages web dynamiques.
 Nous avons principalement utilisé le fait que PHP est devenu un langage objet dans 
 sa dernière révision majeure ce qui nous a permis de construire une architecture
 basée sur l'héritage pour notre framework. En plus de la programmation orientée
-objet, nous avons utilisés de nombreuses fonctionnalités avancées de la librairie 
+objet, nous avons utilisé de nombreuses fonctionnalités avancées de la librairie 
 standard.
 
 
@@ -240,21 +240,21 @@ la modification de PDFBox.
 
        \subsection{UML}
 UML ne correspond pas à un langage de progammation, mais plutôt à un langage 
-graphique de modélisation. Sa création a été motivée dans le but d'harmoniser les
+graphique de modélisation. Il a été créé dans le but d'harmoniser les
 différentes méthodes de modélisation. Aujourd'hui il s'impose comme un standard. 
 Nous l'avons choisi principalement pour 2 raisons car il correspond à l'un des 
-enseignements suivi cette annéeet parce que c'est un standard.
+enseignements suivi cette année et parce que c'est un standard.
 
 
 
     \section{Juridique}
 Comme le projet est voué à être ré-utilisé par la suite, tout le code que nous 
-avons écrit ce trouve sous licence BSD, pour "Berkeley software distribution
-license". Le texte complet de la license est contenu en annexe.
+avons écrit se trouve sous licence BSD, pour "Berkeley software distribution
+license". Le texte complet de la licence est contenu en annexe.
 
 Dans l'ensemble de nos répertoires Git, la licence se trouve à la racine, dans les
 fichiers COPYING. Dans les fichiers compilés (.cpp, .hpp, etc), on la retrouve
-également en en-tête, contrairement aus fichiers lus très fréquemment, comme les
+également en en-tête, contrairement aux fichiers lus très fréquemment, comme les
 scripts PHP et Javascript.
 
 Cela lui confère entre autres d'être libre et elle permet de réutiliser tout ou 

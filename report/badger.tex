@@ -3,13 +3,13 @@
 Afin de vérifier l'assiduité des élèves lors des conférences, nous mettons en
 place un système de badge.
 
-Il nous fallait une solution alliant plusieurs critères comme un coût limité,un temps
-de développement réduit et de la fabilité.
+Il nous fallait une solution alliant plusieurs critères comme un coût limité, un temps
+de développement réduit et de la fiabilité.
 
 
     \section{Historique}
 Dès le début du projet, Monsieur Berry nous a proposé plusieurs pistes à 
-explorer pour le badge en lui même. Il fallait que chaque participant aux
+explorer pour le badge en lui-même. Il fallait que chaque participant aux
 conférences puisse être identifié de manière unique:
 
 \begin{itemize}
@@ -18,11 +18,11 @@ dans la création de cartes à puce, notamment Moneo. L'avantage de cette soluti
 résidait dans la design des cartes. On aurait pu les faire graver
 de façon à faire un buzz autour de la Semaine du Numérique. De plus la société
 vendait également des lecteurs prêts à l'emploi.
-Malheuresement, il nous fût impossible d'obtenir un devis de la part d'un
-commercial, même après de multiples relance. Cette solution nécéssitait aussi
+Malheureusement, il nous fut impossible d'obtenir un devis de la part d'un
+commercial, même après de multiples relance. Cette solution nécessitait aussi
 un investissement financier.
 
-\item Carte étudiant: Rapidement cette solution à fait l'unanimité. En effet,
+\item Carte étudiant: Rapidement cette solution a fait l'unanimité. En effet,
 elle était bien plus facile à mettre en place: chaque titulaire de carte délivrée
 par l'UM2 possède un numéro unique, appelé numéro Mifare, accessible grâce à
 la technologie RFID. Or Polytech possède une base de données faisant le lien entre
@@ -31,7 +31,7 @@ ce numéro et les élèves.
 
 
     \section{RFID et Mifare}
-RFID, de l'anglais ``radio frequency identification'' est une techonlogie 
+RFID, de l'anglais ``radio frequency identification'' est une technologie 
 mise au point pour permettre de lire à distance des données contenues dans des
 marqueurs, les étiquettes RFID.
 
@@ -61,33 +61,33 @@ Ces deux technologies respectent les normes ISO.
 
 
     \section{MFR120U}
-Rapidement après le début du projet, Mr Berry nous à mis en contact avec Mr
+Rapidement après le début du projet, Mr Berry nous a mis en contact avec Mr
 Cathebras, directeur du département ERII à Polytech'. En effet, il souhaitait lui
 aussi mettre en place un système de présence informatisé, pour éviter de devoir
 le faire sur papier, avant de le reporter sur l'ordinateur.
 
-Or il avait déjà creusé de son côté, puisqu'il avait acheté un lecteur de carte 
+Or il avait déjà entramé les recherches de son côté, puisqu'il avait acheté un lecteur de carte 
 Mifare, appelé module MFR120U, pour la somme de 120\euro. Ce lecteur présentait néanmoins
 plusieurs inconvénients majeurs:
 
     \begin{itemize}
-        \item Programme d'utilisation exclusivemment sous les plateformes Windows.
-        \item Liaison série-USB avec l'ordinateur par câble, ce qui nécessitait 
+        \item Programme d'utilisation exclusivement sous les plateformes Windows.
+        \item Liaison série-USB avec l'ordinateur par câble, ce qui nécessite 
               à l'utilisateur d'installer un driver fournis également que pour
               Windows.
-        \item Difficulté à savoir si la lecture de la carte avait réussi ou non.
+        \item Difficulté pour savoir si la lecture de la carte avait réussi ou non.
     \end{itemize}
 
-Par contre il posséde un écran LCD, ce qui peut se révéler assez pratique pendant
+Par contre il possède un écran LCD, ce qui peut se révéler assez pratique pendant
 
 Mr Cathebras avait donc demandé à un de ses collègues de travail du département
 ERII, Mr Tamby, s'il pouvait concevoir un module qui répondrait plus à ses attentes.
 De notre côté, nous devions nous occuper de toute la partie software.
 
-C'est ici que nous intervenont. Début février 2012 nous avons recontré Mr Cathebras,
+C'est ici que nous intervenons. Début février 2012 nous avons recontré Mr Cathebras,
 et nous avons pu discuter de l'intérêt commun à développer un tel lecteur. En effet,
 s'il venait à faire ses preuves en plus lors des conférences, il pourrait se voir
-industrialisé afin de voir son utilisation généralisée à Polytech. Il nous à donc
+industrialisé afin de voir son utilisation généralisée à Polytech. Il nous a donc
 confié le MFR120U pour que nous puissions nous faire la main dessus.
 
     \begin{figure}[h]
@@ -98,7 +98,7 @@ confié le MFR120U pour que nous puissions nous faire la main dessus.
         \label{MFR120U}
      \end{figure}  
 
-De plus il nous a fourni la documentation du lecteur. Or celle-ci nous fût d'un
+De plus il nous a fourni la documentation du lecteur. Or celle-ci nous fut d'un
 grand secours par la suite puisqu'elle comprenait tout le protocole de communication
 utilisé par le lecteur, ainsi que de nombreuses autres caractéristiques.
 
@@ -114,7 +114,7 @@ utilisé par le lecteur, ainsi que de nombreuses autres caractéristiques.
 
 En interne, la gestion des enregistrements fonctionne grâce à un curseur.
 De base, il pointe sur le premier enregistrement. On ne peut que demander le suivant,
-ce qui à pour effet d'incrémenter ce curseur et de renvoyer la nouvelle valeur
+ce qui a pour effet d'incrémenter ce curseur et de renvoyer la nouvelle valeur
 pointée, ou faire un ``rollback'', c'est à dire remettre le curseur sur le tout
 premier enregistrement.
 
@@ -122,7 +122,7 @@ Le lecteur possédait également un système de droit d'accès avec un mot de pa
 
 Le programme que nous devions développer était en somme assez simple, puisqu'il
 devait offrir une interface permettant de se connecter au lecteur, de récupérer les
-données contenues suivant certains critères, les supprimer en mémoire si nécéssaire,
+données contenues suivant certains critères, les supprimer en mémoire si nécessaire,
 et enfin les envoyer sur une base de données distante.
 
 La version fonctionnelle pour le MFR120U (sans l'envoi en base de données)
@@ -132,8 +132,8 @@ est disponible dans le repository git sous le tag v0.9-mfr120u.
     \section{Caractère multi-plateformes}
 Afin de répondre à la demande multi-plateforme des professeurs, nous nous 
 sommes naturellement tourné vers le language C++. En effet, celui-ci offre un accès
-proche de la machine, intéréssant pour la communication série notamment. De plus,
-un étudiant ERII 3, Arthur Hiairrassary, à mis à notre disposition la bibliothèque
+proche de la machine, intéressant pour la communication série notamment. De plus,
+un étudiant ERII 3, Arthur Hiairrassary, a mis à notre disposition la bibliothèque
 pour faire transiter des informations séries.
 
 Par contre, nous avons développé avec le nouveau standard C++11. Ainsi
@@ -151,13 +151,13 @@ norme. Par exemple, msvc, le compilateur de Microsoft, ne prend en charge que pe
 de ces fonctionnalités, et n'est donc pas à même de compiler le code, même avec la
 beta de Visual Studio 2011.
 
-Néanmoins, l'utilisation de ce standard nous à permis de s'affranchir de nombreuses
+Néanmoins, l'utilisation de ce standard nous a permis de s'affranchir de nombreuses
 restrictions, et par conséquent un développement plus rapide, mais surtout bien
 plus sûr. En effet la S(T)L est bien plus avancée.
 
-De plus, l'inconvénient dû au compilateur msvc fût de courte durée puisqu'il
+De plus, l'inconvénient dû au compilateur msvc fut de courte durée puisqu'il
 existe g++ et clang++, qui eux supportent en grande partie le nouveau standard.
-Et en plus ils sont multi-plateformes! Le programme a pour l'instant été testé 
+Et en plus ils sont multi-plateforme! Le programme a pour l'instant été testé 
 avec succès dans les conditions suivantes:
 
     \begin{itemize}
@@ -167,7 +167,7 @@ avec succès dans les conditions suivantes:
     \end{itemize}
 
 Afin de permettre une compilation aisée sur toutes ces plateformes, nous avons
-optés pour l'utilisation de CMake afin de générer l'ensemble de l'environnement de
+opté pour l'utilisation de CMake afin de générer l'ensemble de l'environnement de
 façon automatique.
 
 
@@ -177,7 +177,7 @@ prototype du nouveau lecteur. Durant notre première réunion, il nous a donné
 bon nombre de renseignements et conseils. De notre côté, nous lui avons fourni
 l'ensemble des commandes que nous souhaitions retrouver dans le prototype final.
 
-Aux alentours de mi-avril, il nous invite donc à voir le premier prototype.
+Aux alentours de mi-avril, il nous a invité à voir le premier prototype.
 
     \begin{figure}[h]
         \begin{center}
@@ -187,7 +187,7 @@ Aux alentours de mi-avril, il nous invite donc à voir le premier prototype.
         \label{Prototype du lecteur}
      \end{figure} 
 
-Nous sommes alors très surpris par le respect dont Mr Tamby a fait preuve
+Nous avons alors été très surpris par le respect dont Mr Tamby a fait preuve
 durant la réalisation du module, tant au niveau électronique que firmware.
 En effet il n'aura fallu changer que le baud rate, ainsi que quelques lignes
 pour que le programme soit opérationnel pour ce lecteur !
@@ -246,7 +246,7 @@ STX Command [Data] CR
 
 Les caractères STX et CR, sont non-imprimables, prenant respectivement les
 valeurs 0x02 et 0x0D. ``Commande'' est codée sur un seul caractère, alors que ``Data''
-est optionnel et dépend de la commande. Pour le programme du prototype nous avons
+est optionnelle et dépend de la commande. Pour le programme du prototype nous avons
 entre autres:
 
     \begin{itemize}
@@ -260,9 +260,9 @@ En retour à chacune des commandes, le lecteur renvoie une séquence, de la form
 STX ReturnValue [Data] CR
 
 En général, ``ReturnValue'' est le caractère A, 0x41, pour dire que
-la commande s'est bien déroulé. ``Data'' est une nouvelle fois optionnel.
+la commande s'est bien déroulé. ``Data'' est une nouvelle fois optionnelle.
 
-La liste exhaustive des commandes du protocole pour le prototype est disponible
+La liste détaillée des commandes du protocole pour le prototype est disponible
 en annexe du rapport. 
 
 Attention, elles diffèrent quelque peu de celles du MFR120U, présentes sur 
@@ -293,7 +293,7 @@ pour les systèmes POSIX d'un côté (Linux et MacOS), et Win32 de l'autre. Ces 
 ne supportent pas de façon optimale la norme POSIX.
 
 Le répertoire console/ contient quant à lui tout le système d'interpréteur.
-Il est issu d'un projet de moteur de rendus 3D d'un des membres du projet.
+Il est issu d'un projet de moteur de rendu 3D d'un des membres du projet.
 
 Enfin le dossier badger/ contient le programme final, faisant appel à ceux
 ci-dessus. Il contient de plus une classe permettant d'envoyer des requêtes SQL
@@ -345,4 +345,4 @@ connecté ou pas: au lancement le programme envoie sur tous les ports la command
 STX F CR, qui si elle est envoyé sur le MFR120U, retourne un résultat attendu.
 
 Or cette façon nous dérange, dans le sens où l'on ne sait pas sur quel périphérique
-nous allons envoyer cette commande, et encore moins qu'elle va être sa réaction...
+nous allons envoyer cette commande, et encore moins quelle va être sa réaction...

@@ -1,18 +1,18 @@
 \section{PDFBox}
 
 \begin{frame}{PDFBox}
-  	\begin{block}{visionneuse}
+  	\begin{block}{Visionneuse}
   		 \begin{itemize}
-	   		\item visualiser cours
-              		\item upload zip contenant les diapositives (format image)
+	   		\item Visionneuse de documents
+      		\item Upload zip contenant les diapositives (format image)
 	 	\end{itemize}
   	\end{block}
 
-	Question: comment convertir un pdf en image?
+	Comment convertir un pdf en image?
 
 	\begin{block}{Première approche}
   		\begin{itemize}
-      			\item parser un pdf
+      			\item Parsing PDF
       			\item jpedal
       			\item iText
   		\end{itemize}
@@ -20,26 +20,26 @@
 \end{frame}
 
 \begin{frame}{PDFBox}
-	\begin{block}{présentation}
+	\begin{block}{Présentation}
 		\begin{itemize}
-			\item Projet open source (Apache Software Foundation)
+			\item Projet Open Source (Apache Software Foundation)
 			\item Java 
-			\item Conversion pdf -$>$ image
-			\item Limitation: police arial!
+			\item Conversion PDF -$>$ Image
+			\item Limitation: Police Arial
 		\end{itemize}
 	\end{block}
 
-	\begin{block}{problèmes}
+	\begin{block}{Problèmes}
 		\begin{itemize}
-			\item redimensionnement
-			\item décalage
-			\item mauvais caractères imprimés
+			\item Redimensionnement
+			\item Décalage
+			\item Mauvais caractères imprimés
 		\end{itemize}
 	\end{block}
 \end{frame}
 
-\begin{frame}{problème: cropbox/mediabox}
-	\begin{block}{redimensionnement}
+\begin{frame}{Problème: Cropbox/Mediabox}
+	\begin{block}{Redimensionnement}
 		\begin{figure}[h]
         		\begin{center}
          		\includegraphics[scale=0.08]{images/fail1.jpg} 
@@ -51,7 +51,7 @@
 \end{frame}
 
 \begin{frame}{Polices}
-	\begin{block}{mauvais gestion des polices}
+	\begin{block}{Mauvaise gestion des polices}
 		\begin{figure}[h]
         		\begin{center}
          		\includegraphics[scale=0.17]{images/fail2.jpg} 
@@ -61,8 +61,3 @@
     		\end{figure}
 	\end{block}
 \end{frame}
-
-%\begin{frame}{}
-%	
-%\end{frame}
-

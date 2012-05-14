@@ -80,23 +80,19 @@ raison de la création de cette interface Web. En effet, en plus d'automatiser l
 inscriptions, l'utilisation d'un site Web permet de générer facilement un QCM
 personnalisé pour chaque étudiant, reposant sur les conférences auxquels il s'est inscrit.
 
-    \begin{figure}[h]
-        \begin{center}
-        \includegraphics[scale=0.4]{images/screenshotQCM.png} 
-        \end{center}
-        \caption{Passage d'un QCM}
-        \label{Passage d'un QCM}
-    \end{figure}
-
 C'est l'occasion de préciser qu'une fois que l'étudiant s'est inscrit à un package,
 il s'engage à être présent à chaque conférence qui le compose. En effet, les
 questions sont liées à un package et non à une conférence.
 Il est tout à fait possible que si un étudiant n'assiste pas à une conférence,
 il ait tout de même à répondre à une question en rapport avec cette conférence.
 
+Concernant la page de passage du QCM, il s'agit d'un formulaire classique avec des checkboxes pour chaque question.
+Le bouton "Envoyer mes réponses" est protégé par une fenêtre de confirmation, afin de pouvoir revérifier ses réponses.
+
 La note du QCM ne repose en réalité pas entièrement sur les questions posées.
 Il est possible de déterminer une note de présence telle que si l'étudiant assiste
 bien à chaque conférence où il est inscrit, il aura déjà une base de point pour le QCM
+\newpage
 
 La notation est basée sur le système suivant:
 \begin{equation}N_{f} = N_{p} + N_{QCM}\end{equation}
@@ -139,11 +135,13 @@ RepsQuestF_{i} = \text{Nombres de réponses fausse dans question la associée}\\
 \right.
 $$
 
-Concernant la page de passage du QCM, il s'agit d'un formulaire classique avec des checkboxes pour chaque question.
-Le bouton "Envoyer mes réponses" est protégé par une fenêtre de confirmation, afin de pouvoir revérifier ses réponses.
-
-Chaque étudiant récupère donc des questions choisies aléatoirement parmi celles possibles (i.e: les questions liées aux packages qu'a
-suivi l'étudiant), son QCM est généré, et ne changera plus.
+    \begin{figure}[h]
+        \begin{center}
+        \includegraphics[scale=0.4]{images/screenshotQCM.png} 
+        \end{center}
+        \caption{Passage d'un QCM}
+        \label{Passage d'un QCM}
+    \end{figure}
 
 Les questions qui lui sont posées ont été enregistrées. Les réponses de l'utilisateur sont également sauvées dans la base de données,
 pour faciliter la décision dans le cas d'une harmonisation.

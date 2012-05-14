@@ -48,17 +48,6 @@
     \cfoot{\thepage}
     \rfoot{}
 
-    % Paragraphe sur la page de garde
-    %\renewcommand{\maketitlehookd}
-    %{
-    %    \vspace{8cm}
-
-    %   Une formation à la carte va être proposée à Polytech Montpellier ce qui 
-    %   implique de gérer les inscriptions, les demandes de ressources, les accès
-    %   aux salles et l'évaluation des participants. Une solution alliant 
-    %   informatique et électronique est pressentie. 
-    %}
-
     % Nouveau type de colonne multi-lignes
     \newcolumntype{M}[1]{>{\centering}m{#1}}
 
@@ -66,7 +55,21 @@
     \renewcommand{\arraystretch}{1.2}
 
 \frontmatter
-    \maketitle
+    %\maketitle
+\begin{titlepage}
+    %\vspace{1cm}
+    \includegraphics[scale=0.3]{images/logoPolytech.jpg} %
+    \quad \rule [-6cm]{0.5pt}{20cm} %
+    %\quad \parbox[t]{15cm}{\sf
+    %\ \\[1.5 cm ]
+    %{\Large \bfseries Semaine du Numérique} \\[1.5 cm ]
+    %\hspace *{\fill }{\scriptsize Victor}
+    %}
+\end {titlepage}
+
+
+
+
     \tableofcontents
 
     \include{introduction}

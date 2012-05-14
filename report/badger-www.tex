@@ -276,6 +276,9 @@ Chaque action appartient donc à un module et existe en tant que route. Si une r
 un module (i.e un contrôleur), alors elle est executée, et la page associée est générée puis envoyée.
 Si la route n'existe pas, on est redirigé vers l'erreur 404 que nous avons défini.
 
+N.B. Une partie du framework vient d'un turoriel du Site du Zéro \cite{ref_framework_mvc}, 
+où nous avons trouvé un bon nombre de conseils et de bonnes pratiques.
+
         \subsection{L'architecture MVC}
 Avant de décrire le framework que nous avons mis en place, une explication sur le patron de conception Modèle Vue contrôleur
 est nécessaire. Il s'agit donc d'une architecture basée sur trois entités distinctes:
@@ -383,22 +386,31 @@ faire des comparaisons entre des dates ou des heures. Le format est également a
 Une classe permet également de générer automatiquement les formulaires utilisés, afin d'éviter au maximum les erreurs,
 et de simplifier la lecture des vues.
 
-// class Database William
+%TODO: class Database William
 
-        \cite{ref_framework_mvc}
 
-    \section{style graphique}
-Le fonctionnement du site est une chose importante, mais l'utilisateur n'est ne voit pas comment cela fonctionne. 
-Il ne voit que le site web à travers le style qu'on lui aura appliqué. Il est dons important de faire en sorte que le site
-soit plaisant aux yeux du l'utilisateur. Nous avons opté pour une dominante bleu, 
-rapellant les couleurs de Polytech, nuancée par une touche de blanc.
+
+    \section{Style graphique}
+Le fonctionnement du site est une chose importante, mais l'utilisateur ne voit que
+la partie émergente de l'iceberg, autrement dis, le design du site web. Il est donc
+important de faire en sorte que le site soit plaisant aux yeux à ses yeux. 
+
+Malheuresement, aucun de nous ne posséde une âme d'artiste, et nous avons donc eu
+recours à deux camarades de classe, bien plus expérimentés dans ce domaine: Kevin
+Langles et Kevin Yot.
+
+La photo ci-dessous correspond au résultat: une charte graphique avec une dominante 
+bleu, rapellant les couleurs de Polytech, nuancée par une touche de blanc.
+
   \begin{figure}[h]
         \begin{center}
         \includegraphics[scale=0.4]{images/screenSiteWeb.png} 
         \end{center}
-        \caption{Site web}
-        \label{Site web}
+        \caption{Design du site web}
+        \label{Design du site web}
      \end{figure} 
+
+
 
     \section{Règles d'utilisation}
 

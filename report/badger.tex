@@ -6,8 +6,8 @@ place un système de badge.
 Il nous fallait une solution alliant plusieurs critères comme un coût limité,un temps
 de développement réduit et de la fabilité.
 
-    \section{Historique}
 
+    \section{Historique}
 Dès le début du projet, Monsieur Berry nous a proposé plusieurs pistes à 
 explorer pour le badge en lui même. Il fallait que chaque participant aux
 conférences puisse être identifié de manière unique:
@@ -29,8 +29,8 @@ la technologie RFID. Or Polytech possède une base de données faisant le lien e
 ce numéro et les élèves.
 \end{itemize}
 
-    \section{RFID et Mifare}
 
+    \section{RFID et Mifare}
 RFID, de l'anglais ``radio frequency identification'' est une techonlogie 
 mise au point pour permettre de lire à distance des données contenues dans des
 marqueurs, les étiquettes RFID.
@@ -59,8 +59,8 @@ dans le monde avec 3,5 milliards de cartes et 40 millions de modules de lecture/
 
 Ces deux technologies respectent les normes ISO.
 
-\section{MFR120U}
 
+    \section{MFR120U}
 Rapidement après le début du projet, Mr Berry nous à mis en contact avec Mr
 Cathebras, directeur du département ERII à Polytech'. En effet, il souhaitait lui
 aussi mettre en place un système de présence informatisé, pour éviter de devoir
@@ -128,8 +128,8 @@ et enfin les envoyer sur une base de données distante.
 La version fonctionnelle pour le MFR120U (sans l'envoi en base de données)
 est disponible dans le repository git sous le tag v0.9-mfr120u.
 
-        \section{Caractère multi-plateformes}
 
+    \section{Caractère multi-plateformes}
 Afin de répondre à la demande multi-plateforme des professeurs, nous nous 
 sommes naturellement tourné vers le language C++. En effet, celui-ci offre un accès
 proche de la machine, intéréssant pour la communication série notamment. De plus,
@@ -170,8 +170,8 @@ Afin de permettre une compilation aisée sur toutes ces plateformes, nous avons
 optés pour l'utilisation de CMake afin de générer l'ensemble de l'environnement de
 façon automatique.
 
-    \section{Prototype}
 
+    \section{Prototype}
 Début décembre, nous avons pu rencontrer Mr Tamby, en charge de développer le
 prototype du nouveau lecteur. Durant notre première réunion, il nous a donné
 bon nombre de renseignements et conseils. De notre côté, nous lui avons fourni
@@ -235,8 +235,8 @@ inter_suite:
 // ...
     \end{lstlisting}
 
-    \section{Protocole de communication}
 
+    \section{Protocole de communication}
 Le protocole de communication utilisé n'est pas difficile. Il est orienté 
 texte, puisqu'il repose sur le jeu de caractères ASCII, soit 8 bits pour chacun des
 caractères, ce qui correspond sur les processeurs Intel en C++ au type char. 
@@ -268,8 +268,16 @@ en annexe du rapport.
 Attention, elles diffèrent quelque peu de celles du MFR120U, présentes sur 
 la documentation officielle.
 
-    \section{Architecture}
 
+    \section{Architecture matérielle}
+Ci-dessous se trouve un schéma représentant le prototype du lecteur de carte.
+Nous n'entrerons pas dans les détails puisque cela requiert certaines notions 
+d'électroniques.
+
+%TODO : Mettre un schéma ici
+
+
+    \section{Architecture logicielle}
 Le programme ``badger'' est décomposé en plusieurs dossier. 
 
 Dans le dossier serial/ on trouve toute la bibliothèque concernant la communication
@@ -286,8 +294,8 @@ ci-dessus. Il contient de plus une classe permettant d'envoyer des requêtes SQL
 à une base de données MySQL distante. Le programme fonctionne sous la forme d'un 
 interpréteur de commandes.
 
-    \section{Utilisation}
 
+    \section{Utilisation}
 Ci-dessous, voici l'exemple d'utilisation sous Linux, une fois placé dans le
 répertoire du binaire du programme badger:
 
@@ -311,8 +319,8 @@ quitte le programme.
 
 L'ensemble des commandes pour l'interpréteur est aussi disponible en annexe.
 
-    \section{Recommandations et limites}
 
+    \section{Recommandations et limites}
 Actuellement, le plus gros manque dans ce programme (sans considérer une IHM) est
 le manque de détection automatique du lecteur: en paramètre de la commande ``open''
 l'utilisateur doit spécifier le descripteur de fichier, qui change d'une plateforme

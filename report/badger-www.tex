@@ -246,14 +246,10 @@ Il est également possible de verrouiller les inscriptions aux conférences, dan
 auraient a être faites.
 
             \subsubsection{Remise à zéro}
-
 La remise a zéro permet elle de vider les tables de la base de données. La suppression est DEFINITIVE, il n'y a pas de
 backup possible une fois vidée. Le bouton demande une confirmation avant de réaliser cette action.
 
     \section{Modélisation}
-
-// Modélisation à ajouter
-
 Peu de temps après le début du projet, il nous a été demandé de fournir une modélisatiton du site web. De cette manière
 nous pouvons affirmer ou infirmer notre compréhensions vis à vis du travail à réaliser et des fonctionnalitées recherchées.
 Ainsi nous pouvions répondre du mieux possible aux attentes et fournir un site web corrrespondant à ce qui est recherché.
@@ -264,30 +260,9 @@ Nous ne présenterons ici, seulement les diagrammes principaux. Les autres seron
 Afin de ne pas surcharger nos diagrammes, nous posons la convention suivante: Certain cas d'utilisation peuvent présenter 
 dans leur description l'expression suivante: "(c++). Cette dernière signifie que le cas d'utilisation en question est detaillé sur une autre feuille, 
 reprennant le cas d'utilisation en question.
-\begin{itemize}
-\item La premiere chose à laquelle a accès l'administrateur correspond au menu principal:
- \begin{figure}[h]
-        \begin{center}
-            \includegraphics[scale=0.45]{images/uml/Admin - menu1.jpg} 
-        \end{center}
-        \caption{Admin - menu}
-        \label{Admin - menu}
-    \end{figure}
-\newpage
 
-\item Il pourra par exemple s'occuper de la gestion des salles:
- \begin{figure}[h]
-  \begin{center}
-            \includegraphics[scale=0.50]{images/uml/Admin - salles.png} 
-        \end{center}
-        \caption{Admin - salles }
-        \label{Admin - salles}
-    \end{figure}
-\end{itemize}
-\newpage
  
     \section{Framework}
-
 Pour la réalisation du site web, nous avions pensé organiser notre code en utilisant de simple scripts.
 Ces pages utilisent l'architecture MVC (Modèle Vue contrôleur) afin de bien séparer chaque partie.
 
@@ -302,7 +277,6 @@ un module (i.e un contrôleur), alors elle est executée, et la page associée e
 Si la route n'existe pas, on est redirigé vers l'erreur 404 que nous avons défini.
 
         \subsection{L'architecture MVC}
-
 Avant de décrire le framework que nous avons mis en place, une explication sur le patron de conception Modèle Vue contrôleur
 est nécessaire. Il s'agit donc d'une architecture basée sur trois entités distinctes:
 

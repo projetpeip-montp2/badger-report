@@ -3,9 +3,10 @@
 \begin{frame}{Semaine du Numérique}
     \begin{block}{Semaine du Numérique}
     Formation liée à l'informatique pour Polytech' Montpellier
+
     Demande de la CTI
 
-    Connaissances en informatique:
+    Connaissances en informatique attendues:
     \begin{itemize}
     \item Systèmes d’information : ERP
     \item Maîtrise d’ouvrage
@@ -22,8 +23,9 @@
     Etapes de la Semaine du Numérique:
     \begin{block}{Timeline}
     \begin{itemize}
-    \item Mise en place des informations
+    \item Mise en place des informations sur le site (Admin)
     \item Inscription des étudiants
+    \item Gestion des conflits (Admin)
     \item Semaine du Numérique
     \item Séances de QCM
     \item Remise de rapports
@@ -67,7 +69,7 @@
     \item Planning
     \item Téléchargement des documents associés
     \item Visionneuse de documents en ligne
-    \item Passe de QCM
+    \item Passage de QCM
     \item Remise de rapports
     \end{itemize}
     \end{block}
@@ -85,6 +87,7 @@
             \end{itemize}
     \item Mise en ligne de documents (téléchargement direct et visionneuse)
     \item Inscription de promotions pour les QCM
+    \item Configuration
     \item Remise à zéro
     \end{itemize}
     \end{block}
@@ -104,7 +107,7 @@
 
 \begin{frame}{Framework}
     \begin{block}{Définition}
-    Ensemble d'outils et de composants logiciels organisés conformément à un plan d'architecture et des patterns, formant un squelette de programme.
+    "Ensemble d'outils et de composants logiciels organisés conformément à un plan d'architecture et des patterns, formant un squelette de programme."
     \end{block}
 
     \begin{block}{Avantages}
@@ -118,15 +121,15 @@
 \end{frame}
 
 \begin{frame}{Framework - Aspect technique}
-    La plupart de ces classes sont abstraites et sont faites pour implémenter soi même les actions voulues.
+    La plupart de ces classes sont abstraites et sont faites pour implémenter soi-même les actions voulues.
     \begin{block}{Classes hiérarchisées}
     \begin{itemize}
     \item Application: Pont entre les différentes instances de Componant
     \item Componant: Composant de l'Application (disposant d'une référence vers l'Application)
-    \item Page (dérive de Componant): Encapsulation du template et le corps de page
     \item Router (dérive de Componant): Chargement de la page depuis l'url
+    \item Manager (dérive de Componant): Lecture / Ecriture sur la base de données
+    \item Page (dérive de Componant): Encapsulation du template et le corps de page
     \item BackController (dérive de Componant): Encapsulation du modèle et de la vue
-    \item Manager: Lecture / Ecriture sur la base de données
     \end{itemize}
     \end{block}
 \end{frame}

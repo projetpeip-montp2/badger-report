@@ -8,3 +8,27 @@
 - LOGO!!
 
 - Finir le protocole
+
+
+
+
+- Lors d'un déploiement, changer valeur db dans Managers.class.php et replication.php
+- Changer l'algo QCM
+- Table SQL
+- Diagramme SQL
+- Logins spécifics
+- Variables de configs à détailler
+- Quels fichier à changer pour les traductions
+- Détailler l'onglet information
+- Parler de l'édition AJAX + ajout csv
+- Statistiques (Taken uniquement)
+- Mail (Taken uniquement)
+- Export CSV (architexture des archives à downloader)
+- Récupération des données => explication
+- Archive (pourquoi donner un nom)
+- Comment ajouter manuellement une registration à un élève
+- Réplication
+- Configuration admin
+- RAZ
+- FONCTIONNE PAS POUR LES PEIP ET AUTRES DPTS
+

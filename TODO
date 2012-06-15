@@ -1,34 +1,36 @@
-- Expliquer la hiérarchie Packages - Conférences (Où ?)
-- Expliquer le système de notation du QCM. (Section cahier des charges)
-- Règles d'utilisations ==> sous sections checklist et recommandations
-- Changer le nom "Site web"
-- Annexe avant la conclusion
+    TODO
 
-- Ajouter photos (screenshots, mfr120u, module, série, etc)
-- LOGO!!
+- Déploiement
+    - Lors d'un déploiement, changer valeur db dans Managers.class.php et replication.php
+    - Logins, comptes, etc
+    - Juridique: Informations utilisateur (CNIL)
 
-- Finir le protocole
+- Badger
+    - Finir le protocole
 
+- Annexe
+    - Table SQL
+    - Diagramme SQL
 
+- Site Web
+    - Général
+        - Quels fichier à changer pour les traductions
+        - FONCTIONNE PAS POUR LES PEIP ET AUTRES DPTS
 
+    - Frontend
+        - Explications algo QCM
 
-- Lors d'un déploiement, changer valeur db dans Managers.class.php et replication.php
-- Changer l'algo QCM
-- Table SQL
-- Diagramme SQL
-- Logins spécifics
-- Variables de configs à détailler
-- Quels fichier à changer pour les traductions
-- Détailler l'onglet information
-- Parler de l'édition AJAX + ajout csv
-- Statistiques (Taken uniquement)
-- Mail (Taken uniquement)
-- Export CSV (architexture des archives à downloader)
-- Récupération des données => explication
-- Archive (pourquoi donner un nom)
-- Comment ajouter manuellement une registration à un élève
-- Réplication
-- Configuration admin
-- RAZ
-- FONCTIONNE PAS POUR LES PEIP ET AUTRES DPTS
-
+    - Backend
+        - Logins spécifiques
+        - Variables de config à détailler
+        - Détailler l'onglet information
+        - Parler de l'édition AJAX + ajout csv
+        - Statistiques (Taken uniquement)
+        - Mail (Taken uniquement)
+        - Export CSV (architexture des archives à downloader)
+        - Récupération des données => explication
+        - Archive (pourquoi donner un nom)
+        - Comment ajouter manuellement une registration à un élève
+        - Réplication
+        - Configuration admin
+        - RAZ
